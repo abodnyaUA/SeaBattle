@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SBViewController : UIViewController
+#import "SBGameFieldView.h"
+
+@interface SBGameController : UIViewController <SBGameFieldViewDataSource>
 
 @end

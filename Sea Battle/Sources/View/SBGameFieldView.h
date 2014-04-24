@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class SBGameFieldCell;
+@protocol SBGameFieldViewDataSource;
+
 @interface SBGameFieldView : UIView
+
+@property (nonatomic, weak) IBOutlet id<SBGameFieldViewDataSource> dataSource;
+
+@end
+
+@protocol SBGameFieldViewDataSource <NSObject>
+
+@required
+
+- (SBGameFieldCell *)gameFieldView:(SBGameFieldView *)gameFieldView cellForIndexPath:(NSIndexPath *)indexPath;
 
 @end

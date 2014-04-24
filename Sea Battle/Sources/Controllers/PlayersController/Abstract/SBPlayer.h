@@ -11,3 +11,8 @@
 @protocol SBPlayer <NSObject>
 
 @end
+
+@protocol SBPlayerDelegate <NSObject>
+
+
+@end

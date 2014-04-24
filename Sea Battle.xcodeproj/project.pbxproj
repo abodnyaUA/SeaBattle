@@ -10,17 +10,19 @@
 		0553F880190900E8007C0DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F87F190900E8007C0DB7 /* Foundation.framework */; };
 		0553F882190900E8007C0DB7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F881190900E8007C0DB7 /* CoreGraphics.framework */; };
 		0553F884190900E8007C0DB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F883190900E8007C0DB7 /* UIKit.framework */; };
-		0553F88A190900E8007C0DB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0553F888190900E8007C0DB7 /* InfoPlist.strings */; };
 		0553F88C190900E8007C0DB7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F88B190900E8007C0DB7 /* main.m */; };
 		0553F890190900E8007C0DB7 /* SBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F88F190900E8007C0DB7 /* SBAppDelegate.m */; };
-		0553F893190900E8007C0DB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0553F891190900E8007C0DB7 /* Main.storyboard */; };
-		0553F896190900E8007C0DB7 /* SBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F895190900E8007C0DB7 /* SBViewController.m */; };
+		0553F896190900E8007C0DB7 /* SBGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F895190900E8007C0DB7 /* SBGameController.m */; };
 		0553F898190900E8007C0DB7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0553F897190900E8007C0DB7 /* Images.xcassets */; };
 		0553F89F190900E8007C0DB7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F89E190900E8007C0DB7 /* XCTest.framework */; };
 		0553F8A0190900E8007C0DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F87F190900E8007C0DB7 /* Foundation.framework */; };
 		0553F8A1190900E8007C0DB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F883190900E8007C0DB7 /* UIKit.framework */; };
 		0553F8A9190900E8007C0DB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0553F8A7190900E8007C0DB7 /* InfoPlist.strings */; };
 		0553F8AB190900E8007C0DB7 /* Sea_BattleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F8AA190900E8007C0DB7 /* Sea_BattleTests.m */; };
+		0553F8BD19090306007C0DB7 /* Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0553F8BC19090306007C0DB7 /* Storyboard_iPhone.storyboard */; };
+		0553F8C2190904F3007C0DB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0553F8C0190904F3007C0DB7 /* InfoPlist.strings */; };
+		0553F8CB19090894007C0DB7 /* SBGameFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F8CA19090894007C0DB7 /* SBGameFieldView.m */; };
+		0553F8CE190908D8007C0DB7 /* SBGameFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F8CD190908D8007C0DB7 /* SBGameFieldCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,20 +41,25 @@
 		0553F881190900E8007C0DB7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0553F883190900E8007C0DB7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0553F887190900E8007C0DB7 /* Sea Battle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sea Battle-Info.plist"; sourceTree = "<group>"; };
-		0553F889190900E8007C0DB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0553F88B190900E8007C0DB7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0553F88D190900E8007C0DB7 /* Sea Battle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sea Battle-Prefix.pch"; sourceTree = "<group>"; };
 		0553F88E190900E8007C0DB7 /* SBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBAppDelegate.h; sourceTree = "<group>"; };
 		0553F88F190900E8007C0DB7 /* SBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBAppDelegate.m; sourceTree = "<group>"; };
-		0553F892190900E8007C0DB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0553F894190900E8007C0DB7 /* SBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBViewController.h; sourceTree = "<group>"; };
-		0553F895190900E8007C0DB7 /* SBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBViewController.m; sourceTree = "<group>"; };
+		0553F894190900E8007C0DB7 /* SBGameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBGameController.h; sourceTree = "<group>"; };
+		0553F895190900E8007C0DB7 /* SBGameController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBGameController.m; sourceTree = "<group>"; };
 		0553F897190900E8007C0DB7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0553F89D190900E8007C0DB7 /* Sea BattleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sea BattleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0553F89E190900E8007C0DB7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0553F8A6190900E8007C0DB7 /* Sea BattleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sea BattleTests-Info.plist"; sourceTree = "<group>"; };
 		0553F8A8190900E8007C0DB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0553F8AA190900E8007C0DB7 /* Sea_BattleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sea_BattleTests.m; sourceTree = "<group>"; };
+		0553F8BC19090306007C0DB7 /* Storyboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
+		0553F8C1190904F3007C0DB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0553F8C6190906EF007C0DB7 /* SBPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SBPlayer.h; path = PlayersController/Abstract/SBPlayer.h; sourceTree = "<group>"; };
+		0553F8C919090894007C0DB7 /* SBGameFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBGameFieldView.h; path = View/SBGameFieldView.h; sourceTree = "<group>"; };
+		0553F8CA19090894007C0DB7 /* SBGameFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBGameFieldView.m; path = View/SBGameFieldView.m; sourceTree = "<group>"; };
+		0553F8CC190908D8007C0DB7 /* SBGameFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGameFieldCell.h; sourceTree = "<group>"; };
+		0553F8CD190908D8007C0DB7 /* SBGameFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBGameFieldCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +89,8 @@
 		0553F873190900E8007C0DB7 = {
 			isa = PBXGroup;
 			children = (
-				0553F885190900E8007C0DB7 /* Sea Battle */,
+				0553F8B41909012C007C0DB7 /* Resources */,
+				0553F885190900E8007C0DB7 /* Sources */,
 				0553F8A4190900E8007C0DB7 /* Sea BattleTests */,
 				0553F87E190900E8007C0DB7 /* Frameworks */,
 				0553F87D190900E8007C0DB7 /* Products */,
@@ -109,29 +117,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		0553F885190900E8007C0DB7 /* Sea Battle */ = {
+		0553F885190900E8007C0DB7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0553F88E190900E8007C0DB7 /* SBAppDelegate.h */,
-				0553F88F190900E8007C0DB7 /* SBAppDelegate.m */,
-				0553F891190900E8007C0DB7 /* Main.storyboard */,
-				0553F894190900E8007C0DB7 /* SBViewController.h */,
-				0553F895190900E8007C0DB7 /* SBViewController.m */,
-				0553F897190900E8007C0DB7 /* Images.xcassets */,
-				0553F886190900E8007C0DB7 /* Supporting Files */,
+				0553F8C71909085A007C0DB7 /* View */,
+				0553F8BF1909047F007C0DB7 /* Prefix */,
+				0553F8B719090148007C0DB7 /* Model */,
+				0553F8B61909013B007C0DB7 /* ViewControllers */,
+				0553F8B519090133007C0DB7 /* Controllers */,
 			);
-			path = "Sea Battle";
-			sourceTree = "<group>";
-		};
-		0553F886190900E8007C0DB7 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0553F887190900E8007C0DB7 /* Sea Battle-Info.plist */,
-				0553F888190900E8007C0DB7 /* InfoPlist.strings */,
-				0553F88B190900E8007C0DB7 /* main.m */,
-				0553F88D190900E8007C0DB7 /* Sea Battle-Prefix.pch */,
-			);
-			name = "Supporting Files";
+			name = Sources;
+			path = "Sea Battle/Sources";
 			sourceTree = "<group>";
 		};
 		0553F8A4190900E8007C0DB7 /* Sea BattleTests */ = {
@@ -150,6 +146,136 @@
 				0553F8A7190900E8007C0DB7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0553F8B41909012C007C0DB7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0553F8BE1909043F007C0DB7 /* Strings */,
+				0553F8BB1909027E007C0DB7 /* Plists */,
+				0553F8BA19090278007C0DB7 /* Images */,
+				0553F8B919090272007C0DB7 /* XIB */,
+			);
+			name = Resources;
+			path = "Sea Battle/Resources";
+			sourceTree = "<group>";
+		};
+		0553F8B519090133007C0DB7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0553F8C319090656007C0DB7 /* PlayerController */,
+				0553F88E190900E8007C0DB7 /* SBAppDelegate.h */,
+				0553F88F190900E8007C0DB7 /* SBAppDelegate.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0553F8B61909013B007C0DB7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0553F894190900E8007C0DB7 /* SBGameController.h */,
+				0553F895190900E8007C0DB7 /* SBGameController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0553F8B719090148007C0DB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0553F8B81909018C007C0DB7 /* CoreData */,
+				0553F8CC190908D8007C0DB7 /* SBGameFieldCell.h */,
+				0553F8CD190908D8007C0DB7 /* SBGameFieldCell.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0553F8B81909018C007C0DB7 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0553F8B919090272007C0DB7 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				0553F8BC19090306007C0DB7 /* Storyboard_iPhone.storyboard */,
+			);
+			path = XIB;
+			sourceTree = "<group>";
+		};
+		0553F8BA19090278007C0DB7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0553F897190900E8007C0DB7 /* Images.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0553F8BB1909027E007C0DB7 /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				0553F887190900E8007C0DB7 /* Sea Battle-Info.plist */,
+			);
+			path = Plists;
+			sourceTree = "<group>";
+		};
+		0553F8BE1909043F007C0DB7 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				0553F8C0190904F3007C0DB7 /* InfoPlist.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		0553F8BF1909047F007C0DB7 /* Prefix */ = {
+			isa = PBXGroup;
+			children = (
+				0553F88B190900E8007C0DB7 /* main.m */,
+				0553F88D190900E8007C0DB7 /* Sea Battle-Prefix.pch */,
+			);
+			path = Prefix;
+			sourceTree = "<group>";
+		};
+		0553F8C319090656007C0DB7 /* PlayerController */ = {
+			isa = PBXGroup;
+			children = (
+				0553F8C519090668007C0DB7 /* AI */,
+				0553F8C419090660007C0DB7 /* Abstract */,
+			);
+			name = PlayerController;
+			sourceTree = "<group>";
+		};
+		0553F8C419090660007C0DB7 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				0553F8C6190906EF007C0DB7 /* SBPlayer.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		0553F8C519090668007C0DB7 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AI;
+			sourceTree = "<group>";
+		};
+		0553F8C71909085A007C0DB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0553F8C819090864007C0DB7 /* GameProcess */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0553F8C819090864007C0DB7 /* GameProcess */ = {
+			isa = PBXGroup;
+			children = (
+				0553F8C919090894007C0DB7 /* SBGameFieldView.h */,
+				0553F8CA19090894007C0DB7 /* SBGameFieldView.m */,
+			);
+			name = GameProcess;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,8 +356,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0553F898190900E8007C0DB7 /* Images.xcassets in Resources */,
-				0553F88A190900E8007C0DB7 /* InfoPlist.strings in Resources */,
-				0553F893190900E8007C0DB7 /* Main.storyboard in Resources */,
+				0553F8C2190904F3007C0DB7 /* InfoPlist.strings in Resources */,
+				0553F8BD19090306007C0DB7 /* Storyboard_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +377,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0553F88C190900E8007C0DB7 /* main.m in Sources */,
-				0553F896190900E8007C0DB7 /* SBViewController.m in Sources */,
+				0553F896190900E8007C0DB7 /* SBGameController.m in Sources */,
+				0553F8CE190908D8007C0DB7 /* SBGameFieldCell.m in Sources */,
+				0553F8CB19090894007C0DB7 /* SBGameFieldView.m in Sources */,
 				0553F890190900E8007C0DB7 /* SBAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,26 +403,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0553F888190900E8007C0DB7 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0553F889190900E8007C0DB7 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		0553F891190900E8007C0DB7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0553F892190900E8007C0DB7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0553F8A7190900E8007C0DB7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0553F8A8190900E8007C0DB7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0553F8C0190904F3007C0DB7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0553F8C1190904F3007C0DB7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -378,8 +498,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Sea Battle/Sea Battle-Prefix.pch";
-				INFOPLIST_FILE = "Sea Battle/Sea Battle-Info.plist";
+				GCC_PREFIX_HEADER = "Sea Battle/Sources/Prefix/Sea Battle-Prefix.pch";
+				INFOPLIST_FILE = "Sea Battle/Resources/Plists/Sea Battle-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -391,8 +511,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Sea Battle/Sea Battle-Prefix.pch";
-				INFOPLIST_FILE = "Sea Battle/Sea Battle-Info.plist";
+				GCC_PREFIX_HEADER = "Sea Battle/Sources/Prefix/Sea Battle-Prefix.pch";
+				INFOPLIST_FILE = "Sea Battle/Resources/Plists/Sea Battle-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
