@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Master" id="1" x="10" y="10" measuredWidth="375" measuredHeight="795">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/iPhone.screen#iPhone"/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="2" x="39" y="147" measuredWidth="320" measuredHeight="44">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Tables.screen#Table%20Row%20Subtitle"/>
+    <overrides>
+      <widgets ref="39" text="Alexey Bodnya"/>
+      <widgets ref="41" text="LAN Game"/>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="3" x="39" y="375" measuredWidth="320" measuredHeight="320">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Forms.screen#Fieldset"/>
+    <overrides>
+      <widgets ref="1" height="320"/>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="4" x="299" y="154" measuredWidth="50" measuredHeight="30">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Controls.screen#Button"/>
+    <overrides>
+      <widgets ref="33" text="Leave">
+        <attributes key="textAlignment" value="Right"/>
+      </widgets>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="5" x="39" y="216" measuredWidth="160" measuredHeight="160">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Forms.screen#Fieldset"/>
+    <overrides>
+      <widgets ref="1" width="160" height="160"/>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="6" x="198" y="216" measuredWidth="160" measuredHeight="160">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Forms.screen#Fieldset"/>
+    <overrides>
+      <widgets ref="1" width="160" height="160"/>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="7" x="89" y="190" measuredWidth="54" measuredHeight="25">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Controls.screen#Label"/>
+    <overrides>
+      <widgets ref="64" text="My area"/>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="8" x="231" y="190" measuredWidth="91" measuredHeight="25">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Controls.screen#Label"/>
+    <overrides>
+      <widgets ref="64" text="Andrew's area">
+        <attributes key="textAlignment" value="Right"/>
+      </widgets>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="9" x="80" y="312" measuredWidth="250" measuredHeight="146">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Views.screen#Alert"/>
+    <overrides>
+      <widgets ref="89" text="Leave Game"/>
+      <widgets ref="90" text="Do you really want leave game?"/>
+      <widgets ref="88" text="Leave, *Cancel*">
+        <items ref="@items.0" text="Leave" link="MainScreen.screen"/>
+        <items ref="@items.1" link="GameProcess.screen"/>
+      </widgets>
+    </overrides>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

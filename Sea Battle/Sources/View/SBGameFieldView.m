@@ -8,11 +8,11 @@
 
 #import "SBGameFieldView.h"
 
-#include "SBGameFieldCell.h"
+#import "SBGameFieldCell.h"
+#import "SBGameController.h"
+#import "SBGameFieldCellView.h"
 
 @interface SBGameFieldView ()
-
-//@property (nonatomic, strong) NSArray *cells;
 
 @end
 
@@ -40,28 +40,42 @@
 
 - (void)initialize
 {
-    
-}
-
-- (CGFloat)cellSize
-{
-    return MIN((self.bounds.size.height / 10.0),(self.bounds.size.width / 10.0));
+    [[SBGameController sharedController] setCellSize:MIN((self.bounds.size.height / 10.0),(self.bounds.size.width / 10.0))];
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnField:)];
+    [self addGestureRecognizer:tapRecognizer];
 }
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    for (int i=0; i<10; i++)
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    for (NSUInteger i=0; i<10; i++)
     {
-        for (int j=0;j<10;j++)
+        for (NSUInteger j=0; j<10; j++)
         {
-            SBGameFieldCell *cell = [self.dataSource gameFieldView:self cellForIndexPath:[NSIndexPath indexPathForRow:j inSection:i]];
-            CGFloat cellSize = self.cellSize;
-            UIView *cellView = [[UIView alloc] initWithFrame:CGRectMake(cellSize * j + cellSize/12, cellSize * i + cellSize/12, cellSize - cellSize/6, cellSize - cellSize/6)];
-            cellView.backgroundColor = cell.color;
-            [self addSubview:cellView];
+            SBCellCoordinate coordinate = SBCellCoordinateMake(j,i);
+            SBGameFieldCell *cell = [self.dataSource gameFieldView:self cellForPosition:coordinate];
+            
+            CGFloat cellSize = [[SBGameController sharedController] cellSize];
+            CGRect cellRect = CGRectMake(cellSize * j + cellSize/12, cellSize * i + cellSize/12, cellSize - cellSize/6, cellSize - cellSize/6);
+            
+            CGContextSetFillColorWithColor(context, cell.color.CGColor);
+            CGContextFillRect(context, cellRect);
         }
+    }
+}
+
+- (void)didTapOnField:(UITapGestureRecognizer *)recognizer
+{
+    if ([self.delegate respondsToSelector:@selector(gameFieldView:didTapOnCellWithPosition:)])
+    {
+        CGPoint locationInView = [recognizer locationInView:self];
+        CGFloat cellSize = [[SBGameController sharedController] cellSize];
+        
+        SBCellCoordinate coordinate = SBCellCoordinateMake((NSUInteger)(locationInView.x / cellSize), (NSUInteger)(locationInView.y / cellSize));
+        
+        [self.delegate gameFieldView:self didTapOnCellWithPosition:coordinate];
     }
 }
 

@@ -8,21 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, SGGameFieldCellState)
+typedef NS_ENUM(NSUInteger, SBGameFieldCellState)
 {
-    SGGameFieldCellStateFree = 0,
-    SGGameFieldCellStateUnavailable,
-    SGGameFieldCellStateUnderAtack,
-    SGGameFieldCellStateDefended,
-    SGGameFieldCellStateWithShip
+    SBGameFieldCellStateFree = 0,
+    SBGameFieldCellStateUnavailable,
+    SBGameFieldCellStateUnderAtack,
+    SBGameFieldCellStateDefended,
+    SBGameFieldCellStateWithShip
 };
 
 @interface SBGameFieldCell : NSObject
 
-@property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, assign) SGGameFieldCellState state;
+@property (nonatomic, assign) SBGameFieldCellState state;
 
-+ (instancetype)cellForRowWithIndexPath:(NSIndexPath *)indexPath;
++ (instancetype)cellWithState:(SBGameFieldCellState)state;
 - (UIColor *)color;
 
 @end

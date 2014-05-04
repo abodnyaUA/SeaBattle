@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051A4C6E190AC12A00826C4A /* SBChooseShipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 051A4C6D190AC12A00826C4A /* SBChooseShipsView.m */; };
+		051A4C71190AC19C00826C4A /* SBShipElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 051A4C70190AC19C00826C4A /* SBShipElement.m */; };
+		051A4C74190AC5F800826C4A /* SBShipElementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 051A4C73190AC5F800826C4A /* SBShipElementView.m */; };
+		051A4C78190AD02E00826C4A /* SBCellCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 051A4C77190AD02E00826C4A /* SBCellCoordinate.m */; };
 		0553F880190900E8007C0DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F87F190900E8007C0DB7 /* Foundation.framework */; };
 		0553F882190900E8007C0DB7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F881190900E8007C0DB7 /* CoreGraphics.framework */; };
 		0553F884190900E8007C0DB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F883190900E8007C0DB7 /* UIKit.framework */; };
 		0553F88C190900E8007C0DB7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F88B190900E8007C0DB7 /* main.m */; };
 		0553F890190900E8007C0DB7 /* SBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F88F190900E8007C0DB7 /* SBAppDelegate.m */; };
-		0553F896190900E8007C0DB7 /* SBGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F895190900E8007C0DB7 /* SBGameController.m */; };
+		0553F896190900E8007C0DB7 /* SBGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F895190900E8007C0DB7 /* SBGameViewController.m */; };
 		0553F898190900E8007C0DB7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0553F897190900E8007C0DB7 /* Images.xcassets */; };
 		0553F89F190900E8007C0DB7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F89E190900E8007C0DB7 /* XCTest.framework */; };
 		0553F8A0190900E8007C0DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F87F190900E8007C0DB7 /* Foundation.framework */; };
@@ -23,6 +27,9 @@
 		0553F8C2190904F3007C0DB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0553F8C0190904F3007C0DB7 /* InfoPlist.strings */; };
 		0553F8CB19090894007C0DB7 /* SBGameFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F8CA19090894007C0DB7 /* SBGameFieldView.m */; };
 		0553F8CE190908D8007C0DB7 /* SBGameFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F8CD190908D8007C0DB7 /* SBGameFieldCell.m */; };
+		057D93B01912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057D93AF1912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.m */; };
+		0591FDC3190E6B2F0039DE5E /* SBShipPositionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591FDC2190E6B2F0039DE5E /* SBShipPositionController.m */; };
+		0591FDC6190F75500039DE5E /* SBGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591FDC5190F75500039DE5E /* SBGameController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		051A4C6C190AC12A00826C4A /* SBChooseShipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBChooseShipsView.h; path = View/SBChooseShipsView.h; sourceTree = "<group>"; };
+		051A4C6D190AC12A00826C4A /* SBChooseShipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBChooseShipsView.m; path = View/SBChooseShipsView.m; sourceTree = "<group>"; };
+		051A4C6F190AC19C00826C4A /* SBShipElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBShipElement.h; sourceTree = "<group>"; };
+		051A4C70190AC19C00826C4A /* SBShipElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBShipElement.m; sourceTree = "<group>"; };
+		051A4C72190AC5F800826C4A /* SBShipElementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBShipElementView.h; path = View/SBShipElementView.h; sourceTree = "<group>"; };
+		051A4C73190AC5F800826C4A /* SBShipElementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBShipElementView.m; path = View/SBShipElementView.m; sourceTree = "<group>"; };
+		051A4C76190AC93200826C4A /* SBCellCoordinate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBCellCoordinate.h; sourceTree = "<group>"; };
+		051A4C77190AD02E00826C4A /* SBCellCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCellCoordinate.m; sourceTree = "<group>"; };
 		0553F87C190900E8007C0DB7 /* Sea Battle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sea Battle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0553F87F190900E8007C0DB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0553F881190900E8007C0DB7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,8 +60,8 @@
 		0553F88D190900E8007C0DB7 /* Sea Battle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sea Battle-Prefix.pch"; sourceTree = "<group>"; };
 		0553F88E190900E8007C0DB7 /* SBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBAppDelegate.h; sourceTree = "<group>"; };
 		0553F88F190900E8007C0DB7 /* SBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBAppDelegate.m; sourceTree = "<group>"; };
-		0553F894190900E8007C0DB7 /* SBGameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBGameController.h; sourceTree = "<group>"; };
-		0553F895190900E8007C0DB7 /* SBGameController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBGameController.m; sourceTree = "<group>"; };
+		0553F894190900E8007C0DB7 /* SBGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBGameViewController.h; sourceTree = "<group>"; };
+		0553F895190900E8007C0DB7 /* SBGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBGameViewController.m; sourceTree = "<group>"; };
 		0553F897190900E8007C0DB7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0553F89D190900E8007C0DB7 /* Sea BattleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sea BattleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0553F89E190900E8007C0DB7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -60,6 +75,12 @@
 		0553F8CA19090894007C0DB7 /* SBGameFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBGameFieldView.m; path = View/SBGameFieldView.m; sourceTree = "<group>"; };
 		0553F8CC190908D8007C0DB7 /* SBGameFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGameFieldCell.h; sourceTree = "<group>"; };
 		0553F8CD190908D8007C0DB7 /* SBGameFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBGameFieldCell.m; sourceTree = "<group>"; };
+		057D93AE1912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SBGameFieldCell.h"; sourceTree = "<group>"; };
+		057D93AF1912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SBGameFieldCell.m"; sourceTree = "<group>"; };
+		0591FDC1190E6B2F0039DE5E /* SBShipPositionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBShipPositionController.h; sourceTree = "<group>"; };
+		0591FDC2190E6B2F0039DE5E /* SBShipPositionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBShipPositionController.m; sourceTree = "<group>"; };
+		0591FDC4190F75500039DE5E /* SBGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGameController.h; sourceTree = "<group>"; };
+		0591FDC5190F75500039DE5E /* SBGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBGameController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		051A4C6B190AC0FA00826C4A /* ChooseShips */ = {
+			isa = PBXGroup;
+			children = (
+				051A4C6C190AC12A00826C4A /* SBChooseShipsView.h */,
+				051A4C6D190AC12A00826C4A /* SBChooseShipsView.m */,
+			);
+			name = ChooseShips;
+			sourceTree = "<group>";
+		};
 		0553F873190900E8007C0DB7 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +196,10 @@
 				0553F8C319090656007C0DB7 /* PlayerController */,
 				0553F88E190900E8007C0DB7 /* SBAppDelegate.h */,
 				0553F88F190900E8007C0DB7 /* SBAppDelegate.m */,
+				0591FDC1190E6B2F0039DE5E /* SBShipPositionController.h */,
+				0591FDC2190E6B2F0039DE5E /* SBShipPositionController.m */,
+				0591FDC4190F75500039DE5E /* SBGameController.h */,
+				0591FDC5190F75500039DE5E /* SBGameController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,8 +207,8 @@
 		0553F8B61909013B007C0DB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0553F894190900E8007C0DB7 /* SBGameController.h */,
-				0553F895190900E8007C0DB7 /* SBGameController.m */,
+				0553F894190900E8007C0DB7 /* SBGameViewController.h */,
+				0553F895190900E8007C0DB7 /* SBGameViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -185,6 +219,12 @@
 				0553F8B81909018C007C0DB7 /* CoreData */,
 				0553F8CC190908D8007C0DB7 /* SBGameFieldCell.h */,
 				0553F8CD190908D8007C0DB7 /* SBGameFieldCell.m */,
+				051A4C6F190AC19C00826C4A /* SBShipElement.h */,
+				051A4C70190AC19C00826C4A /* SBShipElement.m */,
+				051A4C76190AC93200826C4A /* SBCellCoordinate.h */,
+				051A4C77190AD02E00826C4A /* SBCellCoordinate.m */,
+				057D93AE1912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.h */,
+				057D93AF1912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,7 +304,10 @@
 		0553F8C71909085A007C0DB7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				051A4C6B190AC0FA00826C4A /* ChooseShips */,
 				0553F8C819090864007C0DB7 /* GameProcess */,
+				051A4C72190AC5F800826C4A /* SBShipElementView.h */,
+				051A4C73190AC5F800826C4A /* SBShipElementView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -377,10 +420,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0553F88C190900E8007C0DB7 /* main.m in Sources */,
-				0553F896190900E8007C0DB7 /* SBGameController.m in Sources */,
+				051A4C6E190AC12A00826C4A /* SBChooseShipsView.m in Sources */,
+				057D93B01912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.m in Sources */,
+				051A4C74190AC5F800826C4A /* SBShipElementView.m in Sources */,
+				0553F896190900E8007C0DB7 /* SBGameViewController.m in Sources */,
+				051A4C78190AD02E00826C4A /* SBCellCoordinate.m in Sources */,
+				0591FDC6190F75500039DE5E /* SBGameController.m in Sources */,
 				0553F8CE190908D8007C0DB7 /* SBGameFieldCell.m in Sources */,
 				0553F8CB19090894007C0DB7 /* SBGameFieldView.m in Sources */,
+				051A4C71190AC19C00826C4A /* SBShipElement.m in Sources */,
 				0553F890190900E8007C0DB7 /* SBAppDelegate.m in Sources */,
+				0591FDC3190E6B2F0039DE5E /* SBShipPositionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +627,7 @@
 				0553F8B0190900E8007C0DB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0553F8B1190900E8007C0DB7 /* Build configuration list for PBXNativeTarget "Sea BattleTests" */ = {
 			isa = XCConfigurationList;
@@ -585,6 +636,7 @@
 				0553F8B3190900E8007C0DB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

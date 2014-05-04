@@ -10,24 +10,24 @@
 
 @implementation SBGameFieldCell
 
-+ (instancetype)cellForRowWithIndexPath:(NSIndexPath *)indexPath
++ (instancetype)cellWithState:(SBGameFieldCellState)state
 {
     SBGameFieldCell *cell = [SBGameFieldCell new];
-    cell.indexPath = indexPath;
-    cell.state = SGGameFieldCellStateFree;
+    cell.state = state;
     return cell;
 }
 
+//TODO: change for pictures
 - (UIColor *)color
 {
     UIColor *result = nil;
     switch (self.state)
     {
-        case SGGameFieldCellStateFree: result = [UIColor lightGrayColor]; break;
-        case SGGameFieldCellStateUnavailable: result = [UIColor darkGrayColor]; break;
-        case SGGameFieldCellStateDefended: result = [UIColor redColor]; break;
-        case SGGameFieldCellStateWithShip: result = [UIColor blueColor]; break;
-        case SGGameFieldCellStateUnderAtack: result = [UIColor yellowColor]; break;
+        case SBGameFieldCellStateFree: result = [UIColor lightGrayColor]; break;
+        case SBGameFieldCellStateUnavailable: result = [UIColor darkGrayColor]; break;
+        case SBGameFieldCellStateDefended: result = [UIColor redColor]; break;
+        case SBGameFieldCellStateWithShip: result = [UIColor blueColor]; break;
+        case SBGameFieldCellStateUnderAtack: result = [UIColor yellowColor]; break;
     }
     return result;
 }

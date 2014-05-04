@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SBCellCoordinate.h"
+
 @class SBGameFieldCell;
 @protocol SBGameFieldViewDataSource;
+@protocol SBGameFieldViewDelegate;
 
 @interface SBGameFieldView : UIView
 
 @property (nonatomic, weak) IBOutlet id<SBGameFieldViewDataSource> dataSource;
+@property (nonatomic, weak) IBOutlet id<SBGameFieldViewDelegate> delegate;
 
 @end
 
@@ -21,6 +25,14 @@
 
 @required
 
-- (SBGameFieldCell *)gameFieldView:(SBGameFieldView *)gameFieldView cellForIndexPath:(NSIndexPath *)indexPath;
+- (SBGameFieldCell *)gameFieldView:(SBGameFieldView *)gameFieldView cellForPosition:(SBCellCoordinate)position;
+
+@end
+
+@protocol SBGameFieldViewDelegate <NSObject>
+
+@optional
+
+- (void)gameFieldView:(SBGameFieldView *)gameFieldView didTapOnCellWithPosition:(SBCellCoordinate)position;
 
 @end

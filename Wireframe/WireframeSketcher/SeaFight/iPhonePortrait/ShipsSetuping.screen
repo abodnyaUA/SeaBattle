@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore" xmlns:o="http://wireframesketcher.com/1.0/model/overrides">
+  <widgets xsi:type="model:Master" id="1" x="232" y="56" measuredWidth="375" measuredHeight="795">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/iPhone.screen#iPhone"/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="5" x="261" y="236" measuredWidth="320" measuredHeight="44">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Tables.screen#Table%20Row%20Subtitle"/>
+    <overrides>
+      <widgets ref="39" text="Alexey Bodnya"/>
+      <widgets ref="41" text="LAN Game"/>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="6" x="261" y="421" measuredWidth="320" measuredHeight="320">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Forms.screen#Fieldset"/>
+    <overrides>
+      <widgets ref="1" height="320"/>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="7" x="261" y="279" height="143" measuredWidth="320" measuredHeight="143">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Forms.screen#Fieldset"/>
+    <overrides>
+      <widgets ref="1" height="143"/>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="9" x="261" y="192" measuredWidth="320" measuredHeight="45">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Bars.screen#Navigation%20Bar"/>
+    <overrides>
+      <widgetChanges xsi:type="o:Insert" newIndex="4">
+        <object xsi:type="model:Label" x="11" y="8" text="Leave" layoutParams="anchor-right|anchor-top" textAlignment="Right" foreground="#007aff" link="MultiPlayer.screen">
+          <font size="17px"/>
+        </object>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Delete" ref="9"/>
+      <widgets ref="10" x="259" text="Ready" link="GameProcess.screen"/>
+      <widgets ref="11" text="Setuping"/>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="18" x="321" y="336" measuredWidth="221" measuredHeight="30">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Forms.screen#Fieldset%20Header"/>
+    <overrides>
+      <widgets ref="5" text="Available ships for choosing"/>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="19" x="376" y="560" measuredWidth="86" measuredHeight="30">
+    <screen xsi:type="model:WidgetGroup" href="../assets/iOS7/Forms.screen#Fieldset%20Header"/>
+    <overrides>
+      <widgets ref="5" text="Ships area"/>
+    </overrides>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
