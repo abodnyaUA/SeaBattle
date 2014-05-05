@@ -23,19 +23,62 @@
     SBCellCoordinate coordinate = SBCellCoordinateOfShipElementView(shipElementView);
     if (shipElementView.ship.orientation == SBShipOrientationHorizontal)
     {
-        if (coordinate.y >= 10-shipElementView.ship.length)
+        shipElementView.ship.orientation = SBShipOrientationVertical;
+        if (coordinate.y >= 10 - shipElementView.ship.length)
         {
-            [self moveShipElementView:shipElementView toPosition:SBCellCoordinateMake(coordinate.x, 10 - shipElementView.ship.length)];
+            if ([self canMoveShipElementView:shipElementView toPosition:SBCellCoordinateMake(coordinate.x, 10 - shipElementView.ship.length)])
+            {
+                shipElementView.ship.orientation = SBShipOrientationHorizontal;
+                [self moveShipElementView:shipElementView toPosition:SBCellCoordinateMake(coordinate.x, 10 - shipElementView.ship.length)];
+                [shipElementView rotate];
+            }
+            else
+            {
+                shipElementView.ship.orientation = SBShipOrientationHorizontal;
+            }
+        }
+        else
+        {
+            if ([self canMoveShipElementView:shipElementView toPosition:coordinate])
+            {
+                shipElementView.ship.orientation = SBShipOrientationHorizontal;
+                [shipElementView rotate];
+            }
+            else
+            {
+                shipElementView.ship.orientation = SBShipOrientationHorizontal;
+            }
         }
     }
     else
     {
-        if (coordinate.x >= 10-shipElementView.ship.length)
+        shipElementView.ship.orientation = SBShipOrientationHorizontal;
+        if (coordinate.x >= 10 - shipElementView.ship.length)
         {
-            [self moveShipElementView:shipElementView toPosition:SBCellCoordinateMake(10 - shipElementView.ship.length, coordinate.y)];
+            if ([self canMoveShipElementView:shipElementView toPosition:SBCellCoordinateMake(10 - shipElementView.ship.length, coordinate.y)])
+            {
+                shipElementView.ship.orientation = SBShipOrientationVertical;
+                [self moveShipElementView:shipElementView toPosition:SBCellCoordinateMake(10 - shipElementView.ship.length, coordinate.y)];
+                [shipElementView rotate];
+            }
+            else
+            {
+                shipElementView.ship.orientation = SBShipOrientationVertical;
+            }
+        }
+        else
+        {
+            if ([self canMoveShipElementView:shipElementView toPosition:coordinate])
+            {
+                shipElementView.ship.orientation = SBShipOrientationVertical;
+                [shipElementView rotate];
+            }
+            else
+            {
+                shipElementView.ship.orientation = SBShipOrientationVertical;
+            }
         }
     }
-    [shipElementView rotate];
 }
 
 - (void)moveShipElementView:(SBShipElementView *)shipElementView toPosition:(SBCellCoordinate)position
@@ -56,7 +99,7 @@
 
 - (BOOL)canMoveShipElementView:(SBShipElementView *)shipElementView toPosition:(SBCellCoordinate)position
 {
-    SBCellCoordinate coordinate = SBCellCoordinateOfShipElementView(shipElementView);
+    SBCellCoordinate coordinate = position;
     BOOL result = YES;
     if (shipElementView.ship.orientation == SBShipOrientationHorizontal)
     {
