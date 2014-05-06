@@ -27,9 +27,12 @@
 		0553F8C2190904F3007C0DB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0553F8C0190904F3007C0DB7 /* InfoPlist.strings */; };
 		0553F8CB19090894007C0DB7 /* SBGameFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F8CA19090894007C0DB7 /* SBGameFieldView.m */; };
 		0553F8CE190908D8007C0DB7 /* SBGameFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553F8CD190908D8007C0DB7 /* SBGameFieldCell.m */; };
+		055B10071919606A003596EE /* SBShipLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 055B10061919606A003596EE /* SBShipLayouter.m */; };
 		057D93B01912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057D93AF1912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.m */; };
 		0591FDC3190E6B2F0039DE5E /* SBShipPositionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591FDC2190E6B2F0039DE5E /* SBShipPositionController.m */; };
 		0591FDC6190F75500039DE5E /* SBGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591FDC5190F75500039DE5E /* SBGameController.m */; };
+		05BE5D3C1918342E003B59E3 /* SBAIPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BE5D3B1918342E003B59E3 /* SBAIPlayer.m */; };
+		05BE5D3F19183B62003B59E3 /* SBAIAutomaticShipLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BE5D3E19183B62003B59E3 /* SBAIAutomaticShipLayouter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,12 +78,18 @@
 		0553F8CA19090894007C0DB7 /* SBGameFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBGameFieldView.m; path = View/SBGameFieldView.m; sourceTree = "<group>"; };
 		0553F8CC190908D8007C0DB7 /* SBGameFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGameFieldCell.h; sourceTree = "<group>"; };
 		0553F8CD190908D8007C0DB7 /* SBGameFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBGameFieldCell.m; sourceTree = "<group>"; };
+		055B10051919606A003596EE /* SBShipLayouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBShipLayouter.h; sourceTree = "<group>"; };
+		055B10061919606A003596EE /* SBShipLayouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBShipLayouter.m; sourceTree = "<group>"; };
 		057D93AE1912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SBGameFieldCell.h"; sourceTree = "<group>"; };
 		057D93AF1912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SBGameFieldCell.m"; sourceTree = "<group>"; };
 		0591FDC1190E6B2F0039DE5E /* SBShipPositionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBShipPositionController.h; sourceTree = "<group>"; };
 		0591FDC2190E6B2F0039DE5E /* SBShipPositionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBShipPositionController.m; sourceTree = "<group>"; };
 		0591FDC4190F75500039DE5E /* SBGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGameController.h; sourceTree = "<group>"; };
 		0591FDC5190F75500039DE5E /* SBGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBGameController.m; sourceTree = "<group>"; };
+		05BE5D3A1918342E003B59E3 /* SBAIPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAIPlayer.h; path = PlayersController/AI/SBAIPlayer.h; sourceTree = "<group>"; };
+		05BE5D3B1918342E003B59E3 /* SBAIPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAIPlayer.m; path = PlayersController/AI/SBAIPlayer.m; sourceTree = "<group>"; };
+		05BE5D3D19183B62003B59E3 /* SBAIAutomaticShipLayouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAIAutomaticShipLayouter.h; path = PlayersController/AI/SBAIAutomaticShipLayouter.h; sourceTree = "<group>"; };
+		05BE5D3E19183B62003B59E3 /* SBAIAutomaticShipLayouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAIAutomaticShipLayouter.m; path = PlayersController/AI/SBAIAutomaticShipLayouter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +209,8 @@
 				0591FDC2190E6B2F0039DE5E /* SBShipPositionController.m */,
 				0591FDC4190F75500039DE5E /* SBGameController.h */,
 				0591FDC5190F75500039DE5E /* SBGameController.m */,
+				055B10051919606A003596EE /* SBShipLayouter.h */,
+				055B10061919606A003596EE /* SBShipLayouter.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -297,6 +308,10 @@
 		0553F8C519090668007C0DB7 /* AI */ = {
 			isa = PBXGroup;
 			children = (
+				05BE5D3A1918342E003B59E3 /* SBAIPlayer.h */,
+				05BE5D3B1918342E003B59E3 /* SBAIPlayer.m */,
+				05BE5D3D19183B62003B59E3 /* SBAIAutomaticShipLayouter.h */,
+				05BE5D3E19183B62003B59E3 /* SBAIAutomaticShipLayouter.m */,
 			);
 			name = AI;
 			sourceTree = "<group>";
@@ -419,12 +434,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				055B10071919606A003596EE /* SBShipLayouter.m in Sources */,
 				0553F88C190900E8007C0DB7 /* main.m in Sources */,
+				05BE5D3C1918342E003B59E3 /* SBAIPlayer.m in Sources */,
 				051A4C6E190AC12A00826C4A /* SBChooseShipsView.m in Sources */,
 				057D93B01912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.m in Sources */,
 				051A4C74190AC5F800826C4A /* SBShipElementView.m in Sources */,
 				0553F896190900E8007C0DB7 /* SBGameViewController.m in Sources */,
 				051A4C78190AD02E00826C4A /* SBCellCoordinate.m in Sources */,
+				05BE5D3F19183B62003B59E3 /* SBAIAutomaticShipLayouter.m in Sources */,
 				0591FDC6190F75500039DE5E /* SBGameController.m in Sources */,
 				0553F8CE190908D8007C0DB7 /* SBGameFieldCell.m in Sources */,
 				0553F8CB19090894007C0DB7 /* SBGameFieldView.m in Sources */,

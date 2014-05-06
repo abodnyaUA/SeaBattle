@@ -19,29 +19,9 @@
 
 @implementation SBChooseShipsView
 
-- (id)initWithFrame:(CGRect)frame
+- (void)load
 {
-    self = [super initWithFrame:frame];
-    if (self)
-    {
-        [self initialize];
-    }
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (nil != self)
-    {
-        [self performSelector:@selector(initialize) withObject:nil afterDelay:0.2];
-    }
-    return self;
-}
-
-- (void)initialize
-{
-    CGFloat cellSize = [[SBGameController sharedController] cellSize];
+    CGFloat cellSize = [[[SBGameController sharedController] gameFieldView] cellSize];
     NSMutableArray *ships = [NSMutableArray array];
     NSMutableArray *labels = [NSMutableArray array];
     for (NSUInteger shipLength=4; shipLength >= 1; shipLength--)
@@ -65,12 +45,11 @@
     }
     self.ships = [ships copy];
     self.labelCount = [labels copy];
-    SBGameController.sharedController.positionController.ships = [ships valueForKey:@"ship"];
 }
 
 - (BOOL)shipElementViewLocatedInChooseView:(SBShipElementView *)shipElementView
 {
-    CGFloat cellSize = [[SBGameController sharedController] cellSize];
+    CGFloat cellSize = [[[SBGameController sharedController] gameFieldView] cellSize];
     return shipElementView.frame.origin.y + cellSize / 2 <= self.bounds.size.height + self.frame.origin.y;
 }
 
@@ -86,35 +65,34 @@
 {
     if ([self shipElementViewLocatedInChooseView:shipElementView])
     {
-        if (shipElementView.ship.orientation == SBShipOrientationVertical)
-        {
-            [shipElementView rotate];
-        }
-        shipElementView.frame = CGRectMake(shipElementView.defaultPoint.x, shipElementView.defaultPoint.y, shipElementView.frame.size.width, shipElementView.frame.size.height);
-        if (SBCellCoordinateIsValid(shipElementView.ship.lastAvailablePosition))
-        {
-            shipElementView.ship.lastAvailablePosition = SBCellCoordinateZero;
-            shipElementView.ship.topLeftPosition = SBCellCoordinateZero;
-            UILabel *labelCount = (UILabel *)[self.labelCount objectAtIndex:(4 - shipElementView.ship.length)];
-            NSInteger oldCount = [[labelCount text] integerValue];
-            [labelCount setText:[NSString stringWithFormat:@"%ld",(long)++oldCount]];
-            shipElementView.didUsed = NO;
-        }
+        [self resetShipElementView:shipElementView];
     }
-    else
+    
+    if ([self.delegate respondsToSelector:@selector(chooseShipsView:didDroppedShipElementView:)])
     {
-        if (!shipElementView.didUsed)
-        {
-            UILabel *labelCount = (UILabel *)[self.labelCount objectAtIndex:(4 - shipElementView.ship.length)];
-            NSInteger oldCount = [[labelCount text] integerValue];
-            [labelCount setText:[NSString stringWithFormat:@"%ld",(long)--oldCount]];
-            shipElementView.didUsed = YES;
-        }
-        if ([self.delegate respondsToSelector:@selector(chooseShipsView:didDroppedShipElementView:)])
-        {
-            [self.delegate chooseShipsView:self didDroppedShipElementView:shipElementView];
-        }
+        [self.delegate chooseShipsView:self didDroppedShipElementView:shipElementView];
     }
+    [self updateUnusedShipCountForShipsWithLenth:shipElementView.ship.length];
+}
+
+- (void)resetShipElementView:(SBShipElementView *)shipElementView
+{
+    if (shipElementView.ship.orientation == SBShipOrientationVertical)
+    {
+        [shipElementView rotate];
+    }
+    shipElementView.frame = CGRectMake(shipElementView.defaultPoint.x, shipElementView.defaultPoint.y, shipElementView.frame.size.width, shipElementView.frame.size.height);
+    shipElementView.ship.topLeftPosition = SBCellCoordinateZero;
+}
+
+- (void)updateUnusedShipCountForShipsWithLenth:(NSUInteger)shipLength
+{
+    NSInteger count = [self.ships filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SBShipElementView *view, NSDictionary *bindings) {
+        return view.frame.origin.x == view.defaultPoint.x && view.frame.origin.y == view.defaultPoint.y && view.ship.length == shipLength;
+    }]].count;
+    UILabel *labelCountLabel = (UILabel *)[self.labelCount objectAtIndex:(4 -shipLength)];
+    [labelCountLabel setText:[NSString stringWithFormat:@"%ld",(long)count]];
+    
 }
 
 - (void)shipElementViewDidTapped:(SBShipElementView *)shipElementView

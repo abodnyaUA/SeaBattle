@@ -21,7 +21,6 @@ typedef NS_ENUM(NSUInteger, SBShipOrientation)
 @property (nonatomic, assign) NSUInteger length;
 @property (nonatomic, assign) SBShipOrientation orientation;
 @property (nonatomic, assign) SBCellCoordinate topLeftPosition;
-@property (nonatomic, assign) SBCellCoordinate lastAvailablePosition;
 
 + (instancetype)shipWithLength:(NSUInteger)length;
 

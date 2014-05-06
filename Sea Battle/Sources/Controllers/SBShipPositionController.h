@@ -13,9 +13,11 @@
 @interface SBShipPositionController : NSObject
 
 @property (nonatomic, strong) NSArray *ships;
+@property (nonatomic, weak  ) SBGameFieldView *fieldView;
 
 - (BOOL)canMoveShipElementView:(SBShipElementView *)shipElementView toPosition:(SBCellCoordinate)position;
 - (void)rotateShipElementView:(SBShipElementView *)shipElementView;
 - (void)moveShipElementView:(SBShipElementView *)shipElementView toPosition:(SBCellCoordinate)position;
+- (BOOL)allShipsOnField;
 
 @end

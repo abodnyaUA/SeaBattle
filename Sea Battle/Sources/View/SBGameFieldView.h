@@ -18,6 +18,7 @@
 
 @property (nonatomic, weak) IBOutlet id<SBGameFieldViewDataSource> dataSource;
 @property (nonatomic, weak) IBOutlet id<SBGameFieldViewDelegate> delegate;
+@property (nonatomic, assign, readonly) CGFloat cellSize;
 
 @end
 

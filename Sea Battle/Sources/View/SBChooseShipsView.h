@@ -15,6 +15,10 @@
 @interface SBChooseShipsView : UIView <SBShipElementViewDelegate>
 
 @property (nonatomic, weak) IBOutlet id<SBChooseShipsViewDelegate> delegate;
+@property (nonatomic, strong, readonly) NSArray *ships;
+
+- (void)load;
+- (void)resetShipElementView:(SBShipElementView *)shipElementView;
 
 @end
 

@@ -31,8 +31,7 @@
         self.backgroundColor = [UIColor clearColor];
         self.didMoved = NO;
         self.ship.topLeftPosition = SBCellCoordinateZero;
-        self.ship.lastAvailablePosition = SBCellCoordinateZero;
-        self.didUsed = NO;
+        self.ship.topLeftPosition = SBCellCoordinateZero;
     }
     return self;
 }

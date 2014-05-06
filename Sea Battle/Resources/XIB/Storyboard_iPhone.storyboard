@@ -45,13 +45,23 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1m7-MJ-Niw" customClass="SBChooseShipsView">
-                                <rect key="frame" x="0.0" y="66" width="320" height="182"/>
+                                <rect key="frame" x="0.0" y="66" width="227" height="182"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="Ffx-3R-m9u" id="cI0-tm-uGT"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eov-6k-R5d">
+                                <rect key="frame" x="254" y="71" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ready">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnReadyButton:" destination="Ffx-3R-m9u" eventType="touchUpInside" id="e84-i5-kW3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -62,7 +72,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="aza-ua-7wT"/>
                     <connections>
+                        <outlet property="chooseShipsView" destination="1m7-MJ-Niw" id="ell-Wr-3Ci"/>
                         <outlet property="currentFieldView" destination="1gu-a4-FAf" id="v2r-vf-VJp"/>
+                        <outlet property="readyButton" destination="eov-6k-R5d" id="lRr-Kf-jXH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4T-Ql-dwN" userLabel="First Responder" sceneMemberID="firstResponder"/>

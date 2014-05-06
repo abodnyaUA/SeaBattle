@@ -83,42 +83,52 @@
 
 - (void)moveShipElementView:(SBShipElementView *)shipElementView toPosition:(SBCellCoordinate)position
 {
-    CGFloat cellSize = [[SBGameController sharedController] cellSize];
-    SBGameFieldView *fieldView = [[SBGameController sharedController] gameFieldView];
+    CGFloat cellSize = [[[SBGameController sharedController] gameFieldView] cellSize];
     
     if (![self canMoveShipElementView:shipElementView toPosition:position])
     {
-        position = shipElementView.ship.lastAvailablePosition;
+        position = shipElementView.ship.topLeftPosition;
     }
     
-    CGFloat x = position.x * cellSize;
-    CGFloat y = position.y * cellSize + fieldView.frame.origin.y;
-    shipElementView.frame = CGRectMake(x, y, shipElementView.frame.size.width, shipElementView.frame.size.height);
-    shipElementView.backgroundColor = [UIColor clearColor]; // TODO: Better higlight
+    if (SBCellCoordinateIsValid(position))
+    {
+    
+        CGFloat x = position.x * cellSize;
+        CGFloat y = position.y * cellSize + self.fieldView.frame.origin.y;
+        shipElementView.frame = CGRectMake(x, y, shipElementView.frame.size.width, shipElementView.frame.size.height);
+        shipElementView.backgroundColor = [UIColor clearColor]; // TODO: Better higlight
+    }
 }
 
 - (BOOL)canMoveShipElementView:(SBShipElementView *)shipElementView toPosition:(SBCellCoordinate)position
 {
     SBCellCoordinate coordinate = position;
     BOOL result = YES;
-    if (shipElementView.ship.orientation == SBShipOrientationHorizontal)
+    if (SBCellCoordinateIsValid(position))
     {
-        result = coordinate.x <= 10-shipElementView.ship.length && coordinate.y < 10;
+        if (shipElementView.ship.orientation == SBShipOrientationHorizontal)
+        {
+            result = coordinate.x <= 10-shipElementView.ship.length && coordinate.y < 10;
+        }
+        else
+        {
+            result = coordinate.y <= 10-shipElementView.ship.length && coordinate.x < 10;
+        }
+        
+        if (result)
+        {
+            SBCellCoordinate lastAvailablePosition = shipElementView.ship.topLeftPosition;
+            shipElementView.ship.topLeftPosition = coordinate;
+            result = [self hasConflictWithOtherShipsShip:shipElementView.ship];
+            if (!result)
+            {
+                shipElementView.ship.topLeftPosition = lastAvailablePosition;
+            }
+        }
     }
     else
     {
-        result = coordinate.y <= 10-shipElementView.ship.length && coordinate.x < 10;
-    }
-    
-    if (result)
-    {
-        SBCellCoordinate lastAvailablePosition = shipElementView.ship.lastAvailablePosition;
-        shipElementView.ship.lastAvailablePosition = coordinate;
-        result = [self hasConflictWithOtherShipsShip:shipElementView.ship];
-        if (!result)
-        {
-            shipElementView.ship.lastAvailablePosition = lastAvailablePosition;
-        }
+        result = NO;
     }
     
     return result;
@@ -148,7 +158,7 @@
 - (NSArray *)reservedCellsForShip:(SBShipElement *)ship usingBorder:(BOOL)isUseBorder
 {
     NSMutableArray *cells = [NSMutableArray array];
-    SBCellCoordinate shipPosition = ship.lastAvailablePosition;
+    SBCellCoordinate shipPosition = ship.topLeftPosition;
     if (ship.orientation == SBShipOrientationHorizontal)
     {
         for (NSUInteger x = shipPosition.x; x < shipPosition.x + ship.length; x++)
@@ -211,6 +221,14 @@
         return ship != aShip;
     }]];
     return ships;
+}
+
+- (BOOL)allShipsOnField
+{
+    NSArray *ships = [self.ships filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SBShipElement *ship, NSDictionary *bindings) {
+        return !SBCellCoordinateIsValid(ship.topLeftPosition);
+    }]];
+    return ships.count == 0;
 }
 
 @end

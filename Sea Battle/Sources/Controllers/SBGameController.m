@@ -27,12 +27,11 @@
     self = [super init];
     if (nil != self)
     {
-        self.positionController = [SBShipPositionController new];
     }
     return self;
 }
 
-- (void)initializeGame
+- (void)initializeGameWithPlayer:(id<SBPlayer>)player;
 {
     NSMutableArray *cells = [NSMutableArray array];
     for (int i=0; i<10; i++)
@@ -43,10 +42,11 @@
             SBGameFieldCell *cell = [SBGameFieldCell cellWithState:SBGameFieldCellStateFree];
             [cellsInRow addObject:cell];
         }
-        [cells addObject:cellsInRow];
+        [cells addObject:[cellsInRow copy]];
     }
     self.userCells = [cells copy];
     self.enemyCells = [cells copy];
+    self.enemyPlayer = player;
 }
 
 @end

@@ -10,17 +10,18 @@
 
 #import "SBGameFieldView.h"
 #import "SBShipPositionController.h"
+#import "SBPlayer.h"
 
 @interface SBGameController : NSObject
 
-@property (nonatomic, assign) CGFloat cellSize;
 @property (nonatomic, weak  ) SBGameFieldView *gameFieldView;
-@property (nonatomic, strong) SBShipPositionController *positionController;
 @property (nonatomic, strong) NSArray *userCells;
+
 @property (nonatomic, strong) NSArray *enemyCells;
+@property (nonatomic, strong) id<SBPlayer> enemyPlayer;
 
 + (instancetype)sharedController;
 
-- (void)initializeGame;
+- (void)initializeGameWithPlayer:(id<SBPlayer>)player;
 
 @end

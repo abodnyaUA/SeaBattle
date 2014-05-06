@@ -18,7 +18,6 @@
 @property (nonatomic, strong) SBShipElement *ship;
 @property (nonatomic, weak) IBOutlet id<SBShipElementViewDelegate> delegate;
 @property (nonatomic, assign) CGPoint defaultPoint;
-@property (nonatomic, assign) BOOL didUsed;
 
 - (id)initWithShipLength:(NSUInteger)length withCellSize:(CGFloat)cellSize inPoint:(CGPoint)point;
 - (void)rotate;

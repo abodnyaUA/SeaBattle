@@ -21,7 +21,7 @@ SBCellCoordinate SBCellCoordinateMake(NSUInteger x, NSUInteger y)
 
 SBCellCoordinate SBCellCoordinateOfShipElementView(SBShipElementView *shipElementView)
 {
-    CGFloat cellSize = [[SBGameController sharedController] cellSize];
+    CGFloat cellSize = [[[SBGameController sharedController] gameFieldView] cellSize];
     CGRect fieldFrame = [[[SBGameController sharedController] gameFieldView] frame];
     
     CGFloat x = (shipElementView.frame.origin.x + cellSize/2);
