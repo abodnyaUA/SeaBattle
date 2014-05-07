@@ -12,6 +12,14 @@
 #import "SBShipPositionController.h"
 #import "SBPlayer.h"
 
+
+typedef NS_ENUM(NSUInteger, SBActivePlayer)
+{
+    SBActivePlayerUser,
+    SBActivePlayerOpponent
+};
+
+
 @interface SBGameController : NSObject
 
 @property (nonatomic, weak  ) SBGameFieldView *gameFieldView;
@@ -19,6 +27,9 @@
 
 @property (nonatomic, strong) NSArray *enemyCells;
 @property (nonatomic, strong) id<SBPlayer> enemyPlayer;
+
+@property (nonatomic, assign) BOOL gameStarted;
+@property (nonatomic, assign) SBActivePlayer activePlayer;
 
 + (instancetype)sharedController;
 

@@ -13,6 +13,9 @@
 
 @interface NSArray (SBGameFieldCell)
 
++ (NSArray *)emptyCells;
 - (SBGameFieldCell *)cellWithPosition:(SBCellCoordinate)position;
+- (NSArray *)shipCellsAboveCellWithPosition:(SBCellCoordinate)position includedStates:(NSUInteger)mask;
+- (NSArray *)unactiveFieldsAboveDefendedShipWithPosition:(SBCellCoordinate)position;
 
 @end

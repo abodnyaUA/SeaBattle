@@ -9,6 +9,7 @@
 #import "SBGameController.h"
 
 #import "SBGameFieldCell.h"
+#import "NSArray+SBGameFieldCell.h"
 
 @implementation SBGameController
 
@@ -22,31 +23,15 @@
     return enviroment;
 }
 
-- (instancetype)init
-{
-    self = [super init];
-    if (nil != self)
-    {
-    }
-    return self;
-}
-
 - (void)initializeGameWithPlayer:(id<SBPlayer>)player;
 {
-    NSMutableArray *cells = [NSMutableArray array];
-    for (int i=0; i<10; i++)
-    {
-        NSMutableArray *cellsInRow = [NSMutableArray array];
-        for (int j=0;j<10;j++)
-        {
-            SBGameFieldCell *cell = [SBGameFieldCell cellWithState:SBGameFieldCellStateFree];
-            [cellsInRow addObject:cell];
-        }
-        [cells addObject:[cellsInRow copy]];
-    }
-    self.userCells = [cells copy];
-    self.enemyCells = [cells copy];
+    self.userCells = [NSArray emptyCells];
+    self.enemyCells = [NSArray emptyCells];
     self.enemyPlayer = player;
+    self.gameStarted = NO;
+    self.activePlayer = SBActivePlayerUser;
 }
+
+
 
 @end

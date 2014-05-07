@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SBShipElementView.h"
+#import "SBShipElement.h"
 #import "SBGameFieldView.h"
 
 @interface SBShipPositionController : NSObject
@@ -15,9 +15,9 @@
 @property (nonatomic, strong) NSArray *ships;
 @property (nonatomic, weak  ) SBGameFieldView *fieldView;
 
-- (BOOL)canMoveShipElementView:(SBShipElementView *)shipElementView toPosition:(SBCellCoordinate)position;
-- (void)rotateShipElementView:(SBShipElementView *)shipElementView;
-- (void)moveShipElementView:(SBShipElementView *)shipElementView toPosition:(SBCellCoordinate)position;
+- (BOOL)canMoveShip:(SBShipElement *)ship toPosition:(SBCellCoordinate)position;
+- (void)rotateShipElement:(SBShipElement *)shipElement;
+- (void)moveShipElement:(SBShipElement *)shipElement toPosition:(SBCellCoordinate)position;
 - (BOOL)allShipsOnField;
 
 @end

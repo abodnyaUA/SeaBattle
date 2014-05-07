@@ -50,16 +50,36 @@
 
 - (SBGameFieldCell *)gameFieldView:(SBGameFieldView *)gameFieldView cellForPosition:(SBCellCoordinate)position
 {
-    return [SBGameController.sharedController.userCells cellWithPosition:position];
+    SBGameFieldCell *cell = nil;
+    if (SBGameController.sharedController.gameStarted)
+    {
+        cell = [SBGameController.sharedController.enemyCells cellWithPosition:position];
+    }
+    else
+    {
+        cell = [SBGameController.sharedController.userCells cellWithPosition:position];
+    }
+    return cell;
 }
 
 - (void)gameFieldView:(SBGameFieldView *)gameFieldView didTapOnCellWithPosition:(SBCellCoordinate)position
 {
-    if ([gameFieldView isEqual:self.currentFieldView])
+    if (SBGameController.sharedController.gameStarted && [SBGameController.sharedController.enemyCells cellWithPosition:position].state == SBGameFieldCellStateFree)
     {
-        SBGameFieldCell *cell = [SBGameController.sharedController.userCells cellWithPosition:position];
-        cell.state = SBGameFieldCellStateUnderAtack;
-        [gameFieldView setNeedsDisplay];
+        [SBGameController.sharedController.enemyPlayer shotToCellAtPosition:position withResultBlock:^(SBGameFieldCellState state) {
+            [SBGameController.sharedController.enemyCells cellWithPosition:position].state = state;
+            
+            if (state == SBGameFieldCellStateDefended)
+            {
+                NSArray *otherShipCells = [SBGameController.sharedController.enemyCells shipCellsAboveCellWithPosition:position includedStates:SBGameFieldCellStateFree | SBGameFieldCellStateUnavailable];
+                for (SBGameFieldCell *cell in otherShipCells)
+                {
+                    cell.state = SBGameFieldCellStateDefended;
+                }
+            }
+            
+            [self.currentFieldView setNeedsDisplay];
+        }];
     }
 }
 
@@ -68,9 +88,9 @@
 - (void)chooseShipsView:(SBChooseShipsView *)chooseShipsView didDroppedShipElementView:(SBShipElementView *)shipElementView
 {
     SBCellCoordinate coordinate = SBCellCoordinateOfShipElementView(shipElementView);
-    if ([self.positionController canMoveShipElementView:shipElementView toPosition:coordinate] || [self.positionController canMoveShipElementView:shipElementView toPosition:shipElementView.ship.topLeftPosition])
+    if ([self.positionController canMoveShip:shipElementView.ship toPosition:coordinate] || [self.positionController canMoveShip:shipElementView.ship toPosition:shipElementView.ship.topLeftPosition])
     {
-        [self.positionController moveShipElementView:shipElementView toPosition:coordinate];
+        [self.positionController moveShipElement:shipElementView.ship toPosition:coordinate];
     }
     else
     {
@@ -81,13 +101,13 @@
 
 - (void)chooseShipsView:(SBChooseShipsView *)chooseShipsView didRotateShipElementView:(SBShipElementView *)shipElementView
 {
-    [self.positionController rotateShipElementView:shipElementView];
+    [self.positionController rotateShipElement:shipElementView.ship];
 }
 
 - (void)chooseShipsView:(SBChooseShipsView *)chooseShipsView didDraggedShipElementView:(SBShipElementView *)shipElementView
 {
     SBCellCoordinate coordinate = SBCellCoordinateOfShipElementView(shipElementView);
-    if (![self.positionController canMoveShipElementView:shipElementView toPosition:coordinate])
+    if (![self.positionController canMoveShip:shipElementView.ship toPosition:coordinate])
     {
         shipElementView.backgroundColor = [UIColor redColor]; //TODO:use better selection
     }
@@ -107,6 +127,8 @@
             [view removeFromSuperview];
         }
     }
+    SBGameController.sharedController.gameStarted = YES;
+    
     [self.readyButton removeFromSuperview];
     [self.chooseShipsView removeFromSuperview];
     [self.currentFieldView setNeedsDisplay];

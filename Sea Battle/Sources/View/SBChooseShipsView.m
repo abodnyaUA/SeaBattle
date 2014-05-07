@@ -40,6 +40,7 @@
             SBShipElementView *shipView = [[SBShipElementView alloc] initWithShipLength:shipLength withCellSize:cellSize inPoint:CGPointMake(15 + 5, y)];
             [self.superview addSubview:shipView];
             shipView.delegate = self;
+            shipView.ship.delegate = self;
             [ships addObject:shipView];
         }
     }
@@ -106,11 +107,32 @@
     }
 }
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+#pragma mark - SBShipElementDelegate
+
+- (SBShipElementView *)shipElementViewWithShip:(SBShipElement *)ship
 {
-    // Drawing code
+    SBShipElementView *shipView = [self.ships objectAtIndex:[self.ships indexOfObjectPassingTest:^BOOL(SBShipElementView *shipView, NSUInteger idx, BOOL *stop) {
+        return *stop = (shipView.ship == ship);
+    }]];
+    return shipView;
+}
+
+- (void)shipDidMoved:(SBShipElement *)ship
+{
+    SBCellCoordinate position = ship.topLeftPosition;
+    SBShipElementView *shipElementView = [self shipElementViewWithShip:ship];
+    SBGameFieldView *gameFieldView = [[SBGameController sharedController] gameFieldView];
+    CGFloat cellSize = [gameFieldView cellSize];
+    CGFloat x = position.x * cellSize + gameFieldView.frame.origin.x;
+    CGFloat y = position.y * cellSize + gameFieldView.frame.origin.y;
+    shipElementView.frame = CGRectMake(x, y, shipElementView.frame.size.width, shipElementView.frame.size.height);
+    shipElementView.backgroundColor = [UIColor clearColor]; // TODO: Better higlight
+}
+
+- (void)shipDidRotated:(SBShipElement *)ship
+{
+    SBShipElementView *shipElementView = [self shipElementViewWithShip:ship];
+    [shipElementView rotate];
 }
 
 @end

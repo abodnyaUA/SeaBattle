@@ -12,4 +12,8 @@
 
 @property (nonatomic, strong) NSArray *cells;
 
+- (void)startSetup;
+#warning TODO: remove printShips
+- (void)printShips;
+
 @end

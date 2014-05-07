@@ -11,6 +11,7 @@
 #import "NSArray+SBGameFieldCell.h"
 #import "SBShipElement.h"
 #import "SBShipLayouter.h"
+#import "SBShipPositionController.h"
 
 
 @interface SBAIAutomaticShipLayouter ()
@@ -21,33 +22,17 @@
 
 @implementation SBAIAutomaticShipLayouter
 
-- (instancetype)init
+- (void)startSetup
 {
-    self = [super init];
-    if (nil != self)
-    {
-        [self loadCells];
-        [self loadShips];
-        [self layoutShips];
-        [self printShips];
-    }
-    return self;
+    [self loadCells];
+    [self loadShips];
+    [self layoutShips];
+    [self printShips];
 }
 
 - (void)loadCells
 {
-    NSMutableArray *cells = [NSMutableArray array];
-    for (int i=0; i<10; i++)
-    {
-        NSMutableArray *cellsInRow = [NSMutableArray array];
-        for (int j=0;j<10;j++)
-        {
-            SBGameFieldCell *cell = [SBGameFieldCell cellWithState:SBGameFieldCellStateFree];
-            [cellsInRow addObject:cell];
-        }
-        [cells addObject:[cellsInRow copy]];
-    }
-    self.cells = [cells copy];
+    self.cells = [NSArray emptyCells];
 }
 
 - (void)loadShips
@@ -68,9 +53,34 @@
 
 - (void)layoutShips
 {
-    ///......////
+    SBShipPositionController *positionController = [SBShipPositionController new];
+    positionController.ships = self.ships;
+    for (SBShipElement *ship in self.ships)
+    {
+        ship.orientation = 0 == arc4random() % 2 ? SBShipOrientationHorizontal : SBShipOrientationVertical;
+        
+        SBCellCoordinate position;
+        BOOL canMove;
+        do
+        {
+            position = SBCellCoordinateMake(arc4random() % 10, arc4random() % 10);
+            canMove = [positionController canMoveShip:ship toPosition:position];
+        } while (!canMove);
+    }
     
     [SBShipLayouter layoutShips:self.ships onCells:self.cells];
+}
+
+- (NSUInteger)powOfState:(SBGameFieldCellState)state
+{
+    NSUInteger pow = 0;
+    do
+    {
+        pow++;
+        state = sqrt(state);
+    }
+    while (state > 1);
+    return pow;
 }
 
 - (void)printShips
@@ -81,7 +91,7 @@
         for (int j=0;j<10;j++)
         {
             SBGameFieldCell *cell = [self.cells cellWithPosition:SBCellCoordinateMake(j, i)];
-            description = [description stringByAppendingString:[NSString stringWithFormat:@"%ld ",(long)cell.state]];
+            description = [description stringByAppendingString:[NSString stringWithFormat:@"%ld ",(long)[self powOfState:cell.state]]];
         }
         description = [description stringByAppendingString:@"\n"];
     }

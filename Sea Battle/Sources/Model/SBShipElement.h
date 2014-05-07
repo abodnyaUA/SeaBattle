@@ -16,12 +16,23 @@ typedef NS_ENUM(NSUInteger, SBShipOrientation)
     SBShipOrientationVertical
 };
 
+@protocol SBShipElementDelegate;
+
 @interface SBShipElement : NSObject
 
 @property (nonatomic, assign) NSUInteger length;
 @property (nonatomic, assign) SBShipOrientation orientation;
 @property (nonatomic, assign) SBCellCoordinate topLeftPosition;
+@property (nonatomic, weak)   id<SBShipElementDelegate> delegate;
 
 + (instancetype)shipWithLength:(NSUInteger)length;
 
 @end
+
+@protocol SBShipElementDelegate <NSObject>
+
+- (void)shipDidMoved:(SBShipElement *)ship;
+- (void)shipDidRotated:(SBShipElement *)ship;
+
+@end
+

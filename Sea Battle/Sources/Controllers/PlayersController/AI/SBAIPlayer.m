@@ -9,7 +9,8 @@
 #import "SBAIPlayer.h"
 
 #import "SBAIAutomaticShipLayouter.h"
-
+#import "NSArray+SBGameFieldCell.h"
+#import "SBGameFieldCell.h"
 
 @interface SBAIPlayer ()
 
@@ -25,13 +26,51 @@
     if (nil != self)
     {
         self.shipLayouter = [SBAIAutomaticShipLayouter new];
+        [self startSetup];
     }
     return self;
 }
 
+- (void)startSetup
+{
+    NSOperationQueue *queue = [NSOperationQueue new];
+    [queue addOperationWithBlock:^{
+        [self.shipLayouter startSetup];
+        if ([self.delegate respondsToSelector:@selector(playerDidSetupShips:)])
+        {
+            [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                [self.delegate playerDidSetupShips:self];
+            }];
+        }
+    }];
+}
+
 - (void)shotToCellAtPosition:(SBCellCoordinate)position withResultBlock:(void (^)(SBGameFieldCellState))block
 {
-    
+    SBGameFieldCell *cell = [self.shipLayouter.cells cellWithPosition:position];
+    if (cell.state == SBGameFieldCellStateWithShip)
+    {
+        NSArray *otherShipCells = [self.shipLayouter.cells shipCellsAboveCellWithPosition:position includedStates:SBGameFieldCellStateFree | SBGameFieldCellStateUnavailable | SBGameFieldCellStateUnderAtack];
+        if (otherShipCells.count > 0)
+        {
+            cell.state = SBGameFieldCellStateUnderAtack;
+        }
+        else
+        {
+            otherShipCells = [self.shipLayouter.cells shipCellsAboveCellWithPosition:position includedStates:SBGameFieldCellStateFree | SBGameFieldCellStateUnavailable];
+            for (SBGameFieldCell *cell in otherShipCells)
+            {
+                cell.state = SBGameFieldCellStateDefended;
+            }
+            cell.state = SBGameFieldCellStateDefended;
+        }
+    }
+    else
+    {
+        cell.state = SBGameFieldCellStateUnavailable;
+    }
+    block(cell.state);
+    [self.shipLayouter printShips];
 }
 
 @end

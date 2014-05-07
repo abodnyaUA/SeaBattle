@@ -12,7 +12,7 @@
 
 @protocol SBChooseShipsViewDelegate;
 
-@interface SBChooseShipsView : UIView <SBShipElementViewDelegate>
+@interface SBChooseShipsView : UIView <SBShipElementViewDelegate,  SBShipElementDelegate>
 
 @property (nonatomic, weak) IBOutlet id<SBChooseShipsViewDelegate> delegate;
 @property (nonatomic, strong, readonly) NSArray *ships;

@@ -159,10 +159,9 @@
 		0553F885190900E8007C0DB7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0553F8C71909085A007C0DB7 /* View */,
+				055B1008191AC8FD003596EE /* UI */,
 				0553F8BF1909047F007C0DB7 /* Prefix */,
 				0553F8B719090148007C0DB7 /* Model */,
-				0553F8B61909013B007C0DB7 /* ViewControllers */,
 				0553F8B519090133007C0DB7 /* Controllers */,
 			);
 			name = Sources;
@@ -227,7 +226,6 @@
 		0553F8B719090148007C0DB7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0553F8B81909018C007C0DB7 /* CoreData */,
 				0553F8CC190908D8007C0DB7 /* SBGameFieldCell.h */,
 				0553F8CD190908D8007C0DB7 /* SBGameFieldCell.m */,
 				051A4C6F190AC19C00826C4A /* SBShipElement.h */,
@@ -238,13 +236,6 @@
 				057D93AF1912FE8B00E8ECC7 /* NSArray+SBGameFieldCell.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		0553F8B81909018C007C0DB7 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		0553F8B919090272007C0DB7 /* XIB */ = {
@@ -334,6 +325,23 @@
 				0553F8CA19090894007C0DB7 /* SBGameFieldView.m */,
 			);
 			name = GameProcess;
+			sourceTree = "<group>";
+		};
+		055B1008191AC8FD003596EE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				055B1009191AC903003596EE /* iOS */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		055B1009191AC903003596EE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				0553F8C71909085A007C0DB7 /* View */,
+				0553F8B61909013B007C0DB7 /* ViewControllers */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

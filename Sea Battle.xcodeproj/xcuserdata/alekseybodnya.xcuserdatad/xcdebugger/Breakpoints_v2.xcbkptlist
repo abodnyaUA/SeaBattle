@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/View/SBChooseShipsView.m"
-            timestampString = "421019442.62643"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "-shipElementViewDidDropped:"
             landmarkType = "5">
          </BreakpointContent>
@@ -116,22 +116,6 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sea Battle/Sources/ViewControllers/SBGameViewController.m"
-            timestampString = "421094348.190029"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "-chooseShipsView:didDraggedShipElementView:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
@@ -148,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Controllers/SBShipPositionController.m"
-            timestampString = "421093263.341375"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "-shipsWithoutShip:"
             landmarkType = "5">
          </BreakpointContent>
@@ -164,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Controllers/SBShipPositionController.m"
-            timestampString = "421093263.341375"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "-hasConflictWithOtherShipsShip:"
             landmarkType = "5">
          </BreakpointContent>
@@ -180,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Controllers/SBShipPositionController.m"
-            timestampString = "421093263.341375"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-hasConflictWithOtherShipsShip:"
             landmarkType = "5">
          </BreakpointContent>
@@ -196,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Controllers/SBShipPositionController.m"
-            timestampString = "421093263.341375"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "-reservedCellsForShips:"
             landmarkType = "5">
          </BreakpointContent>
@@ -212,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Controllers/SBShipPositionController.m"
-            timestampString = "421093263.341375"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "-reservedCellsForShips:"
             landmarkType = "5">
          </BreakpointContent>
@@ -228,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Controllers/SBShipPositionController.m"
-            timestampString = "421093263.341375"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "-hasConflictWithOtherShipsShip:"
             landmarkType = "5">
          </BreakpointContent>
@@ -245,11 +229,11 @@
             condition = "ship.lastAvailablePosition.x &lt; 10 &amp;&amp; ship.lastAvailablePosition.y &lt; 10"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Controllers/SBShipPositionController.m"
-            timestampString = "421093263.341375"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "-hasConflictWithOtherShipsShip:"
             landmarkType = "5">
          </BreakpointContent>
@@ -261,11 +245,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Controllers/SBShipPositionController.m"
-            timestampString = "421093263.341375"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "-hasConflictWithOtherShipsShip:"
             landmarkType = "5">
          </BreakpointContent>
@@ -277,11 +261,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Controllers/SBShipPositionController.m"
-            timestampString = "421093263.341375"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-hasConflictWithOtherShipsShip:"
             landmarkType = "5">
          </BreakpointContent>
@@ -293,11 +277,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Controllers/SBShipPositionController.m"
-            timestampString = "421093263.341375"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-hasConflictWithOtherShipsShip:"
             landmarkType = "5">
          </BreakpointContent>
@@ -309,11 +293,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/ViewControllers/SBGameViewController.m"
-            timestampString = "421094348.190029"
+            timestampString = "421098749.125967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "-initialize"
             landmarkType = "5">
          </BreakpointContent>
@@ -321,7 +305,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/View/SBChooseShipsView.m"
@@ -337,7 +321,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/ViewControllers/SBGameViewController.m"
@@ -373,11 +357,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Controllers/SBShipPositionController.m"
-            timestampString = "421093263.341375"
+            timestampString = "421187162.171852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "-allShipsOnField"
             landmarkType = "5">
          </BreakpointContent>
@@ -389,11 +373,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/ViewControllers/SBGameViewController.m"
-            timestampString = "421094348.190029"
+            timestampString = "421102773.341506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-chooseShipsView:didDroppedShipElementView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -405,12 +389,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/ViewControllers/SBGameViewController.m"
-            timestampString = "421094348.190029"
+            timestampString = "421102773.341506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "-chooseShipsView:didDroppedShipElementView:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sea Battle/Sources/Controllers/PlayersController/AI/SBAIAutomaticShipLayouter.m"
+            timestampString = "421187802.158237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-layoutShips"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sea Battle/Sources/Controllers/PlayersController/AI/SBAIAutomaticShipLayouter.m"
+            timestampString = "421187802.158237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-layoutShips"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sea Battle/Sources/Controllers/PlayersController/AI/SBAIAutomaticShipLayouter.m"
+            timestampString = "421187802.158237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-powOfState:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sea Battle/Sources/View/SBChooseShipsView.m"
+            timestampString = "421187364.25435"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "-shipDidRotated:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sea Battle/Sources/View/SBChooseShipsView.m"
+            timestampString = "421187372.615176"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-shipDidMoved:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
