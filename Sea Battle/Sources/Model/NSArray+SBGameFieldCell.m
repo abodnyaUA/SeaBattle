@@ -19,68 +19,87 @@
 {
     NSMutableArray *cells = [NSMutableArray array];
     
-    SBGameFieldCell *cell = nil;
-    SBCellCoordinate coordinate;
-    
-    cell = nil;
-    coordinate = SBCellCoordinateMake(position.x - 1, position.y);
-    while (SBCellCoordinateIsValid(coordinate) && ![self isFreeCell:(cell = [self cellWithPosition:coordinate]) includedStates:mask])
+    SBCellCoordinate offset[4] =
     {
-        coordinate = SBCellCoordinateMake(coordinate.x - 1, coordinate.y);
-        [cells addObject:cell];
+        SBCellCoordinateMake(- 1, 0),
+        SBCellCoordinateMake(+ 1, 0),
+        SBCellCoordinateMake(0, - 1),
+        SBCellCoordinateMake(0, + 1)
     };
     
-    cell = nil;
-    coordinate = SBCellCoordinateMake(position.x + 1, position.y);
-    while (SBCellCoordinateIsValid(coordinate) && ![self isFreeCell:(cell = [self cellWithPosition:coordinate]) includedStates:mask])
+    for (NSUInteger index = 0; index < 4; index++)
     {
-        coordinate = SBCellCoordinateMake(coordinate.x + 1, coordinate.y);
-        [cells addObject:cell];
-    };
-    
-    cell = nil;
-    coordinate = SBCellCoordinateMake(position.x, position.y - 1);
-    while (SBCellCoordinateIsValid(coordinate) && ![self isFreeCell:(cell = [self cellWithPosition:coordinate]) includedStates:mask])
-    {
-        coordinate = SBCellCoordinateMake(coordinate.x, coordinate.y - 1);
-        [cells addObject:cell];
-    };
-    
-    cell = nil;
-    coordinate = SBCellCoordinateMake(position.x, position.y + 1);
-    while (SBCellCoordinateIsValid(coordinate) && ![self isFreeCell:(cell = [self cellWithPosition:coordinate]) includedStates:mask])
-    {
-        coordinate = SBCellCoordinateMake(coordinate.x, coordinate.y + 1);
-        [cells addObject:cell];
-    };
+        SBGameFieldCell *cell = nil;
+        SBCellCoordinate coordinate = SBCellCoordinateMake(position.x + offset[index].x, position.y + offset[index].y);
+        while (SBCellCoordinateIsValid(coordinate) && [self isCell:(cell = [self cellWithPosition:coordinate]) hasState:mask])
+        {
+            coordinate = SBCellCoordinateMake(coordinate.x + offset[index].x, coordinate.y + offset[index].y);
+            [cells addObject:cell];
+        };
+    }
     
     return [cells copy];
 }
 
-- (BOOL)isFreeCell:(SBGameFieldCell *)cell includedStates:(NSUInteger)mask
+- (BOOL)isCell:(SBGameFieldCell *)cell hasState:(NSUInteger)mask
 {
     return cell.state & mask;
 }
 
-- (NSArray *)unactiveFieldsAboveDefendedShipWithPosition:(SBCellCoordinate)position
+- (void)unactivatedFieldsAboveDefendedShipWithPosition:(SBCellCoordinate)position
 {
-    NSMutableArray *cells = [NSMutableArray array];
+    NSMutableArray *shipCells = [[self shipCellsAboveCellWithPosition:position includedStates:SBGameFieldCellStateDefended] mutableCopy];
+    [shipCells addObject:[self cellWithPosition:position]];
     
-    NSArray *shipCells = [self shipCellsAboveCellWithPosition:position includedStates:SBGameFieldCellStateDefended];
+    SBCellCoordinate offset[9] =
+    {
+        SBCellCoordinateMake(- 1, -1),
+        SBCellCoordinateMake(- 1, 0),
+        SBCellCoordinateMake(- 1, 1),
+        
+        SBCellCoordinateMake(0, -1),
+        SBCellCoordinateMake(0, 0),
+        SBCellCoordinateMake(0, 1),
+        
+        SBCellCoordinateMake(1, -1),
+        SBCellCoordinateMake(1, 0),
+        SBCellCoordinateMake(1, 1)
+    };
     
-    return cells;
+    for (SBGameFieldCell *cell in shipCells)
+    {
+        for (NSUInteger index = 0; index < 9; index++)
+        {
+            SBGameFieldCell *newCell = nil;
+            SBCellCoordinate coordinate = SBCellCoordinateMake(cell.coordinate.x + offset[index].x, cell.coordinate.y + offset[index].y);
+            if (SBCellCoordinateIsValid(coordinate) && (newCell = [self cellWithPosition:coordinate]).state == SBGameFieldCellStateFree)
+            {
+                newCell.state = SBGameFieldCellStateUnavailable;
+            }
+        }
+    }
+}
+
+- (void)defendShipWithCoordinate:(SBCellCoordinate)coordinate
+{
+    NSArray *otherShipCells = [self shipCellsAboveCellWithPosition:coordinate includedStates:SBGameFieldCellStateUnderAtack];
+    for (SBGameFieldCell *cell in otherShipCells)
+    {
+        cell.state = SBGameFieldCellStateDefended;
+    }
+    [self unactivatedFieldsAboveDefendedShipWithPosition:coordinate];
 }
 
 + (NSArray *)emptyCells
 {
     NSMutableArray *cells = [NSMutableArray array];
-    for (int i = 0; i < 10; i++)
+    for (int y = 0; y < 10; y++)
     {
         NSMutableArray *cellsInRow = [NSMutableArray array];
-        for (int j = 0; j < 10; j++)
+        for (int x = 0; x < 10; x++)
         {
             SBGameFieldCell *cell = [SBGameFieldCell cellWithState:SBGameFieldCellStateFree];
-            cell.coordinate = SBCellCoordinateMake(j, i);
+            cell.coordinate = SBCellCoordinateMake(x, y);
             [cellsInRow addObject:cell];
         }
         [cells addObject:[cellsInRow copy]];

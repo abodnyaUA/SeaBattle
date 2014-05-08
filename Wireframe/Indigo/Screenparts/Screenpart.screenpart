@@ -1,0 +1,25 @@
+﻿<?Infragistics.Models format="xaml" version="1"?>
+<ScreenPart xmlns="http://prototypes.infragistics.com/"
+                                                              Id="a02212ac-fbdd-61dd-4f18-e1d3542f3a4d">
+    <ScreenPart.Content>
+        <BorderedContent Width="320" Height="576" Background="#00FFFFFF" Id="494cedfc-4cf6-8189-03a0-c4ef1b52ccd6">
+            <BorderedContent.Layers>
+                <Layer Id="4eca071c-80a2-b603-da47-47d4398349db" Panel.Layout="Stretch" />
+                <AnnotationsLayer Id="c25274a9-650b-3035-64d3-ec434b110eef" Panel.Layout="Stretch" />
+            </BorderedContent.Layers>
+            <BorderedContent.Viewbox>
+                <Viewbox Id="4b20b970-2569-f86a-b985-864251ba1933" />
+            </BorderedContent.Viewbox>
+        </BorderedContent>
+    </ScreenPart.Content>
+    <ScreenPart.Device>
+        <DeviceInfo Id="none" Orientation="None" />
+    </ScreenPart.Device>
+    <ScreenPart.Scenes>
+        <Scene Title="Start" Created="05/07/2014 21:10:02" Id="0e28f5fd-0230-09b0-3648-d9da8e0a7dc2">
+            <Scene.KeyFrames>
+                <KeyFrame Id="5606a5c3-f053-42ff-e70d-1ff8248b37e1" />
+            </Scene.KeyFrames>
+        </Scene>
+    </ScreenPart.Scenes>
+</ScreenPart>

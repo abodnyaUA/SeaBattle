@@ -45,7 +45,7 @@
     self.positionController = [SBShipPositionController new];
     self.positionController.fieldView = self.currentFieldView;
     self.positionController.ships = [self.chooseShipsView.ships valueForKey:@"ship"];
-    self.readyButton.enabled = NO;
+    self.readyButton.enabled = YES;
 }
 
 - (SBGameFieldCell *)gameFieldView:(SBGameFieldView *)gameFieldView cellForPosition:(SBCellCoordinate)position
@@ -71,11 +71,7 @@
             
             if (state == SBGameFieldCellStateDefended)
             {
-                NSArray *otherShipCells = [SBGameController.sharedController.enemyCells shipCellsAboveCellWithPosition:position includedStates:SBGameFieldCellStateFree | SBGameFieldCellStateUnavailable];
-                for (SBGameFieldCell *cell in otherShipCells)
-                {
-                    cell.state = SBGameFieldCellStateDefended;
-                }
+                [SBGameController.sharedController.enemyCells defendShipWithCoordinate:position];
             }
             
             [self.currentFieldView setNeedsDisplay];
@@ -119,7 +115,7 @@
 
 - (IBAction)didTapOnReadyButton:(id)sender
 {
-    [SBShipLayouter layoutShips:self.positionController.ships onCells:SBGameController.sharedController.userCells];
+//    [SBShipLayouter layoutShips:self.positionController.ships onCells:SBGameController.sharedController.userCells];
     for (UIView *view in self.view.subviews)
     {
         if ([view isKindOfClass:SBShipElementView.class])

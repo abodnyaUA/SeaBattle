@@ -50,19 +50,16 @@
     SBGameFieldCell *cell = [self.shipLayouter.cells cellWithPosition:position];
     if (cell.state == SBGameFieldCellStateWithShip)
     {
-        NSArray *otherShipCells = [self.shipLayouter.cells shipCellsAboveCellWithPosition:position includedStates:SBGameFieldCellStateFree | SBGameFieldCellStateUnavailable | SBGameFieldCellStateUnderAtack];
+        NSArray *otherShipCells = [self.shipLayouter.cells shipCellsAboveCellWithPosition:position includedStates:SBGameFieldCellStateWithShip | SBGameFieldCellStateUnderAtack];
+        otherShipCells = [otherShipCells filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"state == %d",SBGameFieldCellStateWithShip]];
         if (otherShipCells.count > 0)
         {
             cell.state = SBGameFieldCellStateUnderAtack;
         }
         else
         {
-            otherShipCells = [self.shipLayouter.cells shipCellsAboveCellWithPosition:position includedStates:SBGameFieldCellStateFree | SBGameFieldCellStateUnavailable];
-            for (SBGameFieldCell *cell in otherShipCells)
-            {
-                cell.state = SBGameFieldCellStateDefended;
-            }
             cell.state = SBGameFieldCellStateDefended;
+            [self.shipLayouter.cells defendShipWithCoordinate:position];
         }
     }
     else
