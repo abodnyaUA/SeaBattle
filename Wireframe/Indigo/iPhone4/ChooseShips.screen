@@ -1,0 +1,49 @@
+﻿<?Infragistics.Models format="xaml" version="25"?>
+<Page xmlns="http://prototypes.infragistics.com/"
+                                                         xmlns:i="http://prototypes.infragistics.com/ios7/"
+                                                         Id="9b1650e6-8dc4-92c3-fa97-361765bb442c">
+    <Page.Content>
+        <Content Width="320" Height="460" Id="a9831187-f27b-bd57-1a3f-26ac7dd0410c">
+            <Content.Layers>
+                <Layer Id="f08ff48a-c324-b30e-b8cd-53992fee824f" Panel.Layout="Stretch" />
+                <AnnotationsLayer Id="ced49685-1dde-7334-f2b1-6ece15eccfba" Panel.Layout="Stretch" />
+            </Content.Layers>
+            <Content.Viewbox>
+                <Viewbox Size="320,460" Id="d8b89f81-9cca-1c0a-5f42-11ded288ad5d" />
+            </Content.Viewbox>
+        </Content>
+    </Page.Content>
+    <Page.Device>
+        <DeviceInfo Id="iPhone4" Orientation="Portrait" />
+    </Page.Device>
+    <Page.Scenes>
+        <Scene Title="Start" Created="05/10/2014 15:58:25" Id="39a8f2c8-006f-7138-3dea-1513eead31f6">
+            <Scene.KeyFrames>
+                <KeyFrame Id="3a995a9d-9f0f-a8a4-274a-85213b4bd7de">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="f08ff48a-c324-b30e-b8cd-53992fee824f">
+                            <Add.Item>
+                                <i:Header Text="LAN Game" Id="5a6f9266-4c59-8f7c-c715-dcbefc4fff6e" Panel.Bounds="0,0,320{5,2147483647},45{20,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="f08ff48a-c324-b30e-b8cd-53992fee824f">
+                            <Add.Item>
+                                <i:ActionButton ButtonType="Edit" Text="Leave" Id="f72bf891-7471-5cfb-4a48-f677ee33d233" Panel.Bounds="5,8,50{20,2147483647},30{12,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="f08ff48a-c324-b30e-b8cd-53992fee824f">
+                            <Add.Item>
+                                <i:ActionButton ButtonType="Edit" Text="Ready" Id="6af588a1-904f-d6a2-96f1-1456e3091cd9" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="f08ff48a-c324-b30e-b8cd-53992fee824f">
+                            <Add.Item>
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 18.56.48.png" Id="b654e125-69e7-828d-36c0-227dafd856bf" Panel.Bounds="2,136,320,322*" />
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+    </Page.Scenes>
+</Page>

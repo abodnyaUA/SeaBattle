@@ -11,6 +11,7 @@
 #import "SBGameFieldCell.h"
 #import "SBGameController.h"
 #import "SBGameFieldCellView.h"
+#import "UIColorExtensions.h"
 
 @interface SBGameFieldView ()
 
@@ -70,7 +71,7 @@
             CGFloat cellSize = [self cellSize];
             CGRect cellRect = CGRectMake(cellSize * j + cellSize/12, cellSize * i + cellSize/12, cellSize - cellSize/6, cellSize - cellSize/6);
             
-            CGContextSetFillColorWithColor(context, cell.color.CGColor);
+            CGContextSetFillColorWithColor(context, [UIColor colorForCellState:cell.state].CGColor);
             CGContextFillRect(context, cellRect);
         }
     }

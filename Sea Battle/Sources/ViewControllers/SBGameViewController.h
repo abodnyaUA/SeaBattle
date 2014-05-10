@@ -10,7 +10,8 @@
 
 #import "SBGameFieldView.h"
 #import "SBChooseShipsView.h"
+#import "SBPlayer.h"
 
-@interface SBGameViewController : UIViewController <SBGameFieldViewDataSource, SBGameFieldViewDelegate,SBChooseShipsViewDelegate>
+@interface SBGameViewController : UIViewController <SBGameFieldViewDataSource, SBGameFieldViewDelegate,SBChooseShipsViewDelegate, SBPlayerDelegate>
 
 @end

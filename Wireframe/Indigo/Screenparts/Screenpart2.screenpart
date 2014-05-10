@@ -1,0 +1,34 @@
+﻿<?Infragistics.Models format="xaml" version="1"?>
+<ScreenPart xmlns="http://prototypes.infragistics.com/"
+                                                              xmlns:i="http://prototypes.infragistics.com/ios7/"
+                                                              Id="bc7e3017-776a-9f58-003e-a44d45bd5337">
+    <ScreenPart.Content>
+        <BorderedContent Width="220" Height="24" Background="#00FFFFFF" Id="040d7832-0747-c539-44ea-653498053123">
+            <BorderedContent.Layers>
+                <Layer Id="43fe454f-de8d-e29f-298f-f8c36cacbaf0" Panel.Layout="Stretch" />
+                <AnnotationsLayer Id="f4afc1cf-b810-2ee3-7abe-61387b36927a" Panel.Layout="Stretch" />
+            </BorderedContent.Layers>
+            <BorderedContent.Viewbox>
+                <Viewbox Id="6207f504-9bae-054f-f3c0-8dc91e9b6103" />
+            </BorderedContent.Viewbox>
+        </BorderedContent>
+    </ScreenPart.Content>
+    <ScreenPart.Device>
+        <DeviceInfo Id="none" Orientation="None" />
+    </ScreenPart.Device>
+    <ScreenPart.Scenes>
+        <Scene Title="Start" Created="05/10/2014 11:20:09" Id="d9507f0d-9255-c6c4-bb53-8cd5b85cc814">
+            <Scene.KeyFrames>
+                <KeyFrame Id="d437e903-134b-cf4d-6e05-53b11c791b7c">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="43fe454f-de8d-e29f-298f-f8c36cacbaf0">
+                            <Add.Item>
+                                <i:Title Text="Aleksey Bodnya is shoting" Align="Center" Id="0534d6a2-e502-9dd0-68e2-0dff282fa6f6" />
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+    </ScreenPart.Scenes>
+</ScreenPart>

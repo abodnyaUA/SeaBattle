@@ -25,6 +25,5 @@ typedef NS_ENUM(NSUInteger, SBGameFieldCellState)
 @property (nonatomic, assign) SBCellCoordinate coordinate;
 
 + (instancetype)cellWithState:(SBGameFieldCellState)state;
-- (UIColor *)color;
 
 @end

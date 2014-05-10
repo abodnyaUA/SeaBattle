@@ -8,7 +8,7 @@
 
 #import "SBAIAutomaticShipLayouter.h"
 #import "SBGameFieldCell.h"
-#import "NSArray+SBGameFieldCell.h"
+#import "NSArrayExtensions.h"
 #import "SBShipElement.h"
 #import "SBShipLayouter.h"
 #import "SBShipPositionController.h"
@@ -27,7 +27,7 @@
     [self loadCells];
     [self loadShips];
     [self layoutShips];
-    [self printShips];
+    [self.cells printShips];
 }
 
 - (void)loadCells
@@ -69,34 +69,6 @@
     }
     
     [SBShipLayouter layoutShips:self.ships onCells:self.cells];
-}
-
-- (NSUInteger)powOfState:(SBGameFieldCellState)state
-{
-    NSUInteger pow = 0;
-    do
-    {
-        pow++;
-        state = sqrt(state);
-    }
-    while (state > 1);
-    return pow;
-}
-
-- (void)printShips
-{
-    NSString *description = @"\n";
-    for (int i=0; i<10; i++)
-    {
-        for (int j=0;j<10;j++)
-        {
-            SBGameFieldCell *cell = [self.cells cellWithPosition:SBCellCoordinateMake(j, i)];
-            description = [description stringByAppendingString:[NSString stringWithFormat:@"%ld ",(long)[self powOfState:cell.state]]];
-        }
-        description = [description stringByAppendingString:@"\n"];
-    }
-    NSLog(@"%@",description);
-
 }
 
 @end

@@ -1,0 +1,49 @@
+﻿<?Infragistics.Models format="xaml" version="1"?>
+<ScreenPart xmlns="http://prototypes.infragistics.com/"
+                                                              xmlns:i="http://prototypes.infragistics.com/ios7/"
+                                                              Id="85d5d88e-a0c8-2b0a-1717-1a89d8029c3b">
+    <ScreenPart.Content>
+        <BorderedContent Width="320" Height="50" Background="#00FFFFFF" Id="9565578f-b62b-2e1a-03b6-5072d2ca91a0">
+            <BorderedContent.Layers>
+                <Layer Id="0d309707-f8e8-5764-4354-886b4530c5c2" Panel.Layout="Stretch" />
+                <AnnotationsLayer Id="b024dec8-69ab-1cc5-7735-6c79b12f8cfc" Panel.Layout="Stretch" />
+            </BorderedContent.Layers>
+            <BorderedContent.Viewbox>
+                <Viewbox Id="2dfd62ed-2b24-5a66-abe1-6676d9f41096" />
+            </BorderedContent.Viewbox>
+        </BorderedContent>
+    </ScreenPart.Content>
+    <ScreenPart.Device>
+        <DeviceInfo Id="none" Orientation="None" />
+    </ScreenPart.Device>
+    <ScreenPart.Scenes>
+        <Scene Title="Start" Created="05/10/2014 11:14:25" Id="8e4512ff-5bc9-cf14-3c09-93ad5afabdd2">
+            <Scene.KeyFrames>
+                <KeyFrame Id="b2fb6011-cdcf-3c1a-857c-ca9186e4b7cd">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="0d309707-f8e8-5764-4354-886b4530c5c2">
+                            <Add.Item>
+                                <Image SourcePath="assets/4246577.jpeg" Id="941e2165-596f-1f7a-a30e-5965fff54b84" Panel.Bounds="0,0,50{5,2147483647},0*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="0d309707-f8e8-5764-4354-886b4530c5c2">
+                            <Add.Item>
+                                <Image SourcePath="assets/default_user_icon.png" Id="a351b16b-54c2-1761-7e55-79b33ad8b3bd" Panel.Bounds="270,0,50{5,2147483647},50{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="0d309707-f8e8-5764-4354-886b4530c5c2">
+                            <Add.Item>
+                                <i:ProgressView Value="79" Id="0d2e58b5-634a-a9c6-13c3-c5b89394997e" Panel.Bounds="54,41,90,0*" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="0d309707-f8e8-5764-4354-886b4530c5c2">
+                            <Add.Item>
+                                <i:ProgressView ProgressColor="#FFF6F6F6" TrackColor="#FFFF2E2E" Value="79" Id="e89b5d88-a88b-b2e0-19e0-63e92e17b913" Panel.Bounds="176,41,90{30,2147483647},0*{9,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+    </ScreenPart.Scenes>
+</ScreenPart>

@@ -1,0 +1,114 @@
+﻿<?Infragistics.Models format="xaml" version="25"?>
+<Page xmlns="http://prototypes.infragistics.com/"
+                                                         xmlns:i="http://prototypes.infragistics.com/ios7/"
+                                                         xmlns:i2="http://prototypes.infragistics.com/ios/"
+                                                         Id="76862675-87c9-24ab-86cf-df05484f445a">
+    <Page.Content>
+        <Content Width="320" Height="460" Id="6e777dc7-ad80-a734-5a90-26f522a51adb">
+            <Content.Layers>
+                <Layer Id="1cb10b27-2259-c870-79ca-c7ff8ee0899f" Panel.Layout="Stretch" />
+                <AnnotationsLayer Id="fcd93fec-c681-9f10-ff8a-ce00e428586f" Panel.Layout="Stretch" />
+            </Content.Layers>
+            <Content.Viewbox>
+                <Viewbox Size="320,460" Id="98cdce54-bab5-931b-ba52-3c6705400cc0" />
+            </Content.Viewbox>
+        </Content>
+    </Page.Content>
+    <Page.Device>
+        <DeviceInfo Id="iPhone4" Orientation="Portrait" />
+    </Page.Device>
+    <Page.Scenes>
+        <Scene Title="Start" Created="05/10/2014 13:53:58" Id="df96609a-9e4a-c32d-6828-6043ef1e9b2a">
+            <Scene.KeyFrames>
+                <KeyFrame Id="f790fe34-c834-83f7-53eb-2782bbd2f9d6">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
+                            <Add.Item>
+                                <ScreenPartInstance TemplateReference="/Screenparts/Screenpart1.screenpart" Id="3a00464a-336e-cba6-15e4-8e842cba5b73" Panel.Bounds="0,88,0*,0*">
+                                    <ScreenPartInstance.Customizations>
+                                        <Add Property="Control.Click" Target="a351b16b-54c2-1761-7e55-79b33ad8b3bd">
+                                            <Add.Item>
+                                                <CommandNext SceneId="5f9a3dcc-341e-4f45-d318-dfb87e070ad3" Created="05/10/2014 14:30:46" Id="6e8722af-f65d-cd60-ea9f-009f66b07aca" />
+                                            </Add.Item>
+                                        </Add>
+                                        <Set Property="Panel.Bounds" Value="0,0,50{5,2147483647},0*{5,2147483647}" Target="941e2165-596f-1f7a-a30e-5965fff54b84" />
+                                        <Set Property="Panel.Bounds" Value="234,0,40{5,2147483647},40{5,2147483647}" Target="a351b16b-54c2-1761-7e55-79b33ad8b3bd" />
+                                        <Move To="270,0" Target="a351b16b-54c2-1761-7e55-79b33ad8b3bd" />
+                                        <Resize To="50,50" Target="a351b16b-54c2-1761-7e55-79b33ad8b3bd" />
+                                        <Move To="54,41" Target="0d2e58b5-634a-a9c6-13c3-c5b89394997e" />
+                                        <Move To="175,41" Target="e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
+                                        <Remove Target="828f295e-1d06-8aab-8478-138436431cd6" />
+                                    </ScreenPartInstance.Customizations>
+                                </ScreenPartInstance>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
+                            <Add.Item>
+                                <i:Header Text="LAN Game" Id="61c0a7ac-ab69-92ea-b562-1511836b5fae" Panel.Bounds="0,0,320{5,2147483647},45{20,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
+                            <Add.Item>
+                                <i:ActionButton ButtonType="Edit" Text="Leave" Id="43e69c84-b501-dac7-f666-b409091c29df" Panel.Bounds="5,8,50{20,2147483647},30{12,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
+                            <Add.Item>
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 14.30.36.png" Id="3a83809c-3ace-f481-d279-076a8da1ef15" Panel.Bounds="0,140,320*,320" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
+                            <Add.Item>
+                                <i:ActionButton ButtonType="Edit" Text="Preview" Id="86704637-8ad6-2245-ebf2-550939cfa6d5" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
+                            <Add.Item>
+                                <i:Title Text="Aleksey Bodnya is shoting" Align="Center" FontSize="13" Id="8ca22591-2e7c-3a94-27ae-f931c850bdb2" Panel.Bounds="5,55,310,18*" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
+                            <Add.Item>
+                                <Line Type="Line" Thickness="1" RotationAngle="3.88578058618805E-16" Background="#00FFFFFF" Id="751fbdea-b5f6-c4ef-7e9f-e0b3d0b9d6cd" Panel.Bounds="0,84,320{1,2147483647},3{1,2147483647}">
+                                    <Line.StartPoint>
+                                        <Point X="-105" Y="-4" Id="ce475482-f306-14a3-0a95-a0031de5ed47" />
+                                    </Line.StartPoint>
+                                    <Line.Segments>
+                                        <Segment Id="c834e998-35cc-ec39-ee07-09669cddb194">
+                                            <Segment.EndPoint>
+                                                <Point X="214" Y="-4" Id="72be37ea-a54c-e76d-97be-68f4a0f88ac9" />
+                                            </Segment.EndPoint>
+                                        </Segment>
+                                    </Line.Segments>
+                                </Line>
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+        <Scene Title="Tapped default_user_icon" StateGroup="df96609a-9e4a-c32d-6828-6043ef1e9b2a" ParentScene="df96609a-9e4a-c32d-6828-6043ef1e9b2a" Created="05/10/2014 14:17:20" Id="5f9a3dcc-341e-4f45-d318-dfb87e070ad3">
+            <Scene.KeyFrames>
+                <KeyFrame Id="2071f2a6-bc2b-da19-9226-744bf8178611">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="3cd3b510-4cec-26d5-889a-37836fb1c266" Name="Modal Menu" i2:ModalMenu.IsModalMenu="True" Panel.Bounds="0,0,320*,460*">
+                                    <Group.Children>
+                                        <Rectangle Thickness="0" Background="#66000000" Id="08c0600a-6260-f29c-334c-8254021f8351" Panel.Bounds="0,0,320,460" />
+                                        <i:ActionSheetButton ButtonType="Delete" Text="Delete" Foreground="#FFFD472B" Id="32d27784-540f-0a91-d10a-ecae1cca1900" Panel.Bounds="8,356,304,44" />
+                                        <ScreenPartInstance TemplateReference="/Screenparts/Screenpart3.screenpart" Id="10018eff-1612-bc78-d6cf-5acd21655934" Panel.Bounds="8,408,0*,0*">
+                                            <ScreenPartInstance.Click>
+                                                <CommandSwitchTo SceneId="df96609a-9e4a-c32d-6828-6043ef1e9b2a" Created="05/10/2014 14:18:22" Id="85eafef5-4e61-fe5d-423e-509944915b23" />
+                                            </ScreenPartInstance.Click>
+                                        </ScreenPartInstance>
+                                    </Group.Children>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+    </Page.Scenes>
+</Page>

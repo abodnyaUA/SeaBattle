@@ -10,6 +10,7 @@
 
 #import "SBGameFieldCellView.h"
 #import "SBGameFieldCell.h"
+#import "UIColorExtensions.h"
 
 @interface SBShipElementView ()
 
@@ -113,7 +114,7 @@
             cellRect = CGRectMake(self.cellSize/12, self.cellSize * i + self.cellSize/12, self.cellSize - self.cellSize/6, self.cellSize - self.cellSize/6);
         }
         
-        CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
+        CGContextSetFillColorWithColor(context, [UIColor colorForCellState:SBGameFieldCellStateWithShip].CGColor);
         CGContextFillRect(context, cellRect);
     }
 }

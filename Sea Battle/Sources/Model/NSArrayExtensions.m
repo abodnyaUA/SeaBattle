@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Alexey Bodnya. All rights reserved.
 //
 
-#import "NSArray+SBGameFieldCell.h"
+#import "NSArrayExtensions.h"
 
 @implementation NSArray (SBGameFieldCell)
 
@@ -105,6 +105,69 @@
         [cells addObject:[cellsInRow copy]];
     }
     return [cells copy];
+}
+
+- (void)shotToCellWithPosition:(SBCellCoordinate)position
+{
+    SBGameFieldCell *cell = [self cellWithPosition:position];
+    if (cell.state == SBGameFieldCellStateWithShip)
+    {
+        NSArray *otherShipCells = [self shipCellsAboveCellWithPosition:position includedStates:SBGameFieldCellStateWithShip | SBGameFieldCellStateUnderAtack];
+        otherShipCells = [otherShipCells filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"state == %d",SBGameFieldCellStateWithShip]];
+        if (otherShipCells.count > 0)
+        {
+            cell.state = SBGameFieldCellStateUnderAtack;
+        }
+        else
+        {
+            cell.state = SBGameFieldCellStateDefended;
+            [self defendShipWithCoordinate:position];
+        }
+    }
+    else
+    {
+        cell.state = SBGameFieldCellStateUnavailable;
+    }
+}
+
+- (void)printShips
+{
+    NSString *description = @"\n";
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10;j++)
+        {
+            SBGameFieldCell *cell = [self cellWithPosition:SBCellCoordinateMake(j, i)];
+            description = [description stringByAppendingString:[NSString stringWithFormat:@"%ld ",(long)[self powOfState:cell.state]]];
+        }
+        description = [description stringByAppendingString:@"\n"];
+    }
+    NSLog(@"%@",description);
+}
+
+- (NSUInteger)powOfState:(SBGameFieldCellState)state
+{
+    NSUInteger pow = 0;
+    do
+    {
+        pow++;
+        state = sqrt(state);
+    }
+    while (state > 1);
+    return pow;
+}
+
+- (NSArray *)allCellsWithMask:(NSUInteger)mask
+{
+    NSMutableArray *allCells = [NSMutableArray array];
+    for (NSArray *cellsInRow in self)
+    {
+        [allCells addObjectsFromArray:cellsInRow];
+    }
+    [allCells filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SBGameFieldCell *cell, NSDictionary *bindings) {
+        return cell.state & mask;
+    }]];
+    return [allCells copy];
 }
 
 @end

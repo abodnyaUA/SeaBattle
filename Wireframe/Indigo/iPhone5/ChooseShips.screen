@@ -1,0 +1,83 @@
+﻿<?Infragistics.Models format="xaml" version="25"?>
+<Page xmlns="http://prototypes.infragistics.com/"
+                                                         xmlns:i="http://prototypes.infragistics.com/ios7/"
+                                                         xmlns:i2="http://prototypes.infragistics.com/ios/"
+                                                         Id="03a47681-a1ab-9896-d8a2-da7a1280b1cf">
+    <Page.Content>
+        <Content Width="320" Height="548" Id="4b275ee7-615a-c9d5-e738-bd047f69b6f8">
+            <Content.Layers>
+                <Layer Id="fe4419c0-4d32-626d-d7bd-4460e10cb0b8" Panel.Layout="Stretch" />
+                <AnnotationsLayer Id="03a7ab17-9ae2-ab07-ddc9-4b624631502f" Panel.Layout="Stretch" />
+            </Content.Layers>
+            <Content.Viewbox>
+                <Viewbox Size="320,548" Id="8d95c8e4-462b-666f-a22b-2c12c82c4b39" />
+            </Content.Viewbox>
+        </Content>
+    </Page.Content>
+    <Page.Device>
+        <DeviceInfo Id="iPhone5" Orientation="Portrait" />
+    </Page.Device>
+    <Page.Scenes>
+        <Scene Title="Start" Created="05/10/2014 15:52:18" Id="32a2fbd5-4dba-60ac-8754-b6f6d4fdb9d9">
+            <Scene.KeyFrames>
+                <KeyFrame Id="438d0bd8-3589-322c-56c7-129c0c4ac7f9">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="fe4419c0-4d32-626d-d7bd-4460e10cb0b8">
+                            <Add.Item>
+                                <i:SegmentedControlContent Id="2a9a92fd-2630-27dc-ef8e-c6058b1569d6" CompositeControl.Key="eca52123-0727-6c87-13e1-4e73530a4802" Panel.Bounds="0,46,320{5,2147483647},454{5,2147483647}">
+                                    <i:SegmentedControlContent.Items>
+                                        <i2:ContainerListItem Text="Game Content" Id="7fecb9f1-316d-33e6-8bc8-be5bec61c7ca" i2:ContainerListControl.ItemKey="031e6d8a-7eae-e699-f24b-4c81a835d3e6">
+                                            <i2:ContainerListItem.Content>
+                                                <Container ClipToContainer="True" Id="b94f6603-605c-115f-d964-c280dc888468" />
+                                            </i2:ContainerListItem.Content>
+                                        </i2:ContainerListItem>
+                                        <i2:ContainerListItem Text="Chat Content" IsSelected="True" Id="8139dd41-2158-b2d2-7087-1b05e68cf6b9" i2:ContainerListControl.ItemKey="4438c024-cfb4-8bae-e40f-c67336dfe5f3">
+                                            <i2:ContainerListItem.Content>
+                                                <Container ClipToContainer="True" Id="a1f68499-14bb-8fe2-31bc-05a3a946fda5" />
+                                            </i2:ContainerListItem.Content>
+                                        </i2:ContainerListItem>
+                                    </i:SegmentedControlContent.Items>
+                                </i:SegmentedControlContent>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="fe4419c0-4d32-626d-d7bd-4460e10cb0b8">
+                            <Add.Item>
+                                <i:Header Text="LAN Game" Id="2b96d933-8bb7-b6ca-2224-eadde32b8db1" Panel.Bounds="0,0,320{5,2147483647},45{20,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="fe4419c0-4d32-626d-d7bd-4460e10cb0b8">
+                            <Add.Item>
+                                <i:ActionButton ButtonType="Edit" Text="Leave" Id="cf2fac90-fe87-e836-b44a-afedf0926730" Panel.Bounds="5,8,50{20,2147483647},30{12,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="fe4419c0-4d32-626d-d7bd-4460e10cb0b8">
+                            <Add.Item>
+                                <i:ActionButton ButtonType="Edit" Text="Preview" Id="e978fd3f-d0f7-5191-2d22-b92c30c26af3" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="fe4419c0-4d32-626d-d7bd-4460e10cb0b8">
+                            <Add.Item>
+                                <i:SegmentedControlButtons Id="9ffe5e5e-8c22-1565-0274-6a6947c3dc4b" CompositeControl.Key="eca52123-0727-6c87-13e1-4e73530a4802" Panel.Bounds="80,510,160{30,2147483647},30{12,2147483647}">
+                                    <i:SegmentedControlButtons.Items>
+                                        <i:SegmentedToggleItem Text="Game" Id="18503d4d-3bb8-4c9c-a567-c37d8d9acac7" i2:ContainerListControl.ItemKey="031e6d8a-7eae-e699-f24b-4c81a835d3e6" Panel.Bounds="0,0,80*,30*" />
+                                        <i:SegmentedToggleItem Text="Chat" IsSelected="True" Id="d5632b96-11d7-fa08-469c-3afd3e254d32" i2:ContainerListControl.ItemKey="4438c024-cfb4-8bae-e40f-c67336dfe5f3" Panel.Bounds="0,0,80*,30*" />
+                                    </i:SegmentedControlButtons.Items>
+                                </i:SegmentedControlButtons>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="fe4419c0-4d32-626d-d7bd-4460e10cb0b8">
+                            <Add.Item>
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 18.56.48.png" Id="54a13539-4533-c273-bc43-e1a52d5a4c2d" Panel.Bounds="0,178,320{5,2147483647},0*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="fe4419c0-4d32-626d-d7bd-4460e10cb0b8">
+                            <Add.Item>
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 18.54.07.png" Id="7e986cc1-d019-800b-d611-ea58e6f0c502" Panel.Bounds="0,44,156{5,2147483647},0*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+    </Page.Scenes>
+</Page>

@@ -1,0 +1,148 @@
+﻿<?Infragistics.Models format="xaml" version="25"?>
+<Page xmlns="http://prototypes.infragistics.com/"
+                                                         xmlns:i="http://prototypes.infragistics.com/ios/"
+                                                         xmlns:i2="http://prototypes.infragistics.com/ios7/"
+                                                         Id="2d3e8026-e70e-6deb-b2ec-703e45edf3a8">
+    <Page.Content>
+        <Content Width="320" Height="548" Id="314800c6-c78c-45a4-bb8e-42f80f14c39c">
+            <Content.Layers>
+                <Layer Id="a1629758-098f-32c0-4ad1-9c0448069805" Panel.Layout="Stretch" />
+                <AnnotationsLayer Id="1e5ad22f-6405-4366-e095-d184b935bf60" Panel.Layout="Stretch" />
+            </Content.Layers>
+            <Content.Viewbox>
+                <Viewbox Size="320,548" Id="296621f2-5b1d-ccbd-9325-b18c5d9b6bbd" />
+            </Content.Viewbox>
+        </Content>
+    </Page.Content>
+    <Page.Device>
+        <DeviceInfo Id="iPhone5" Orientation="Portrait" />
+    </Page.Device>
+    <Page.Scenes>
+        <Scene Title="Start" Created="05/10/2014 11:05:16" Id="c56588ed-5528-fde2-e316-cc8ca403ba4c">
+            <Scene.KeyFrames>
+                <KeyFrame Id="f3b6cd78-5588-df8e-1745-67d7b096f77f">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <ScreenPartInstance TemplateReference="/Screenparts/Screenpart1.screenpart" Id="5aa69205-9c51-bb62-fbe2-1e0610697f07" Panel.Bounds="0,88,320,92">
+                                    <ScreenPartInstance.Customizations>
+                                        <Add Property="Control.Click" Target="a351b16b-54c2-1761-7e55-79b33ad8b3bd">
+                                            <Add.Item>
+                                                <CommandNext SceneId="32cbd152-4d9b-c414-f218-c2378381a666" Created="05/10/2014 14:15:33" Id="612a0f4b-f142-18ae-34bc-849199ccfbae" />
+                                            </Add.Item>
+                                        </Add>
+                                        <Set Property="ProgressBar.Value" Value="100" Target="0d2e58b5-634a-a9c6-13c3-c5b89394997e" />
+                                        <Set Property="Panel.Bounds" Value="252,0,90{5,2147483647},90{5,2147483647}" Target="a351b16b-54c2-1761-7e55-79b33ad8b3bd" />
+                                        <Move To="5,79" Target="0d2e58b5-634a-a9c6-13c3-c5b89394997e" />
+                                        <Move To="175,79" Target="e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
+                                        <Resize To="75,0" Target="941e2165-596f-1f7a-a30e-5965fff54b84" />
+                                        <Resize To="75,75" Target="a351b16b-54c2-1761-7e55-79b33ad8b3bd" />
+                                        <Move To="240,0" Target="a351b16b-54c2-1761-7e55-79b33ad8b3bd" />
+                                        <Resize To="140,0" Target="0d2e58b5-634a-a9c6-13c3-c5b89394997e" />
+                                        <Resize To="140,0" Target="e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
+                                        <Set Property="i:ProgressView.TrackColor" Value="#FF007AFF" Target="e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
+                                        <Set Property="ProgressBar.Value" Value="29" Target="e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
+                                        <Move To="5,0" Target="941e2165-596f-1f7a-a30e-5965fff54b84" />
+                                        <Remove Target="828f295e-1d06-8aab-8478-138436431cd6" />
+                                    </ScreenPartInstance.Customizations>
+                                </ScreenPartInstance>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <i2:Header Text="LAN Game" Id="db2894c7-b074-e921-cecc-f5afbaaf8e7b" Panel.Bounds="0,0,320{5,2147483647},45{20,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <i2:ActionButton ButtonType="Edit" Text="Leave" Id="16c2ab6b-ae98-b0fd-fb8c-ff4b3c862c57" Panel.Bounds="5,8,50{20,2147483647},30{12,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 14.30.36.png" Id="83bc4b2d-52c7-0532-5838-1b85d5def150" Panel.Bounds="0,183,0*{5,2147483647},320{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <i2:ActionButton ButtonType="Edit" Text="Preview" Id="c2e8670c-9a5e-4601-c6b1-d68b48a79ef7" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <i2:SegmentedControlButtons Id="90c640a0-713d-575e-a931-88d3a5562d22" CompositeControl.Key="f24484ff-67d6-3e8b-5a90-a01404e44099" Panel.Bounds="80,510,160{30,2147483647},30{12,2147483647}">
+                                    <i2:SegmentedControlButtons.Items>
+                                        <i2:SegmentedToggleItem Text="Game" Id="568fb4b2-1bfb-26d7-4091-745ef9c67656" i:ContainerListControl.ItemKey="031e6d8a-7eae-e699-f24b-4c81a835d3e6" />
+                                        <i2:SegmentedToggleItem Text="Chat" IsSelected="True" Id="95db8d5f-0454-480f-3b17-2b9074c781e1" i:ContainerListControl.ItemKey="4438c024-cfb4-8bae-e40f-c67336dfe5f3" />
+                                    </i2:SegmentedControlButtons.Items>
+                                </i2:SegmentedControlButtons>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Before="5aa69205-9c51-bb62-fbe2-1e0610697f07" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <i2:SegmentedControlContent Id="763996f1-e134-11ee-106c-cf68a800b004" CompositeControl.Key="f24484ff-67d6-3e8b-5a90-a01404e44099" Panel.Bounds="0,82,320{5,2147483647},418{5,2147483647}">
+                                    <i2:SegmentedControlContent.Items>
+                                        <i:ContainerListItem Text="Game Content" Id="794b7980-e7a2-fead-3743-731abb5c8b28" i:ContainerListControl.ItemKey="031e6d8a-7eae-e699-f24b-4c81a835d3e6">
+                                            <i:ContainerListItem.Content>
+                                                <Container ClipToContainer="True" Id="ef986d37-c052-c82b-01e0-48df3c38b709" />
+                                            </i:ContainerListItem.Content>
+                                        </i:ContainerListItem>
+                                        <i:ContainerListItem Text="Chat Content" IsSelected="True" Id="358d1a7e-4f59-afaf-529b-e00429dfaa89" i:ContainerListControl.ItemKey="4438c024-cfb4-8bae-e40f-c67336dfe5f3">
+                                            <i:ContainerListItem.Content>
+                                                <Container ClipToContainer="True" Id="ec6be52d-fdc3-ceed-2541-04ddf7761b65" />
+                                            </i:ContainerListItem.Content>
+                                        </i:ContainerListItem>
+                                    </i2:SegmentedControlContent.Items>
+                                </i2:SegmentedControlContent>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <i2:Title Text="Aleksey Bodnya is shoting" Align="Center" FontSize="13" Id="0534d6a2-e502-9dd0-68e2-0dff282fa6f6" Panel.Bounds="5,54,310,18*" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <Line Type="Line" Thickness="1" RotationAngle="3.88578058618805E-16" Background="#00FFFFFF" Id="de20a9e3-cd0e-eec3-cfbd-7691a0951610" Panel.Bounds="0,82,320{1,2147483647},3{1,2147483647}">
+                                    <Line.StartPoint>
+                                        <Point X="-123" Id="7818b7f5-3778-cba3-1b9a-7e8d202d8adb" />
+                                    </Line.StartPoint>
+                                    <Line.Segments>
+                                        <Segment Id="41c20484-904e-3235-0823-2ee5f08bc0ea">
+                                            <Segment.EndPoint>
+                                                <Point X="197" Id="a87b0230-fdca-2bf1-6138-4a328848168f" />
+                                            </Segment.EndPoint>
+                                        </Segment>
+                                    </Line.Segments>
+                                </Line>
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+        <Scene Title="Tapped default_user_icon" StateGroup="c56588ed-5528-fde2-e316-cc8ca403ba4c" ParentScene="c56588ed-5528-fde2-e316-cc8ca403ba4c" Created="05/10/2014 14:19:19" Id="32cbd152-4d9b-c414-f218-c2378381a666">
+            <Scene.KeyFrames>
+                <KeyFrame Id="9fcd13f9-8969-d3f9-2211-eb399577d46d">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="42f273d2-7a39-bab4-f247-135d945b7e8c" Name="Modal Menu" i:ModalMenu.IsModalMenu="True" Panel.Bounds="0,0,320*,548*">
+                                    <Group.Children>
+                                        <Rectangle Thickness="0" Background="#66000000" Id="06ceb0f8-3ab3-fda5-8ab6-c3fed6f10ebe" Panel.Bounds="0,0,320,548" />
+                                        <i2:ActionSheetButton ButtonType="Delete" Text="Delete" Foreground="#FFFD472B" Id="05d6457a-76b2-63bd-2792-cce95e737da1" Panel.Bounds="8,444,304,44" />
+                                        <i2:ActionSheetButton ButtonType="Cancel" Text="Cancel" FontStyle="Bold" Id="38000729-f9ea-2205-e83b-b0273d633457" Panel.Bounds="8,496,304,44">
+                                            <i2:ActionSheetButton.Click>
+                                                <CommandSwitchTo SceneId="c56588ed-5528-fde2-e316-cc8ca403ba4c" Created="05/10/2014 14:19:46" Id="83079103-dcd9-5201-f643-105d7b8b6ac8" />
+                                            </i2:ActionSheetButton.Click>
+                                        </i2:ActionSheetButton>
+                                    </Group.Children>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+    </Page.Scenes>
+</Page>

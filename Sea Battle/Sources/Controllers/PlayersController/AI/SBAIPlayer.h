@@ -13,5 +13,6 @@
 @interface SBAIPlayer : NSObject <SBPlayer>
 
 @property (nonatomic, weak) id<SBPlayerDelegate> delegate;
+@property (nonatomic, strong) SBPlayerInfo *info;
 
 @end

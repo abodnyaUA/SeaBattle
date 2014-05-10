@@ -17,5 +17,9 @@
 - (SBGameFieldCell *)cellWithPosition:(SBCellCoordinate)position;
 - (NSArray *)shipCellsAboveCellWithPosition:(SBCellCoordinate)position includedStates:(NSUInteger)mask;
 - (void)defendShipWithCoordinate:(SBCellCoordinate)coordinate;
+- (void)shotToCellWithPosition:(SBCellCoordinate)position;
+- (NSArray *)allCellsWithMask:(NSUInteger)mask;
+
+- (void)printShips;
 
 @end

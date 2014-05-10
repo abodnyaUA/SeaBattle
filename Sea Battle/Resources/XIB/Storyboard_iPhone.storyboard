@@ -19,7 +19,7 @@
             </objects>
             <point key="canvasLocation" x="225" y="-309"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Game View Controller - Game with AI-->
         <scene sceneID="35u-V2-XU2">
             <objects>
                 <viewController id="Ffx-3R-m9u" customClass="SBGameViewController" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gu-a4-FAf" customClass="SBGameFieldView">
-                                <rect key="frame" x="0.0" y="248" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="202" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
@@ -45,41 +45,92 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1m7-MJ-Niw" customClass="SBChooseShipsView">
-                                <rect key="frame" x="0.0" y="66" width="227" height="182"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="Ffx-3R-m9u" id="cI0-tm-uGT"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eov-6k-R5d">
-                                <rect key="frame" x="254" y="71" width="44" height="30"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kW5-wP-dy5">
+                                <rect key="frame" x="110" y="530" width="101" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Ready">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapOnReadyButton:" destination="Ffx-3R-m9u" eventType="touchUpInside" id="e84-i5-kW3"/>
-                                </connections>
-                            </button>
+                                <segments>
+                                    <segment title="Game"/>
+                                    <segment title="Chat"/>
+                                </segments>
+                            </segmentedControl>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aCQ-ap-YKs" userLabel="GameStatsView">
+                                <rect key="frame" x="0.0" y="66" width="320" height="136"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aF4-UJ-bZ3">
+                                        <rect key="frame" x="12" y="41" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ht-fO-j4r">
+                                        <rect key="frame" x="234" y="41" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dex-px-ezo">
+                                        <rect key="frame" x="0.0" y="38" width="320" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aph-o5-xqH">
+                                        <rect key="frame" x="12" y="9" width="297" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="TgK-ej-hFR">
+                                        <rect key="frame" x="12" y="124" width="140" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </progressView>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="kb1-PY-lgx">
+                                        <rect key="frame" x="169" y="124" width="140" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.22013946808665541" green="1" blue="0.25932688197120934" alpha="1" colorSpace="calibratedRGB"/>
+                                    </progressView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1gu-a4-FAf" secondAttribute="trailing" id="I8i-4l-xbU"/>
-                            <constraint firstItem="RGo-zf-hsX" firstAttribute="top" secondItem="1gu-a4-FAf" secondAttribute="bottom" id="Tbu-ml-EbF"/>
+                            <constraint firstItem="RGo-zf-hsX" firstAttribute="top" secondItem="1gu-a4-FAf" secondAttribute="bottom" constant="46" id="Tbu-ml-EbF"/>
                             <constraint firstItem="1gu-a4-FAf" firstAttribute="leading" secondItem="J7U-Z6-yJM" secondAttribute="leading" id="tP4-E0-b2e"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aza-ua-7wT"/>
+                    <navigationItem key="navigationItem" title="Game with AI" id="aza-ua-7wT">
+                        <barButtonItem key="rightBarButtonItem" title="Ready" id="fJq-Oh-qOE">
+                            <connections>
+                                <action selector="didTapOnReadyButton:" destination="Ffx-3R-m9u" id="g72-7D-AhP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="chooseShipsView" destination="1m7-MJ-Niw" id="ell-Wr-3Ci"/>
                         <outlet property="currentFieldView" destination="1gu-a4-FAf" id="v2r-vf-VJp"/>
-                        <outlet property="readyButton" destination="eov-6k-R5d" id="lRr-Kf-jXH"/>
+                        <outlet property="gameProgressContainerView" destination="aCQ-ap-YKs" id="vKs-o2-gG4"/>
+                        <outlet property="gameStatusView" destination="aph-o5-xqH" id="xLt-fb-pN4"/>
+                        <outlet property="oponentImageView" destination="5Ht-fO-j4r" id="7ET-tt-YaW"/>
+                        <outlet property="oponentProgressView" destination="kb1-PY-lgx" id="TeB-7w-sTO"/>
+                        <outlet property="previewButton" destination="OMd-Dg-3vh" id="Av3-gB-ys1"/>
+                        <outlet property="readyButton" destination="fJq-Oh-qOE" id="enk-Y1-syc"/>
+                        <outlet property="userImageView" destination="aF4-UJ-bZ3" id="qZM-Qu-Olq"/>
+                        <outlet property="userProgressView" destination="TgK-ej-hFR" id="Jf3-On-FK4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4T-Ql-dwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Preview" id="OMd-Dg-3vh">
+                    <connections>
+                        <action selector="didTapOnPreviewButton:" destination="Ffx-3R-m9u" id="PrO-7t-NfW"/>
+                    </connections>
+                </barButtonItem>
             </objects>
-            <point key="canvasLocation" x="647" y="-309"/>
+            <point key="canvasLocation" x="645" y="-309"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

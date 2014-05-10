@@ -11,7 +11,7 @@
 #import "SBCellCoordinate.h"
 #import "SBGameFieldCell.h"
 #import "SBShipElement.h"
-#import "NSArray+SBGameFieldCell.h"
+#import "NSArrayExtensions.h"
 
 @implementation SBShipLayouter
 

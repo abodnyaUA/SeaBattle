@@ -10,6 +10,9 @@
 
 #import "SBGameFieldCell.h"
 #import "SBCellCoordinate.h"
+#import "SBPlayerInfo.h"
+
+typedef void (^SBShotResultBlock)(SBGameFieldCellState);
 
 @protocol SBPlayerDelegate;
 
@@ -18,13 +21,15 @@
 @required
 
 @property (nonatomic, weak) IBOutlet id<SBPlayerDelegate> delegate;
+@property (nonatomic, strong) SBPlayerInfo *info;
 
-- (void)shotToCellAtPosition:(SBCellCoordinate)position withResultBlock:(void (^)(SBGameFieldCellState))block;
+- (void)shotToCellAtPosition:(SBCellCoordinate)position withResultBlock:(SBShotResultBlock)block;
 
 @end
 
 @protocol SBPlayerDelegate <NSObject>
 
 - (void)playerDidSetupShips:(id<SBPlayer>)player;
+- (void)player:(id<SBPlayer>)player didShotToCellWithPosition:(SBCellCoordinate)position withResultBlock:(SBShotResultBlock)block;
 
 @end

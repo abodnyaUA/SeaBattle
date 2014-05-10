@@ -9,7 +9,10 @@
 #import "SBGameController.h"
 
 #import "SBGameFieldCell.h"
-#import "NSArray+SBGameFieldCell.h"
+#import "NSArrayExtensions.h"
+#import "SBGameEnviroment.h"
+
+NSString * const kSBGameDidFinishedNotification = @"kSBGameDidFinishedNotification";
 
 @implementation SBGameController
 
@@ -28,10 +31,34 @@
     self.userCells = [NSArray emptyCells];
     self.enemyCells = [NSArray emptyCells];
     self.enemyPlayer = player;
-    self.gameStarted = NO;
+    self.gameState = SBGameStateWaitingPlayers;
     self.activePlayer = SBActivePlayerUser;
 }
 
+- (BOOL)gameStarted
+{
+    return self.gameState == SBGameStateReady;
+}
 
+- (void)checkGameEnd
+{
+    NSUInteger maxCells = [[SBGameEnviroment sharedEnviroment] maxCells];
+    NSArray *userDefendedCells = [self.userCells allCellsWithMask:SBGameFieldCellStateDefended];
+    NSArray *oponentDefendedCells = [self.enemyCells allCellsWithMask:SBGameFieldCellStateDefended];
+    if (userDefendedCells.count == maxCells)
+    {
+        [self notifyAboutFinishingGameWithReason:SBGameFinishingReasonOponentWins];
+    }
+    else if (oponentDefendedCells.count == maxCells)
+    {
+        [self notifyAboutFinishingGameWithReason:SBGameFinishingReasonUserWins];
+    }
+}
+
+- (void)notifyAboutFinishingGameWithReason:(SBGameFinishingReason)reason
+{
+    self.gameState = SBGameStateWaitingPlayers;
+    [NSNotificationCenter.defaultCenter postNotificationName:kSBGameDidFinishedNotification object:nil userInfo:@{@"reason" : @(reason)}];
+}
 
 @end

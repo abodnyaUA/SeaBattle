@@ -24,20 +24,27 @@
     CGFloat cellSize = [[[SBGameController sharedController] gameFieldView] cellSize];
     NSMutableArray *ships = [NSMutableArray array];
     NSMutableArray *labels = [NSMutableArray array];
-    for (NSUInteger shipLength=4; shipLength >= 1; shipLength--)
+    for (NSUInteger shipLength = 4; shipLength >= 1; shipLength--)
     {
         NSUInteger maxCount = 4 - shipLength;
-        CGFloat y = 5 + cellSize * maxCount;
         
-        UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, y, 15, cellSize)];
+        BOOL firstColumn = shipLength > 2;
+        
+        CGFloat labelWidth = 15;
+        CGFloat labelOffset = 5;
+        CGFloat labelX = firstColumn ? labelOffset : self.bounds.size.width - labelWidth;
+        CGFloat labelY = 5 + cellSize * (maxCount % 2);
+        
+        UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelX, labelY, labelWidth, cellSize)];
         countLabel.text = [NSString stringWithFormat:@"%ld",(long)maxCount+1];
         [labels addObject:countLabel];
         [self addSubview:countLabel];
         
-        y += self.frame.origin.y;
-        for (NSUInteger shipCount=0; shipCount <= maxCount; shipCount++)
+        for (NSUInteger shipCount = 0; shipCount <= maxCount; shipCount++)
         {
-            SBShipElementView *shipView = [[SBShipElementView alloc] initWithShipLength:shipLength withCellSize:cellSize inPoint:CGPointMake(15 + 5, y)];
+            CGFloat shipX = firstColumn ? labelOffset + labelWidth : self.bounds.size.width - (labelWidth + labelOffset + shipLength * cellSize);
+            CGFloat shipY = 5 + cellSize * (maxCount % 2) + self.frame.origin.y;
+            SBShipElementView *shipView = [[SBShipElementView alloc] initWithShipLength:shipLength withCellSize:cellSize inPoint:CGPointMake(shipX, shipY)];
             [self.superview addSubview:shipView];
             shipView.delegate = self;
             shipView.ship.delegate = self;
@@ -88,7 +95,8 @@
 
 - (void)updateUnusedShipCountForShipsWithLenth:(NSUInteger)shipLength
 {
-    NSInteger count = [self.ships filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SBShipElementView *view, NSDictionary *bindings) {
+    NSInteger count = [self.ships filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SBShipElementView *view, NSDictionary *bindings)
+    {
         return view.frame.origin.x == view.defaultPoint.x && view.frame.origin.y == view.defaultPoint.y && view.ship.length == shipLength;
     }]].count;
     UILabel *labelCountLabel = (UILabel *)[self.labelCount objectAtIndex:(4 -shipLength)];
@@ -111,7 +119,8 @@
 
 - (SBShipElementView *)shipElementViewWithShip:(SBShipElement *)ship
 {
-    SBShipElementView *shipView = [self.ships objectAtIndex:[self.ships indexOfObjectPassingTest:^BOOL(SBShipElementView *shipView, NSUInteger idx, BOOL *stop) {
+    SBShipElementView *shipView = [self.ships objectAtIndex:[self.ships indexOfObjectPassingTest:^BOOL(SBShipElementView *shipView, NSUInteger idx, BOOL *stop)
+    {
         return *stop = (shipView.ship == ship);
     }]];
     return shipView;

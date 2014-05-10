@@ -9,7 +9,7 @@
 #import "SBShipPositionController.h"
 
 #import "SBCellCoordinate.h"
-#import "NSArray+SBGameFieldCell.h"
+#import "NSArrayExtensions.h"
 #import "SBGameController.h"
 
 @interface SBShipPositionController ()
@@ -20,8 +20,6 @@
 
 - (void)rotateShipElement:(SBShipElement *)ship
 {
-//    SBCellCoordinate coordinate = SBCellCoordinateOfShipElementView(shipElementView);
-#warning CHECK!
     SBCellCoordinate coordinate = ship.topLeftPosition;
     if (ship.orientation == SBShipOrientationHorizontal)
     {
