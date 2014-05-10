@@ -40,7 +40,7 @@
                                         <Move To="240,0" Target="a351b16b-54c2-1761-7e55-79b33ad8b3bd" />
                                         <Resize To="140,0" Target="0d2e58b5-634a-a9c6-13c3-c5b89394997e" />
                                         <Resize To="140,0" Target="e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
-                                        <Set Property="i:ProgressView.TrackColor" Value="#FF007AFF" Target="e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
+                                        <Set Property="i:ProgressView.TrackColor" Value="#FF48C157" Target="e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
                                         <Set Property="ProgressBar.Value" Value="29" Target="e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
                                         <Move To="5,0" Target="941e2165-596f-1f7a-a30e-5965fff54b84" />
                                         <Remove Target="828f295e-1d06-8aab-8478-138436431cd6" />
@@ -60,12 +60,11 @@
                         </Add>
                         <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
                             <Add.Item>
-                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 14.30.36.png" Id="83bc4b2d-52c7-0532-5838-1b85d5def150" Panel.Bounds="0,183,0*{5,2147483647},320{5,2147483647}" />
-                            </Add.Item>
-                        </Add>
-                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
-                            <Add.Item>
-                                <i2:ActionButton ButtonType="Edit" Text="Preview" Id="c2e8670c-9a5e-4601-c6b1-d68b48a79ef7" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}" />
+                                <i2:ActionButton ButtonType="Edit" Text="Preview" Id="c2e8670c-9a5e-4601-c6b1-d68b48a79ef7" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}">
+                                    <i2:ActionButton.Click>
+                                        <CommandNext SceneId="d7b8b4de-ef34-935c-92d2-58ea5c4dd8c8" Created="05/10/2014 20:47:27" Id="979a00d8-a89f-3d4d-0e5d-d301cd2a7d95" />
+                                    </i2:ActionButton.Click>
+                                </i2:ActionButton>
                             </Add.Item>
                         </Add>
                         <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
@@ -117,6 +116,11 @@
                                 </Line>
                             </Add.Item>
                         </Add>
+                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 23.45.07(1).png" Id="35d36758-c002-4cfd-2ce1-087470555e9c" Panel.Bounds="0,180,320{5,2147483647},0*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
                     </KeyFrame.Operations>
                 </KeyFrame>
             </Scene.KeyFrames>
@@ -140,6 +144,27 @@
                                 </Group>
                             </Add.Item>
                         </Add>
+                        <Set Property="i:ProgressView.TrackColor" Value="#FF48C157" Target="5aa69205-9c51-bb62-fbe2-1e0610697f07.e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+        <Scene Title="Tapped Preview" StateGroup="c56588ed-5528-fde2-e316-cc8ca403ba4c" ParentScene="c56588ed-5528-fde2-e316-cc8ca403ba4c" Created="05/10/2014 20:47:27" Id="d7b8b4de-ef34-935c-92d2-58ea5c4dd8c8">
+            <Scene.KeyFrames>
+                <KeyFrame Id="c747bb78-8597-42fb-f851-406f610d9fc4">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="a1629758-098f-32c0-4ad1-9c0448069805">
+                            <Add.Item>
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 23.45.35(1).png" Id="10caff78-7f75-0060-662e-9b91298c9e98" Panel.Bounds="0,180,320{5,2147483647},0*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Control.Click" Target="c2e8670c-9a5e-4601-c6b1-d68b48a79ef7">
+                            <Add.Item>
+                                <CommandSwitchTo SceneId="c56588ed-5528-fde2-e316-cc8ca403ba4c" Created="05/10/2014 20:48:46" Id="e8a4b346-1cc6-1793-b79d-1b998a519d30" />
+                            </Add.Item>
+                        </Add>
+                        <Set Property="i:ProgressView.TrackColor" Value="#FF48C157" Target="5aa69205-9c51-bb62-fbe2-1e0610697f07.e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
+                        <Remove Target="979a00d8-a89f-3d4d-0e5d-d301cd2a7d95" />
                     </KeyFrame.Operations>
                 </KeyFrame>
             </Scene.KeyFrames>

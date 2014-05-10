@@ -52,7 +52,15 @@
                         </Add>
                         <Add Property="Panel.Children" Target="fe4419c0-4d32-626d-d7bd-4460e10cb0b8">
                             <Add.Item>
-                                <i:ActionButton ButtonType="Edit" Text="Preview" Id="e978fd3f-d0f7-5191-2d22-b92c30c26af3" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}" />
+                                <i:ActionButton ButtonType="Edit" Text="Ready" Id="e978fd3f-d0f7-5191-2d22-b92c30c26af3" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}">
+                                    <i:ActionButton.Click>
+                                        <CommandNavigate Screen="/iPhone5/GameProcess1.screen" Created="05/10/2014 20:42:15" Id="20fd5c73-422a-2da2-84e7-45feced94409">
+                                            <CommandNavigate.Transition>
+                                                <NavigateTransition Duration="0" Direction="None" />
+                                            </CommandNavigate.Transition>
+                                        </CommandNavigate>
+                                    </i:ActionButton.Click>
+                                </i:ActionButton>
                             </Add.Item>
                         </Add>
                         <Add Property="Panel.Children" Target="fe4419c0-4d32-626d-d7bd-4460e10cb0b8">
@@ -67,12 +75,12 @@
                         </Add>
                         <Add Property="Panel.Children" Target="fe4419c0-4d32-626d-d7bd-4460e10cb0b8">
                             <Add.Item>
-                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 18.56.48.png" Id="54a13539-4533-c273-bc43-e1a52d5a4c2d" Panel.Bounds="0,178,320{5,2147483647},0*{5,2147483647}" />
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 23.41.01.png" Id="1aa2dfb8-08c6-dbf5-3a74-b1734fda97d2" Panel.Bounds="0,181,320{5,2147483647},0*{5,2147483647}" />
                             </Add.Item>
                         </Add>
                         <Add Property="Panel.Children" Target="fe4419c0-4d32-626d-d7bd-4460e10cb0b8">
                             <Add.Item>
-                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 18.54.07.png" Id="7e986cc1-d019-800b-d611-ea58e6f0c502" Panel.Bounds="0,44,156{5,2147483647},0*{5,2147483647}" />
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 23.41.28.png" Id="1b6895fc-9e36-f887-64b4-c775cf05b6e8" Panel.Bounds="0,46,320{5,2147483647},0*{5,2147483647}" />
                             </Add.Item>
                         </Add>
                     </KeyFrame.Operations>

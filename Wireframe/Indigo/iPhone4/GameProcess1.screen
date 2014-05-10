@@ -1,7 +1,7 @@
 ﻿<?Infragistics.Models format="xaml" version="25"?>
 <Page xmlns="http://prototypes.infragistics.com/"
-                                                         xmlns:i="http://prototypes.infragistics.com/ios7/"
-                                                         xmlns:i2="http://prototypes.infragistics.com/ios/"
+                                                         xmlns:i="http://prototypes.infragistics.com/ios/"
+                                                         xmlns:i2="http://prototypes.infragistics.com/ios7/"
                                                          Id="76862675-87c9-24ab-86cf-df05484f445a">
     <Page.Content>
         <Content Width="320" Height="460" Id="6e777dc7-ad80-a734-5a90-26f522a51adb">
@@ -37,6 +37,7 @@
                                         <Resize To="50,50" Target="a351b16b-54c2-1761-7e55-79b33ad8b3bd" />
                                         <Move To="54,41" Target="0d2e58b5-634a-a9c6-13c3-c5b89394997e" />
                                         <Move To="175,41" Target="e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
+                                        <Set Property="i:ProgressView.TrackColor" Value="#FF48C157" Target="e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
                                         <Remove Target="828f295e-1d06-8aab-8478-138436431cd6" />
                                     </ScreenPartInstance.Customizations>
                                 </ScreenPartInstance>
@@ -44,27 +45,26 @@
                         </Add>
                         <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
                             <Add.Item>
-                                <i:Header Text="LAN Game" Id="61c0a7ac-ab69-92ea-b562-1511836b5fae" Panel.Bounds="0,0,320{5,2147483647},45{20,2147483647}" />
+                                <i2:Header Text="LAN Game" Id="61c0a7ac-ab69-92ea-b562-1511836b5fae" Panel.Bounds="0,0,320{5,2147483647},45{20,2147483647}" />
                             </Add.Item>
                         </Add>
                         <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
                             <Add.Item>
-                                <i:ActionButton ButtonType="Edit" Text="Leave" Id="43e69c84-b501-dac7-f666-b409091c29df" Panel.Bounds="5,8,50{20,2147483647},30{12,2147483647}" />
+                                <i2:ActionButton ButtonType="Edit" Text="Leave" Id="43e69c84-b501-dac7-f666-b409091c29df" Panel.Bounds="5,8,50{20,2147483647},30{12,2147483647}" />
                             </Add.Item>
                         </Add>
                         <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
                             <Add.Item>
-                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 14.30.36.png" Id="3a83809c-3ace-f481-d279-076a8da1ef15" Panel.Bounds="0,140,320*,320" />
+                                <i2:ActionButton ButtonType="Edit" Text="Preview" Id="86704637-8ad6-2245-ebf2-550939cfa6d5" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}">
+                                    <i2:ActionButton.Click>
+                                        <CommandNext SceneId="8c3de9bb-fe39-8562-cae4-c9baf4dcc962" Created="05/10/2014 20:46:17" Id="65b9f185-7931-1c3d-88d0-04b9f81a3a9d" />
+                                    </i2:ActionButton.Click>
+                                </i2:ActionButton>
                             </Add.Item>
                         </Add>
                         <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
                             <Add.Item>
-                                <i:ActionButton ButtonType="Edit" Text="Preview" Id="86704637-8ad6-2245-ebf2-550939cfa6d5" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}" />
-                            </Add.Item>
-                        </Add>
-                        <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
-                            <Add.Item>
-                                <i:Title Text="Aleksey Bodnya is shoting" Align="Center" FontSize="13" Id="8ca22591-2e7c-3a94-27ae-f931c850bdb2" Panel.Bounds="5,55,310,18*" />
+                                <i2:Title Text="Aleksey Bodnya is shoting" Align="Center" FontSize="13" Id="8ca22591-2e7c-3a94-27ae-f931c850bdb2" Panel.Bounds="5,55,310,18*" />
                             </Add.Item>
                         </Add>
                         <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
@@ -83,6 +83,11 @@
                                 </Line>
                             </Add.Item>
                         </Add>
+                        <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
+                            <Add.Item>
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 23.45.07.png" Id="309a041c-f255-e4a9-39b1-86ab24329226" Panel.Bounds="0,140,320{5,2147483647},0*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
                     </KeyFrame.Operations>
                 </KeyFrame>
             </Scene.KeyFrames>
@@ -93,10 +98,10 @@
                     <KeyFrame.Operations>
                         <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
                             <Add.Item>
-                                <Group GroupName="Group" Id="3cd3b510-4cec-26d5-889a-37836fb1c266" Name="Modal Menu" i2:ModalMenu.IsModalMenu="True" Panel.Bounds="0,0,320*,460*">
+                                <Group GroupName="Group" Id="3cd3b510-4cec-26d5-889a-37836fb1c266" Name="Modal Menu" i:ModalMenu.IsModalMenu="True" Panel.Bounds="0,0,320*,460*">
                                     <Group.Children>
                                         <Rectangle Thickness="0" Background="#66000000" Id="08c0600a-6260-f29c-334c-8254021f8351" Panel.Bounds="0,0,320,460" />
-                                        <i:ActionSheetButton ButtonType="Delete" Text="Delete" Foreground="#FFFD472B" Id="32d27784-540f-0a91-d10a-ecae1cca1900" Panel.Bounds="8,356,304,44" />
+                                        <i2:ActionSheetButton ButtonType="Delete" Text="Delete" Foreground="#FFFD472B" Id="32d27784-540f-0a91-d10a-ecae1cca1900" Panel.Bounds="8,356,304,44" />
                                         <ScreenPartInstance TemplateReference="/Screenparts/Screenpart3.screenpart" Id="10018eff-1612-bc78-d6cf-5acd21655934" Panel.Bounds="8,408,0*,0*">
                                             <ScreenPartInstance.Click>
                                                 <CommandSwitchTo SceneId="df96609a-9e4a-c32d-6828-6043ef1e9b2a" Created="05/10/2014 14:18:22" Id="85eafef5-4e61-fe5d-423e-509944915b23" />
@@ -106,6 +111,27 @@
                                 </Group>
                             </Add.Item>
                         </Add>
+                        <Set Property="i:ProgressView.TrackColor" Value="#FF48C157" Target="3a00464a-336e-cba6-15e4-8e842cba5b73.e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+        <Scene Title="Tapped Preview" StateGroup="df96609a-9e4a-c32d-6828-6043ef1e9b2a" ParentScene="df96609a-9e4a-c32d-6828-6043ef1e9b2a" Created="05/10/2014 20:46:17" Id="8c3de9bb-fe39-8562-cae4-c9baf4dcc962">
+            <Scene.KeyFrames>
+                <KeyFrame Id="76a9dc88-8f61-096b-b568-8cf9a7f542b7">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="1cb10b27-2259-c870-79ca-c7ff8ee0899f">
+                            <Add.Item>
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 23.45.35.png" Id="02ad5fc1-b235-a03b-a8c0-883c06e293ce" Panel.Bounds="0,140,320{5,2147483647},0*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Control.Click" Target="86704637-8ad6-2245-ebf2-550939cfa6d5">
+                            <Add.Item>
+                                <CommandSwitchTo SceneId="df96609a-9e4a-c32d-6828-6043ef1e9b2a" Created="05/10/2014 20:49:01" Id="6cba831a-4da8-6ed4-bb56-036a20f25f59" />
+                            </Add.Item>
+                        </Add>
+                        <Set Property="i:ProgressView.TrackColor" Value="#FF48C157" Target="3a00464a-336e-cba6-15e4-8e842cba5b73.e89b5d88-a88b-b2e0-19e0-63e92e17b913" />
+                        <Remove Target="65b9f185-7931-1c3d-88d0-04b9f81a3a9d" />
                     </KeyFrame.Operations>
                 </KeyFrame>
             </Scene.KeyFrames>

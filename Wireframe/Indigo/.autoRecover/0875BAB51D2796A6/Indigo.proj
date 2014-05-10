@@ -1,0 +1,11 @@
+﻿<?Infragistics.Models format="xaml" version="2"?>
+<Project xmlns="http://prototypes.infragistics.com/"
+                                                           StartScreens="/iPhone5/GameProcess1.screen" IndigoVersion="3">
+    <Project.Defaults>
+        <ProjectDefaults Viewport="320,460">
+            <ProjectDefaults.Device>
+                <DeviceInfo Id="iPhone4" Orientation="Portrait" />
+            </ProjectDefaults.Device>
+        </ProjectDefaults>
+    </Project.Defaults>
+</Project>

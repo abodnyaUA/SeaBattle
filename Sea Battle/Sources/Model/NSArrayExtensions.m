@@ -37,6 +37,7 @@
             [cells addObject:cell];
         };
     }
+    free(offset);
     
     return [cells copy];
 }
@@ -78,6 +79,7 @@
             }
         }
     }
+    free(offset);
 }
 
 - (void)defendShipWithCoordinate:(SBCellCoordinate)coordinate

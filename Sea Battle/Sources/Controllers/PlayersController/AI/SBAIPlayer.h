@@ -15,4 +15,7 @@
 @property (nonatomic, weak) id<SBPlayerDelegate> delegate;
 @property (nonatomic, strong) SBPlayerInfo *info;
 
+// Private
+@property (nonatomic, strong, readonly) NSArray *userCells;
+
 @end

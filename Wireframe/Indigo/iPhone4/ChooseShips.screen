@@ -33,12 +33,25 @@
                         </Add>
                         <Add Property="Panel.Children" Target="f08ff48a-c324-b30e-b8cd-53992fee824f">
                             <Add.Item>
-                                <i:ActionButton ButtonType="Edit" Text="Ready" Id="6af588a1-904f-d6a2-96f1-1456e3091cd9" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}" />
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 23.41.01.png" Id="4fb205aa-9024-29f5-5436-3addf17a924a" Panel.Bounds="1,140,320,319*" />
                             </Add.Item>
                         </Add>
                         <Add Property="Panel.Children" Target="f08ff48a-c324-b30e-b8cd-53992fee824f">
                             <Add.Item>
-                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 18.56.48.png" Id="b654e125-69e7-828d-36c0-227dafd856bf" Panel.Bounds="2,136,320,322*" />
+                                <Image SourcePath="assets/Screen Shot 2014-05-10 at 23.41.28.png" Id="739fd3fc-e705-ef55-d03a-8f47b3c70bc8" Panel.Bounds="0,46,320,75*" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="f08ff48a-c324-b30e-b8cd-53992fee824f">
+                            <Add.Item>
+                                <i:ActionButton ButtonType="Edit" Text="Ready" Id="d94c3d06-b496-c34f-b404-d2ed9a02e9a4" Panel.Bounds="255,8,60{20,2147483647},30{12,2147483647}">
+                                    <i:ActionButton.Click>
+                                        <CommandNavigate Screen="/iPhone4/GameProcess1.screen" Created="05/10/2014 20:43:49" Id="ecfd421a-4eef-4fa6-7cc1-3bc2a2731d66">
+                                            <CommandNavigate.Transition>
+                                                <NavigateTransition Duration="0" Direction="None" />
+                                            </CommandNavigate.Transition>
+                                        </CommandNavigate>
+                                    </i:ActionButton.Click>
+                                </i:ActionButton>
                             </Add.Item>
                         </Add>
                     </KeyFrame.Operations>

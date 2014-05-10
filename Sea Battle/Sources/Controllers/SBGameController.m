@@ -33,6 +33,7 @@ NSString * const kSBGameDidFinishedNotification = @"kSBGameDidFinishedNotificati
     self.enemyPlayer = player;
     self.gameState = SBGameStateWaitingPlayers;
     self.activePlayer = SBActivePlayerUser;
+    self.gameState = SBGameStateWaitingPlayers;
 }
 
 - (BOOL)gameStarted
@@ -57,7 +58,6 @@ NSString * const kSBGameDidFinishedNotification = @"kSBGameDidFinishedNotificati
 
 - (void)notifyAboutFinishingGameWithReason:(SBGameFinishingReason)reason
 {
-    self.gameState = SBGameStateWaitingPlayers;
     [NSNotificationCenter.defaultCenter postNotificationName:kSBGameDidFinishedNotification object:nil userInfo:@{@"reason" : @(reason)}];
 }
 

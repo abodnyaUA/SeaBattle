@@ -11,7 +11,7 @@
 #import "SBGameFieldCell.h"
 #import "SBShipPositionController.h"
 #import "SBGameController.h"
-#import "SBAIPlayer.h"
+#import "SBAINormalPlayer.h"
 #import "NSArrayExtensions.h"
 #import "SBShipLayouter.h"
 #import "SBGameEnviroment.h"
@@ -53,7 +53,7 @@
 {
     [[SBGameController sharedController] setGameFieldView:self.currentFieldView];
     //TODO: use abstracts
-    id<SBPlayer> player = [SBAIPlayer new];
+    id<SBPlayer> player = [SBAINormalPlayer new];
     player.delegate = self;
     [SBGameController.sharedController initializeGameWithPlayer:player];
     [SBGameController.sharedController addObserver:self forKeyPath:@"gameState" options:NSKeyValueObservingOptionNew context:nil];
@@ -282,7 +282,6 @@
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Game Finished" message:alertText delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
-    self.navigationItem.rightBarButtonItem = nil;
 }
 
 @end

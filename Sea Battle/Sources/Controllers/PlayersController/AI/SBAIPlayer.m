@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) SBAIAutomaticShipLayouter *shipLayouter;
 @property (nonatomic, strong) NSArray *userCells;
+
 - (SBCellCoordinate)coordinateForShot;
 
 @end
@@ -70,9 +71,8 @@
 
 - (SBCellCoordinate)coordinateForShot
 {
-    NSArray *avaiableCells = [self.userCells allCellsWithMask:SBGameFieldCellStateFree];
-    SBGameFieldCell *randomCell = [avaiableCells objectAtIndex:arc4random() % avaiableCells.count];
-    return randomCell.coordinate;
+    [NSException raise:@"Method Is Not Implemented" format:@"Please use Easy, Normal or Hard subclasses!"];
+    return SBCellCoordinateZero;
 }
 
 - (void)shotUser
