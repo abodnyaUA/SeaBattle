@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/ViewControllers/SBGameViewController.m"
-            timestampString = "421443077.992602"
+            timestampString = "421462765.0157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-player:didShotToCellWithPosition:withResultBlock:"
             landmarkType = "5">
          </BreakpointContent>
@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/ViewControllers/SBGameViewController.m"
-            timestampString = "421443077.992602"
+            timestampString = "421463196.31802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "-gameDidFinished:"
             landmarkType = "5">
          </BreakpointContent>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/ViewControllers/SBGameViewController.m"
-            timestampString = "421443077.992602"
+            timestampString = "421462765.0157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-playerDidSetupShips:"
             landmarkType = "5">
          </BreakpointContent>
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/ViewControllers/SBGameViewController.m"
-            timestampString = "421443226.137137"
+            timestampString = "421463196.31802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "-recalcProgressView:withCells:"
             landmarkType = "5">
          </BreakpointContent>
@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sea Battle/Sources/Model/NSArrayExtensions.m"
-            timestampString = "421456444.873645"
+            timestampString = "421460101.800196"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-allCellsWithMask:"
             landmarkType = "5">
             <Locations>
@@ -140,18 +140,28 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = "malloc_error_break"
+            moduleName = "">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sea Battle/Sources/Controllers/PlayersController/AI/SBAINormalPlayer.m"
-            timestampString = "421454953.003581"
+            filePath = "Sea Battle/Sources/Controllers/PlayersController/AI/SBAIHardPlayer.m"
+            timestampString = "421461405.191776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "-coordinateForShot"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-coordinateForFreeCell"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -161,13 +171,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sea Battle/Sources/Controllers/PlayersController/AI/SBAINormalPlayer.m"
-            timestampString = "421456656.329992"
+            filePath = "Sea Battle/Sources/ViewControllers/SBGameViewController.m"
+            timestampString = "421463324.32683"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-coordinateForShot"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "-player:didRespondInformationAboutShipAtPosition:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -177,45 +187,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sea Battle/Sources/Controllers/PlayersController/AI/SBAINormalPlayer.m"
-            timestampString = "421456656.329992"
+            filePath = "Sea Battle/Sources/Controllers/PlayersController/AI/SBAIPlayer.m"
+            timestampString = "421463695.617438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-coordinateForShot"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sea Battle/Sources/Controllers/PlayersController/AI/SBAINormalPlayer.m"
-            timestampString = "421456656.329992"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-coordinateForShot"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sea Battle/Sources/Controllers/PlayersController/AI/SBAINormalPlayer.m"
-            timestampString = "421456656.146986"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-coordinateForShot"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-gameDidFinished:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

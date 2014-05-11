@@ -11,13 +11,16 @@
 #import "SBAIAutomaticShipLayouter.h"
 #import "NSArrayExtensions.h"
 #import "SBGameFieldCell.h"
+#import "SBGameController.h"
+#import "SBGameEnviroment.h"
 
 @interface SBAIPlayer ()
 
 @property (nonatomic, strong) SBAIAutomaticShipLayouter *shipLayouter;
 @property (nonatomic, strong) NSArray *userCells;
 
-- (SBCellCoordinate)coordinateForShot;
+- (SBCellCoordinate)coordinateForShotWithAttackedCells:(NSArray *)underAtack;
+- (SBCellCoordinate)coordinateForFreeCell;
 
 @end
 
@@ -38,6 +41,11 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
 - (void)startSetup
 {
     NSOperationQueue *queue = [NSOperationQueue new];
@@ -50,6 +58,7 @@
             }];
         }
     }];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(gameDidFinished:) name:kSBGameDidFinishedNotification object:nil];
 }
 
 #pragma mark - Player Shot
@@ -71,17 +80,43 @@
 
 - (SBCellCoordinate)coordinateForShot
 {
+    SBCellCoordinate resultCoordinate = SBCellCoordinateZero;
+    NSArray *underAtack = [self.userCells allCellsWithMask:SBGameFieldCellStateUnderAtack];
+    if (underAtack.count > 0)
+    {
+        resultCoordinate = [self coordinateForShotWithAttackedCells:underAtack];
+    }
+    else
+    {
+        resultCoordinate = [self coordinateForFreeCell];
+    }
+    return resultCoordinate;
+}
+
+- (SBCellCoordinate)coordinateForFreeCell
+{
+    [NSException raise:@"Method Is Not Implemented" format:@"Please use Easy, Normal or Hard subclasses!"];
+    return SBCellCoordinateZero;
+}
+
+- (SBCellCoordinate)coordinateForShotWithAttackedCells:(NSArray *)underAtack
+{
     [NSException raise:@"Method Is Not Implemented" format:@"Please use Easy, Normal or Hard subclasses!"];
     return SBCellCoordinateZero;
 }
 
 - (void)shotUser
 {
-    NSTimeInterval timeForThink = 1;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeForThink * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        SBCellCoordinate position = self.coordinateForShot;
-        [self shotUserInPosition:position];
-    });
+    NSUInteger defendedCells = [self.userCells allCellsWithMask:SBGameFieldCellStateDefended | SBGameFieldCellStateUnderAtack].count;
+    NSUInteger maxCells = [[SBGameEnviroment sharedEnviroment] maxCells];
+    if (defendedCells != maxCells)
+    {
+        NSTimeInterval timeForThink = 1;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeForThink * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            SBCellCoordinate position = self.coordinateForShot;
+            [self shotUserInPosition:position];
+        });
+    }
 }
 
 - (void)shotUserInPosition:(SBCellCoordinate)position
@@ -102,6 +137,18 @@
                 [self shotUser];
             }
         }];
+    }
+}
+
+- (void)gameDidFinished:(NSNotification *)notification
+{
+    if ([self.delegate respondsToSelector:@selector(player:didRespondInformationAboutShipAtPosition:)])
+    {
+        NSArray *shipCells = [self.shipLayouter.cells allCellsWithMask:SBGameFieldCellStateWithShip];
+        for (SBGameFieldCell *cell in shipCells)
+        {
+            [self.delegate player:self didRespondInformationAboutShipAtPosition:cell.coordinate];
+        }
     }
 }
 

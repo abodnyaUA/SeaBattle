@@ -42,6 +42,7 @@
 		05C24E8C191EA9C600678F35 /* DefaultUser.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C24E8A191EA9C600678F35 /* DefaultUser.png */; };
 		05C24E8D191EA9C600678F35 /* DefaultUser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C24E8B191EA9C600678F35 /* DefaultUser@2x.png */; };
 		05C24E90191EE28F00678F35 /* SBAIEasyPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E8F191EE28F00678F35 /* SBAIEasyPlayer.m */; };
+		05C24E93191EEC4000678F35 /* SBAIHardPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E92191EEC4000678F35 /* SBAIHardPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		05C24E8B191EA9C600678F35 /* DefaultUser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultUser@2x.png"; sourceTree = "<group>"; };
 		05C24E8E191EE28F00678F35 /* SBAIEasyPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAIEasyPlayer.h; path = PlayersController/AI/SBAIEasyPlayer.h; sourceTree = "<group>"; };
 		05C24E8F191EE28F00678F35 /* SBAIEasyPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAIEasyPlayer.m; path = PlayersController/AI/SBAIEasyPlayer.m; sourceTree = "<group>"; };
+		05C24E91191EEC4000678F35 /* SBAIHardPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAIHardPlayer.h; path = PlayersController/AI/SBAIHardPlayer.h; sourceTree = "<group>"; };
+		05C24E92191EEC4000678F35 /* SBAIHardPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAIHardPlayer.m; path = PlayersController/AI/SBAIHardPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,10 +336,12 @@
 				05BE5D3B1918342E003B59E3 /* SBAIPlayer.m */,
 				05BE5D3D19183B62003B59E3 /* SBAIAutomaticShipLayouter.h */,
 				05BE5D3E19183B62003B59E3 /* SBAIAutomaticShipLayouter.m */,
-				05C24E83191EA74B00678F35 /* SBAINormalPlayer.h */,
-				05C24E84191EA74B00678F35 /* SBAINormalPlayer.m */,
 				05C24E8E191EE28F00678F35 /* SBAIEasyPlayer.h */,
 				05C24E8F191EE28F00678F35 /* SBAIEasyPlayer.m */,
+				05C24E83191EA74B00678F35 /* SBAINormalPlayer.h */,
+				05C24E84191EA74B00678F35 /* SBAINormalPlayer.m */,
+				05C24E91191EEC4000678F35 /* SBAIHardPlayer.h */,
+				05C24E92191EEC4000678F35 /* SBAIHardPlayer.m */,
 			);
 			name = AI;
 			sourceTree = "<group>";
@@ -496,6 +501,7 @@
 				05BE5D3C1918342E003B59E3 /* SBAIPlayer.m in Sources */,
 				051A4C6E190AC12A00826C4A /* SBChooseShipsView.m in Sources */,
 				057D93B01912FE8B00E8ECC7 /* NSArrayExtensions.m in Sources */,
+				05C24E93191EEC4000678F35 /* SBAIHardPlayer.m in Sources */,
 				05C24E90191EE28F00678F35 /* SBAIEasyPlayer.m in Sources */,
 				051A4C74190AC5F800826C4A /* SBShipElementView.m in Sources */,
 				0553F896190900E8007C0DB7 /* SBGameViewController.m in Sources */,

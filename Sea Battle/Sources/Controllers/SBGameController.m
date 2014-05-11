@@ -41,6 +41,11 @@ NSString * const kSBGameDidFinishedNotification = @"kSBGameDidFinishedNotificati
     return self.gameState == SBGameStateReady;
 }
 
+- (BOOL)gameEnded
+{
+    return self.gameState == SBGameStateEnded;
+}
+
 - (void)checkGameEnd
 {
     NSUInteger maxCells = [[SBGameEnviroment sharedEnviroment] maxCells];

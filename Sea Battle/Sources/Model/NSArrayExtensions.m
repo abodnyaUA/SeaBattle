@@ -37,7 +37,6 @@
             [cells addObject:cell];
         };
     }
-    free(offset);
     
     return [cells copy];
 }
@@ -79,7 +78,6 @@
             }
         }
     }
-    free(offset);
 }
 
 - (void)defendShipWithCoordinate:(SBCellCoordinate)coordinate
@@ -144,7 +142,7 @@
         }
         description = [description stringByAppendingString:@"\n"];
     }
-    NSLog(@"%@",description);
+//    NSLog(@"%@",description);
 }
 
 - (NSUInteger)powOfState:(SBGameFieldCellState)state

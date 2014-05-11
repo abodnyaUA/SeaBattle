@@ -11,7 +11,7 @@
 #import "SBGameFieldCell.h"
 #import "SBShipPositionController.h"
 #import "SBGameController.h"
-#import "SBAINormalPlayer.h"
+#import "SBAIHardPlayer.h"
 #import "NSArrayExtensions.h"
 #import "SBShipLayouter.h"
 #import "SBGameEnviroment.h"
@@ -53,7 +53,7 @@
 {
     [[SBGameController sharedController] setGameFieldView:self.currentFieldView];
     //TODO: use abstracts
-    id<SBPlayer> player = [SBAINormalPlayer new];
+    id<SBPlayer> player = [SBAIHardPlayer new];
     player.delegate = self;
     [SBGameController.sharedController initializeGameWithPlayer:player];
     [SBGameController.sharedController addObserver:self forKeyPath:@"gameState" options:NSKeyValueObservingOptionNew context:nil];
@@ -74,7 +74,8 @@
 - (SBGameFieldCell *)gameFieldView:(SBGameFieldView *)gameFieldView cellForPosition:(SBCellCoordinate)position
 {
     SBGameFieldCell *cell = nil;
-    if (SBGameController.sharedController.gameStarted && !self.isPreviewActive)
+    SBGameController *gameController = SBGameController.sharedController;
+    if ((gameController.gameStarted || gameController.gameEnded) && !self.isPreviewActive)
     {
         cell = [SBGameController.sharedController.enemyCells cellWithPosition:position];
     }
@@ -174,6 +175,12 @@
     [[SBGameController sharedController] checkGameEnd];
 }
 
+- (void)player:(id<SBPlayer>)player didRespondInformationAboutShipAtPosition:(SBCellCoordinate)position
+{
+    [SBGameController.sharedController.enemyCells cellWithPosition:position].state = SBGameFieldCellStateWithShip;
+    [self.currentFieldView setNeedsDisplay];
+}
+
 - (void)shotEnemyPlayerInCellWithPosition:(SBCellCoordinate)position
 {
     NSString *enemyPlayerName = SBGameController.sharedController.enemyPlayer.info.name;
@@ -259,29 +266,33 @@
 
 - (void)gameDidFinished:(NSNotification *)notification
 {
-    SBGameFinishingReason reason = [[notification.userInfo objectForKey:@"reason"] unsignedIntegerValue];
-    NSString *alertText;
-    switch (reason)
+    if (!SBGameController.sharedController.gameEnded)
     {
-        case SBGameFinishingReasonUserWins:
-            alertText = @"You win! Congratulations!";
-            break;
-        case SBGameFinishingReasonOponentWins:
-            alertText = @"You loose... May be in next time?";
-            break;
-        case SBGameFinishingReasonUserLeave:
-            alertText = @"You've leaved game? OMG!";
-            break;
-        case SBGameFinishingReasonOponentLeave:
-            alertText = @"Your oponent did leave game! Haha!";
-            break;
-            
-        default:
-            break;
+        SBGameFinishingReason reason = [[notification.userInfo objectForKey:@"reason"] unsignedIntegerValue];
+        NSString *alertText;
+        switch (reason)
+        {
+            case SBGameFinishingReasonUserWins:
+                alertText = @"You win! Congratulations!";
+                break;
+            case SBGameFinishingReasonOponentWins:
+                alertText = @"You loose... May be in next time?";
+                break;
+            case SBGameFinishingReasonUserLeave:
+                alertText = @"You've leaved game? OMG!";
+                break;
+            case SBGameFinishingReasonOponentLeave:
+                alertText = @"Your oponent did leave game! Haha!";
+                break;
+                
+            default:
+                break;
+        }
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Game Finished" message:alertText delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        SBGameController.sharedController.gameState = SBGameStateEnded;
     }
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Game Finished" message:alertText delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alertView show];
 }
 
 @end

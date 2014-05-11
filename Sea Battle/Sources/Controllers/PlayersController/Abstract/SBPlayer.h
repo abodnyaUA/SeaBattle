@@ -31,5 +31,6 @@ typedef void (^SBShotResultBlock)(SBGameFieldCellState);
 
 - (void)playerDidSetupShips:(id<SBPlayer>)player;
 - (void)player:(id<SBPlayer>)player didShotToCellWithPosition:(SBCellCoordinate)position withResultBlock:(SBShotResultBlock)block;
+- (void)player:(id<SBPlayer>)player didRespondInformationAboutShipAtPosition:(SBCellCoordinate)position;
 
 @end

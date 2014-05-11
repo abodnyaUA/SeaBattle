@@ -27,7 +27,8 @@ typedef NS_ENUM(NSUInteger, SBGameState)
     SBGameStateWaitingPlayers = 0,
     SBGameStateReadyUser      = 1 << 0,
     SBGameStateReadyOponent   = 1 << 1,
-    SBGameStateReady = SBGameStateReadyUser | SBGameStateReadyOponent
+    SBGameStateReady = SBGameStateReadyUser | SBGameStateReadyOponent,
+    SBGameStateEnded
 };
 
 typedef NS_ENUM(NSUInteger, SBActivePlayer)
@@ -52,5 +53,6 @@ typedef NS_ENUM(NSUInteger, SBActivePlayer)
 - (void)initializeGameWithPlayer:(id<SBPlayer>)player;
 - (void)checkGameEnd;
 - (BOOL)gameStarted;
+- (BOOL)gameEnded;
 
 @end
