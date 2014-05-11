@@ -11,6 +11,16 @@
 
 @implementation SBAIHardPlayer
 
+- (instancetype)init
+{
+    self = [super init];
+    if (nil != self)
+    {
+        self.info.name = @"Hard AI";
+    }
+    return self;
+}
+
 - (SBCellCoordinate)coordinateForFreeCell
 {
     NSArray *avaiableCells = [self.userCells allCellsWithMask:SBGameFieldCellStateFree];

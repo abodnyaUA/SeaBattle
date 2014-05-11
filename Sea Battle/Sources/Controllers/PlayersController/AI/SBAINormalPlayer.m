@@ -11,6 +11,16 @@
 
 @implementation SBAINormalPlayer
 
+- (instancetype)init
+{
+    self = [super init];
+    if (nil != self)
+    {
+        self.info.name = @"Normal AI";
+    }
+    return self;
+}
+
 - (SBCellCoordinate)coordinateForFreeCell
 {
     NSArray *avaiableCells = [self.userCells allCellsWithMask:SBGameFieldCellStateFree];

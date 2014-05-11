@@ -11,6 +11,16 @@
 
 @implementation SBAIEasyPlayer
 
+- (instancetype)init
+{
+    self = [super init];
+    if (nil != self)
+    {
+        self.info.name = @"Easy AI";
+    }
+    return self;
+}
+
 - (SBCellCoordinate)coordinateForShot
 {
     NSArray *avaiableCells = [self.userCells allCellsWithMask:SBGameFieldCellStateFree];

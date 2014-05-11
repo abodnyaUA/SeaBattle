@@ -58,6 +58,7 @@
     [SBGameController.sharedController initializeGameWithPlayer:player];
     [SBGameController.sharedController addObserver:self forKeyPath:@"gameState" options:NSKeyValueObservingOptionNew context:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(gameDidFinished:) name:kSBGameDidFinishedNotification object:nil];
+    self.navigationItem.title = [NSString stringWithFormat:@"Game with %@",SBGameController.sharedController.enemyPlayer.info.name];
     
     
     [self.chooseShipsView load];
@@ -158,7 +159,7 @@
     switch (cell.state)
     {
         case SBGameFieldCellStateUnavailable:
-            self.gameStatusView.text = [NSString stringWithFormat:@"%@ is stupid mokey :p",enemyPlayerName];
+            self.gameStatusView.text = [NSString stringWithFormat:@"%@, it's your time",SBGameEnviroment.sharedEnviroment.playerInfo.name];
             break;
         case SBGameFieldCellStateUnderAtack:
             self.gameStatusView.text = @"Your ships are under attack!";
@@ -223,6 +224,14 @@
 - (IBAction)didTapOnPreviewButton:(id)sender
 {
     self.isPreviewActive = !self.isPreviewActive;
+    if (self.isPreviewActive)
+    {
+        self.navigationItem.title = [NSString stringWithFormat:@"%@'s field",SBGameEnviroment.sharedEnviroment.playerInfo.name];
+    }
+    else
+    {
+        self.navigationItem.title = [NSString stringWithFormat:@"Game with %@",SBGameController.sharedController.enemyPlayer.info.name];
+    }
     [self.currentFieldView setNeedsDisplay];
 }
 
