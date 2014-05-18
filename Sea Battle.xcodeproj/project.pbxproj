@@ -11,6 +11,11 @@
 		051A4C71190AC19C00826C4A /* SBShipElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 051A4C70190AC19C00826C4A /* SBShipElement.m */; };
 		051A4C74190AC5F800826C4A /* SBShipElementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 051A4C73190AC5F800826C4A /* SBShipElementView.m */; };
 		051A4C78190AD02E00826C4A /* SBCellCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 051A4C77190AD02E00826C4A /* SBCellCoordinate.m */; };
+		054170C11928EE9B00366B32 /* missed.png in Resources */ = {isa = PBXBuildFile; fileRef = 054170BE1928EE9B00366B32 /* missed.png */; };
+		054170C21928EE9B00366B32 /* ship_defended.png in Resources */ = {isa = PBXBuildFile; fileRef = 054170BF1928EE9B00366B32 /* ship_defended.png */; };
+		054170C31928EE9B00366B32 /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 054170C01928EE9B00366B32 /* ship.png */; };
+		054170C51928F47F00366B32 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 054170C41928F47F00366B32 /* QuartzCore.framework */; };
+		054170C91929220600366B32 /* NSKeyedUnarchiverExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 054170C81929220600366B32 /* NSKeyedUnarchiverExtensions.m */; };
 		0553F880190900E8007C0DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F87F190900E8007C0DB7 /* Foundation.framework */; };
 		0553F882190900E8007C0DB7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F881190900E8007C0DB7 /* CoreGraphics.framework */; };
 		0553F884190900E8007C0DB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553F883190900E8007C0DB7 /* UIKit.framework */; };
@@ -33,16 +38,20 @@
 		0591FDC6190F75500039DE5E /* SBGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591FDC5190F75500039DE5E /* SBGameController.m */; };
 		05BE5D3C1918342E003B59E3 /* SBAIPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BE5D3B1918342E003B59E3 /* SBAIPlayer.m */; };
 		05BE5D3F19183B62003B59E3 /* SBAIAutomaticShipLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BE5D3E19183B62003B59E3 /* SBAIAutomaticShipLayouter.m */; };
-		05C24E7C191E80E000678F35 /* UIColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E7B191E80E000678F35 /* UIColorExtensions.m */; };
+		05C24E7C191E80E000678F35 /* SBColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E7B191E80E000678F35 /* SBColorExtensions.m */; };
 		05C24E7F191E91D200678F35 /* SBGameEnviroment.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E7E191E91D200678F35 /* SBGameEnviroment.m */; };
 		05C24E82191EA3AC00678F35 /* SBPlayerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E81191EA3AC00678F35 /* SBPlayerInfo.m */; };
-		05C24E85191EA74B00678F35 /* SBAINormalPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E84191EA74B00678F35 /* SBAINormalPlayer.m */; };
+		05C24E85191EA74B00678F35 /* SBAIPlayerShotCellProviderNormal.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E84191EA74B00678F35 /* SBAIPlayerShotCellProviderNormal.m */; };
 		05C24E88191EA93400678F35 /* AIAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C24E86191EA93400678F35 /* AIAvatar.png */; };
 		05C24E89191EA93400678F35 /* AIAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C24E87191EA93400678F35 /* AIAvatar@2x.png */; };
 		05C24E8C191EA9C600678F35 /* DefaultUser.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C24E8A191EA9C600678F35 /* DefaultUser.png */; };
 		05C24E8D191EA9C600678F35 /* DefaultUser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C24E8B191EA9C600678F35 /* DefaultUser@2x.png */; };
-		05C24E90191EE28F00678F35 /* SBAIEasyPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E8F191EE28F00678F35 /* SBAIEasyPlayer.m */; };
-		05C24E93191EEC4000678F35 /* SBAIHardPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E92191EEC4000678F35 /* SBAIHardPlayer.m */; };
+		05C24E90191EE28F00678F35 /* SBAIPlayerShotCellProviderEasy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E8F191EE28F00678F35 /* SBAIPlayerShotCellProviderEasy.m */; };
+		05C24E93191EEC4000678F35 /* SBAIPlayerShotCellProviderHard.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C24E92191EEC4000678F35 /* SBAIPlayerShotCellProviderHard.m */; };
+		05DDD2481928E78F008D3B79 /* SBImageExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DDD2471928E78F008D3B79 /* SBImageExtensions.m */; };
+		05DDD24D1928EA06008D3B79 /* missed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05DDD24A1928EA06008D3B79 /* missed@2x.png */; };
+		05DDD24E1928EA06008D3B79 /* ship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05DDD24B1928EA06008D3B79 /* ship@2x.png */; };
+		05DDD24F1928EA06008D3B79 /* ship_defended@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05DDD24C1928EA06008D3B79 /* ship_defended@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +73,13 @@
 		051A4C73190AC5F800826C4A /* SBShipElementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBShipElementView.m; path = View/SBShipElementView.m; sourceTree = "<group>"; };
 		051A4C76190AC93200826C4A /* SBCellCoordinate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBCellCoordinate.h; sourceTree = "<group>"; };
 		051A4C77190AD02E00826C4A /* SBCellCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCellCoordinate.m; sourceTree = "<group>"; };
+		054170BE1928EE9B00366B32 /* missed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missed.png; sourceTree = "<group>"; };
+		054170BF1928EE9B00366B32 /* ship_defended.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_defended.png; sourceTree = "<group>"; };
+		054170C01928EE9B00366B32 /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
+		054170C41928F47F00366B32 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		054170C619291B2700366B32 /* SBDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBDefaults.h; sourceTree = "<group>"; };
+		054170C71929220500366B32 /* NSKeyedUnarchiverExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSKeyedUnarchiverExtensions.h; sourceTree = "<group>"; };
+		054170C81929220600366B32 /* NSKeyedUnarchiverExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSKeyedUnarchiverExtensions.m; sourceTree = "<group>"; };
 		0553F87C190900E8007C0DB7 /* Sea Battle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sea Battle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0553F87F190900E8007C0DB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0553F881190900E8007C0DB7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -100,22 +116,27 @@
 		05BE5D3B1918342E003B59E3 /* SBAIPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAIPlayer.m; path = PlayersController/AI/SBAIPlayer.m; sourceTree = "<group>"; };
 		05BE5D3D19183B62003B59E3 /* SBAIAutomaticShipLayouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAIAutomaticShipLayouter.h; path = PlayersController/AI/SBAIAutomaticShipLayouter.h; sourceTree = "<group>"; };
 		05BE5D3E19183B62003B59E3 /* SBAIAutomaticShipLayouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAIAutomaticShipLayouter.m; path = PlayersController/AI/SBAIAutomaticShipLayouter.m; sourceTree = "<group>"; };
-		05C24E7A191E80E000678F35 /* UIColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIColorExtensions.h; path = Extensions/UIColorExtensions.h; sourceTree = "<group>"; };
-		05C24E7B191E80E000678F35 /* UIColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorExtensions.m; path = Extensions/UIColorExtensions.m; sourceTree = "<group>"; };
+		05C24E7A191E80E000678F35 /* SBColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBColorExtensions.h; path = Extensions/SBColorExtensions.h; sourceTree = "<group>"; };
+		05C24E7B191E80E000678F35 /* SBColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBColorExtensions.m; path = Extensions/SBColorExtensions.m; sourceTree = "<group>"; };
 		05C24E7D191E91D200678F35 /* SBGameEnviroment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGameEnviroment.h; sourceTree = "<group>"; };
 		05C24E7E191E91D200678F35 /* SBGameEnviroment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBGameEnviroment.m; sourceTree = "<group>"; };
 		05C24E80191EA3AC00678F35 /* SBPlayerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBPlayerInfo.h; path = PlayersController/SBPlayerInfo.h; sourceTree = "<group>"; };
 		05C24E81191EA3AC00678F35 /* SBPlayerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBPlayerInfo.m; path = PlayersController/SBPlayerInfo.m; sourceTree = "<group>"; };
-		05C24E83191EA74B00678F35 /* SBAINormalPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAINormalPlayer.h; path = PlayersController/AI/SBAINormalPlayer.h; sourceTree = "<group>"; };
-		05C24E84191EA74B00678F35 /* SBAINormalPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAINormalPlayer.m; path = PlayersController/AI/SBAINormalPlayer.m; sourceTree = "<group>"; };
+		05C24E83191EA74B00678F35 /* SBAIPlayerShotCellProviderNormal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAIPlayerShotCellProviderNormal.h; path = PlayersController/AI/SBAIPlayerShotCellProviderNormal.h; sourceTree = "<group>"; };
+		05C24E84191EA74B00678F35 /* SBAIPlayerShotCellProviderNormal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAIPlayerShotCellProviderNormal.m; path = PlayersController/AI/SBAIPlayerShotCellProviderNormal.m; sourceTree = "<group>"; };
 		05C24E86191EA93400678F35 /* AIAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AIAvatar.png; sourceTree = "<group>"; };
 		05C24E87191EA93400678F35 /* AIAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AIAvatar@2x.png"; sourceTree = "<group>"; };
 		05C24E8A191EA9C600678F35 /* DefaultUser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultUser.png; sourceTree = "<group>"; };
 		05C24E8B191EA9C600678F35 /* DefaultUser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultUser@2x.png"; sourceTree = "<group>"; };
-		05C24E8E191EE28F00678F35 /* SBAIEasyPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAIEasyPlayer.h; path = PlayersController/AI/SBAIEasyPlayer.h; sourceTree = "<group>"; };
-		05C24E8F191EE28F00678F35 /* SBAIEasyPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAIEasyPlayer.m; path = PlayersController/AI/SBAIEasyPlayer.m; sourceTree = "<group>"; };
-		05C24E91191EEC4000678F35 /* SBAIHardPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAIHardPlayer.h; path = PlayersController/AI/SBAIHardPlayer.h; sourceTree = "<group>"; };
-		05C24E92191EEC4000678F35 /* SBAIHardPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAIHardPlayer.m; path = PlayersController/AI/SBAIHardPlayer.m; sourceTree = "<group>"; };
+		05C24E8E191EE28F00678F35 /* SBAIPlayerShotCellProviderEasy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAIPlayerShotCellProviderEasy.h; path = PlayersController/AI/SBAIPlayerShotCellProviderEasy.h; sourceTree = "<group>"; };
+		05C24E8F191EE28F00678F35 /* SBAIPlayerShotCellProviderEasy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAIPlayerShotCellProviderEasy.m; path = PlayersController/AI/SBAIPlayerShotCellProviderEasy.m; sourceTree = "<group>"; };
+		05C24E91191EEC4000678F35 /* SBAIPlayerShotCellProviderHard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBAIPlayerShotCellProviderHard.h; path = PlayersController/AI/SBAIPlayerShotCellProviderHard.h; sourceTree = "<group>"; };
+		05C24E92191EEC4000678F35 /* SBAIPlayerShotCellProviderHard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBAIPlayerShotCellProviderHard.m; path = PlayersController/AI/SBAIPlayerShotCellProviderHard.m; sourceTree = "<group>"; };
+		05DDD2461928E78E008D3B79 /* SBImageExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBImageExtensions.h; path = Extensions/SBImageExtensions.h; sourceTree = "<group>"; };
+		05DDD2471928E78F008D3B79 /* SBImageExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBImageExtensions.m; path = Extensions/SBImageExtensions.m; sourceTree = "<group>"; };
+		05DDD24A1928EA06008D3B79 /* missed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "missed@2x.png"; sourceTree = "<group>"; };
+		05DDD24B1928EA06008D3B79 /* ship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ship@2x.png"; sourceTree = "<group>"; };
+		05DDD24C1928EA06008D3B79 /* ship_defended@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ship_defended@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				054170C51928F47F00366B32 /* QuartzCore.framework in Frameworks */,
 				0553F882190900E8007C0DB7 /* CoreGraphics.framework in Frameworks */,
 				0553F884190900E8007C0DB7 /* UIKit.framework in Frameworks */,
 				0553F880190900E8007C0DB7 /* Foundation.framework in Frameworks */,
@@ -174,6 +196,7 @@
 		0553F87E190900E8007C0DB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				054170C41928F47F00366B32 /* QuartzCore.framework */,
 				0553F87F190900E8007C0DB7 /* Foundation.framework */,
 				0553F881190900E8007C0DB7 /* CoreGraphics.framework */,
 				0553F883190900E8007C0DB7 /* UIKit.framework */,
@@ -276,6 +299,7 @@
 		0553F8BA19090278007C0DB7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				05DDD2491928EA06008D3B79 /* Icons */,
 				05C24E8A191EA9C600678F35 /* DefaultUser.png */,
 				05C24E8B191EA9C600678F35 /* DefaultUser@2x.png */,
 				05C24E86191EA93400678F35 /* AIAvatar.png */,
@@ -306,6 +330,7 @@
 			children = (
 				0553F88B190900E8007C0DB7 /* main.m */,
 				0553F88D190900E8007C0DB7 /* Sea Battle-Prefix.pch */,
+				054170C619291B2700366B32 /* SBDefaults.h */,
 			);
 			path = Prefix;
 			sourceTree = "<group>";
@@ -336,12 +361,12 @@
 				05BE5D3B1918342E003B59E3 /* SBAIPlayer.m */,
 				05BE5D3D19183B62003B59E3 /* SBAIAutomaticShipLayouter.h */,
 				05BE5D3E19183B62003B59E3 /* SBAIAutomaticShipLayouter.m */,
-				05C24E8E191EE28F00678F35 /* SBAIEasyPlayer.h */,
-				05C24E8F191EE28F00678F35 /* SBAIEasyPlayer.m */,
-				05C24E83191EA74B00678F35 /* SBAINormalPlayer.h */,
-				05C24E84191EA74B00678F35 /* SBAINormalPlayer.m */,
-				05C24E91191EEC4000678F35 /* SBAIHardPlayer.h */,
-				05C24E92191EEC4000678F35 /* SBAIHardPlayer.m */,
+				05C24E8E191EE28F00678F35 /* SBAIPlayerShotCellProviderEasy.h */,
+				05C24E8F191EE28F00678F35 /* SBAIPlayerShotCellProviderEasy.m */,
+				05C24E83191EA74B00678F35 /* SBAIPlayerShotCellProviderNormal.h */,
+				05C24E84191EA74B00678F35 /* SBAIPlayerShotCellProviderNormal.m */,
+				05C24E91191EEC4000678F35 /* SBAIPlayerShotCellProviderHard.h */,
+				05C24E92191EEC4000678F35 /* SBAIPlayerShotCellProviderHard.m */,
 			);
 			name = AI;
 			sourceTree = "<group>";
@@ -388,10 +413,27 @@
 			children = (
 				057D93AE1912FE8B00E8ECC7 /* NSArrayExtensions.h */,
 				057D93AF1912FE8B00E8ECC7 /* NSArrayExtensions.m */,
-				05C24E7A191E80E000678F35 /* UIColorExtensions.h */,
-				05C24E7B191E80E000678F35 /* UIColorExtensions.m */,
+				05C24E7A191E80E000678F35 /* SBColorExtensions.h */,
+				05C24E7B191E80E000678F35 /* SBColorExtensions.m */,
+				05DDD2461928E78E008D3B79 /* SBImageExtensions.h */,
+				05DDD2471928E78F008D3B79 /* SBImageExtensions.m */,
+				054170C71929220500366B32 /* NSKeyedUnarchiverExtensions.h */,
+				054170C81929220600366B32 /* NSKeyedUnarchiverExtensions.m */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		05DDD2491928EA06008D3B79 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				054170BE1928EE9B00366B32 /* missed.png */,
+				054170BF1928EE9B00366B32 /* ship_defended.png */,
+				054170C01928EE9B00366B32 /* ship.png */,
+				05DDD24A1928EA06008D3B79 /* missed@2x.png */,
+				05DDD24B1928EA06008D3B79 /* ship@2x.png */,
+				05DDD24C1928EA06008D3B79 /* ship_defended@2x.png */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,13 +513,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				054170C11928EE9B00366B32 /* missed.png in Resources */,
 				05C24E89191EA93400678F35 /* AIAvatar@2x.png in Resources */,
+				054170C31928EE9B00366B32 /* ship.png in Resources */,
 				05C24E88191EA93400678F35 /* AIAvatar.png in Resources */,
 				0553F898190900E8007C0DB7 /* Images.xcassets in Resources */,
 				0553F8C2190904F3007C0DB7 /* InfoPlist.strings in Resources */,
 				05C24E8D191EA9C600678F35 /* DefaultUser@2x.png in Resources */,
+				05DDD24E1928EA06008D3B79 /* ship@2x.png in Resources */,
 				05C24E8C191EA9C600678F35 /* DefaultUser.png in Resources */,
 				0553F8BD19090306007C0DB7 /* Storyboard_iPhone.storyboard in Resources */,
+				05DDD24D1928EA06008D3B79 /* missed@2x.png in Resources */,
+				054170C21928EE9B00366B32 /* ship_defended.png in Resources */,
+				05DDD24F1928EA06008D3B79 /* ship_defended@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,14 +549,16 @@
 				05BE5D3C1918342E003B59E3 /* SBAIPlayer.m in Sources */,
 				051A4C6E190AC12A00826C4A /* SBChooseShipsView.m in Sources */,
 				057D93B01912FE8B00E8ECC7 /* NSArrayExtensions.m in Sources */,
-				05C24E93191EEC4000678F35 /* SBAIHardPlayer.m in Sources */,
-				05C24E90191EE28F00678F35 /* SBAIEasyPlayer.m in Sources */,
+				054170C91929220600366B32 /* NSKeyedUnarchiverExtensions.m in Sources */,
+				05C24E93191EEC4000678F35 /* SBAIPlayerShotCellProviderHard.m in Sources */,
+				05C24E90191EE28F00678F35 /* SBAIPlayerShotCellProviderEasy.m in Sources */,
 				051A4C74190AC5F800826C4A /* SBShipElementView.m in Sources */,
 				0553F896190900E8007C0DB7 /* SBGameViewController.m in Sources */,
 				051A4C78190AD02E00826C4A /* SBCellCoordinate.m in Sources */,
 				05BE5D3F19183B62003B59E3 /* SBAIAutomaticShipLayouter.m in Sources */,
-				05C24E85191EA74B00678F35 /* SBAINormalPlayer.m in Sources */,
+				05C24E85191EA74B00678F35 /* SBAIPlayerShotCellProviderNormal.m in Sources */,
 				05C24E7F191E91D200678F35 /* SBGameEnviroment.m in Sources */,
+				05DDD2481928E78F008D3B79 /* SBImageExtensions.m in Sources */,
 				0591FDC6190F75500039DE5E /* SBGameController.m in Sources */,
 				05C24E82191EA3AC00678F35 /* SBPlayerInfo.m in Sources */,
 				0553F8CE190908D8007C0DB7 /* SBGameFieldCell.m in Sources */,
@@ -516,7 +566,7 @@
 				051A4C71190AC19C00826C4A /* SBShipElement.m in Sources */,
 				0553F890190900E8007C0DB7 /* SBAppDelegate.m in Sources */,
 				0591FDC3190E6B2F0039DE5E /* SBShipPositionController.m in Sources */,
-				05C24E7C191E80E000678F35 /* UIColorExtensions.m in Sources */,
+				05C24E7C191E80E000678F35 /* SBColorExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

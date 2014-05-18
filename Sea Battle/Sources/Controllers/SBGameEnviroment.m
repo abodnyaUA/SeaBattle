@@ -7,6 +7,8 @@
 //
 
 #import "SBGameEnviroment.h"
+#import "SBColorExtensions.h"
+#import "NSKeyedUnarchiverExtensions.h"
 
 static SBGameEnviroment *_sharedInstance = nil;
 
@@ -33,11 +35,30 @@ static SBGameEnviroment *_sharedInstance = nil;
     if (nil != self)
     {
         self.playerInfo = [SBPlayerInfo new];
-        // TODO: Use real data!
-        self.playerInfo.name = @"Aleksey Bodnya";
-        self.playerInfo.avatar = [UIImage imageNamed:@"DefaultUser.png"];
+        
+        [self.playerInfo addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+        [self.playerInfo addObserver:self forKeyPath:@"color" options:NSKeyValueObservingOptionNew context:nil];
+        [self.playerInfo addObserver:self forKeyPath:@"avatar" options:NSKeyValueObservingOptionNew context:nil];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        self.playerInfo.name = [NSKeyedUnarchiver safeUnarchived:[defaults objectForKey:@"SBUserPlayer_name"]] ?: @"Al11eksey Bodnya";
+        self.playerInfo.avatar = [NSKeyedUnarchiver safeUnarchived:[defaults objectForKey:@"SBUserPlayer_avatar"]] ?: [SBImage imageNamed:@"DefaultUser.png"];
+        self.playerInfo.color = [NSKeyedUnarchiver safeUnarchived:[defaults objectForKey:@"SBUserPlayer_color"]] ?: [SBColor niceBlue];
     }
     return self;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(NSObject *)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([object isEqual:self.playerInfo])
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSObject *property = [object valueForKeyPath:keyPath];
+        NSData *encoded = [NSKeyedArchiver archivedDataWithRootObject:property];
+
+        [defaults setObject:encoded forKey:[@"SBUserPlayer_" stringByAppendingString:keyPath]];
+        [defaults synchronize];
+    }
 }
 
 - (NSUInteger)maxCells

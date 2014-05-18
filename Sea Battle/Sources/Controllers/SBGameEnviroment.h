@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SBPlayerInfo.h"
+#import "SBDefaults.h"
 
 @interface SBGameEnviroment : NSObject
 

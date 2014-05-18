@@ -10,7 +10,9 @@
 
 #import "SBGameFieldCellView.h"
 #import "SBGameFieldCell.h"
-#import "UIColorExtensions.h"
+#import "SBColorExtensions.h"
+#import "SBImageExtensions.h"
+#import "SBGameEnviroment.h"
 
 @interface SBShipElementView ()
 
@@ -102,7 +104,7 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    for (NSUInteger i=0; i<self.ship.length; i++)
+    for (NSUInteger i = 0; i < self.ship.length; i++)
     {
         CGRect cellRect;
         if (self.ship.orientation == SBShipOrientationHorizontal)
@@ -114,8 +116,14 @@
             cellRect = CGRectMake(self.cellSize/12, self.cellSize * i + self.cellSize/12, self.cellSize - self.cellSize/6, self.cellSize - self.cellSize/6);
         }
         
-        CGContextSetFillColorWithColor(context, [UIColor colorForCellState:SBGameFieldCellStateWithShip].CGColor);
+        CGContextSetFillColorWithColor(context, [SBColor colorForCellState:SBGameFieldCellStateWithShip].CGColor);
         CGContextFillRect(context, cellRect);
+        
+        UIImage *cellIcon = [UIImage iconForCellState:SBGameFieldCellStateWithShip];
+        if (nil != cellIcon)
+        {
+            [cellIcon drawInRect:cellRect];
+        }
     }
 }
 

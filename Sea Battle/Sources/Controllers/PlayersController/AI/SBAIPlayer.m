@@ -10,32 +10,38 @@
 
 #import "SBAIAutomaticShipLayouter.h"
 #import "NSArrayExtensions.h"
+#import "SBColorExtensions.h"
 #import "SBGameFieldCell.h"
 #import "SBGameController.h"
 #import "SBGameEnviroment.h"
 
+#import "SBAIPlayerShotCellProviderEasy.h"
+#import "SBAIPlayerShotCellProviderNormal.h"
+#import "SBAIPlayerShotCellProviderHard.h"
+
 @interface SBAIPlayer ()
 
 @property (nonatomic, strong) SBAIAutomaticShipLayouter *shipLayouter;
+@property (nonatomic, strong) id<SBAIPlayerShotCellProvider> shotPorvider;
 @property (nonatomic, strong) NSArray *userCells;
-
-- (SBCellCoordinate)coordinateForShotWithAttackedCells:(NSArray *)underAtack;
-- (SBCellCoordinate)coordinateForFreeCell;
 
 @end
 
 @implementation SBAIPlayer
 
-- (instancetype)init
+- (instancetype)initWithDifficult:(SBAIPlayerDifficult)difficult
 {
     self = [super init];
     if (nil != self)
     {
         self.shipLayouter = [SBAIAutomaticShipLayouter new];
         self.info = [SBPlayerInfo new];
-        self.info.name = @"AI Player";
-        self.info.avatar = [UIImage imageNamed:@"AIAvatar.png"];
+        self.info.name = [self nameForDifficult:difficult];
+        self.info.avatar = [SBImage imageNamed:@"AIAvatar.png"];
+        self.info.color = [SBColor niceGreen];
+        
         self.userCells = [NSArray emptyCells];
+        self.shotPorvider = [self shotPorviderForDifficult:difficult];
         [self startSetup];
     }
     return self;
@@ -44,6 +50,48 @@
 - (void)dealloc
 {
     [NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
+- (NSString *)nameForDifficult:(SBAIPlayerDifficult)difficult
+{
+    NSString *name = @"";
+    switch (difficult)
+    {
+        case SBAIPlayerDifficultEasy:
+            name = @"Easy AI";
+            break;
+        case SBAIPlayerDifficultNormal:
+            name = @"Normal AI";
+            break;
+        case SBAIPlayerDifficultHard:
+            name = @"Hard AI";
+            break;
+            
+        default:break;
+    }
+    return name;
+}
+
+- (id<SBAIPlayerShotCellProvider>)shotPorviderForDifficult:(SBAIPlayerDifficult)difficult
+{
+    id<SBAIPlayerShotCellProvider> shotProvider = nil;
+    switch (difficult)
+    {
+        case SBAIPlayerDifficultEasy:
+            shotProvider = [SBAIPlayerShotCellProviderEasy new];
+            break;
+        case SBAIPlayerDifficultNormal:
+            shotProvider = [SBAIPlayerShotCellProviderNormal new];
+            break;
+        case SBAIPlayerDifficultHard:
+            shotProvider = [SBAIPlayerShotCellProviderHard new];
+            break;
+            
+        default:
+            break;
+    }
+    shotProvider.player = self;
+    return shotProvider;
 }
 
 - (void)startSetup
@@ -68,11 +116,11 @@
     SBGameFieldCell *cell = [self.shipLayouter.cells cellWithPosition:position];
     [self.shipLayouter.cells shotToCellWithPosition:position];
     block(cell.state);
-    [self.shipLayouter.cells printShips];
-    //TODO: Remove this shit
     if (cell.state != SBGameFieldCellStateDefended && cell.state != SBGameFieldCellStateUnderAtack)
     {
-        [self shotUser];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self shotUser];
+        });
     }
 }
 
@@ -84,25 +132,13 @@
     NSArray *underAtack = [self.userCells allCellsWithMask:SBGameFieldCellStateUnderAtack];
     if (underAtack.count > 0)
     {
-        resultCoordinate = [self coordinateForShotWithAttackedCells:underAtack];
+        resultCoordinate = [self.shotPorvider coordinateForShotWithAttackedCells:underAtack];
     }
     else
     {
-        resultCoordinate = [self coordinateForFreeCell];
+        resultCoordinate = [self.shotPorvider coordinateForFreeCell];
     }
     return resultCoordinate;
-}
-
-- (SBCellCoordinate)coordinateForFreeCell
-{
-    [NSException raise:@"Method Is Not Implemented" format:@"Please use Easy, Normal or Hard subclasses!"];
-    return SBCellCoordinateZero;
-}
-
-- (SBCellCoordinate)coordinateForShotWithAttackedCells:(NSArray *)underAtack
-{
-    [NSException raise:@"Method Is Not Implemented" format:@"Please use Easy, Normal or Hard subclasses!"];
-    return SBCellCoordinateZero;
 }
 
 - (void)shotUser

@@ -6,24 +6,14 @@
 //  Copyright (c) 2014 Alexey Bodnya. All rights reserved.
 //
 
-#import "SBAINormalPlayer.h"
+#import "SBAIPlayerShotCellProviderNormal.h"
 #import "NSArrayExtensions.h"
 
-@implementation SBAINormalPlayer
-
-- (instancetype)init
-{
-    self = [super init];
-    if (nil != self)
-    {
-        self.info.name = @"Normal AI";
-    }
-    return self;
-}
+@implementation SBAIPlayerShotCellProviderNormal
 
 - (SBCellCoordinate)coordinateForFreeCell
 {
-    NSArray *avaiableCells = [self.userCells allCellsWithMask:SBGameFieldCellStateFree];
+    NSArray *avaiableCells = [self.player.userCells allCellsWithMask:SBGameFieldCellStateFree];
     SBGameFieldCell *randomCell = [avaiableCells objectAtIndex:arc4random() % avaiableCells.count];
     return randomCell.coordinate;
 }
@@ -46,7 +36,7 @@
         {
             NSUInteger index = arc4random() % 4;
             resultCoordinate = SBCellCoordinateMake(underAttackCell.coordinate.x + offset[index].x, underAttackCell.coordinate.y + offset[index].y);
-            if (SBCellCoordinateIsValid(resultCoordinate) && [self.userCells cellWithPosition:resultCoordinate].state != SBGameFieldCellStateFree)
+            if (SBCellCoordinateIsValid(resultCoordinate) && [self.player.userCells cellWithPosition:resultCoordinate].state != SBGameFieldCellStateFree)
             {
                 resultCoordinate = SBCellCoordinateZero;
             }
@@ -67,7 +57,7 @@
             // Try left coordinate
             SBGameFieldCell *underAttackCell = [underAtack objectAtIndex:0];
             resultCoordinate = SBCellCoordinateMake(underAttackCell.coordinate.x - 1, underAttackCell.coordinate.y);
-            if (!SBCellCoordinateIsValid(resultCoordinate) || [self.userCells cellWithPosition:resultCoordinate].state != SBGameFieldCellStateFree)
+            if (!SBCellCoordinateIsValid(resultCoordinate) || [self.player.userCells cellWithPosition:resultCoordinate].state != SBGameFieldCellStateFree)
             {
                 // Try right coordinate
                 SBGameFieldCell *underAttackCell = [underAtack objectAtIndex:(underAtack.count - 1)];
@@ -84,7 +74,7 @@
             // Try top coordinate
             SBGameFieldCell *underAttackCell = [underAtack objectAtIndex:0];
             resultCoordinate = SBCellCoordinateMake(underAttackCell.coordinate.x, underAttackCell.coordinate.y - 1);
-            if (!SBCellCoordinateIsValid(resultCoordinate) || [self.userCells cellWithPosition:resultCoordinate].state != SBGameFieldCellStateFree)
+            if (!SBCellCoordinateIsValid(resultCoordinate) || [self.player.userCells cellWithPosition:resultCoordinate].state != SBGameFieldCellStateFree)
             {
                 // Try bootom coordinate
                 SBGameFieldCell *underAttackCell = [underAtack objectAtIndex:(underAtack.count - 1)];

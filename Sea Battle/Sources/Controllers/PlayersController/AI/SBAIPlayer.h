@@ -10,6 +10,15 @@
 
 #import "SBPlayer.h"
 
+@protocol SBAIPlayerShotCellProvider;
+
+typedef NS_ENUM(NSUInteger, SBAIPlayerDifficult)
+{
+    SBAIPlayerDifficultEasy = 0,
+    SBAIPlayerDifficultNormal,
+    SBAIPlayerDifficultHard
+};
+
 @interface SBAIPlayer : NSObject <SBPlayer>
 
 @property (nonatomic, weak) id<SBPlayerDelegate> delegate;
@@ -17,5 +26,18 @@
 
 // Private
 @property (nonatomic, strong, readonly) NSArray *userCells;
+
+- (instancetype)initWithDifficult:(SBAIPlayerDifficult)difficult;
+
+@end
+
+@protocol SBAIPlayerShotCellProvider <NSObject>
+
+@required
+
+@property (nonatomic, weak) SBAIPlayer *player;
+
+- (SBCellCoordinate)coordinateForShotWithAttackedCells:(NSArray *)underAtack;
+- (SBCellCoordinate)coordinateForFreeCell;
 
 @end

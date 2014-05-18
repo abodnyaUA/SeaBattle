@@ -8,6 +8,8 @@
 
 #import "SBAIPlayer.h"
 
-@interface SBAINormalPlayer : SBAIPlayer
+@interface SBAIPlayerShotCellProviderNormal : NSObject <SBAIPlayerShotCellProvider>
+
+@property (nonatomic, weak) SBAIPlayer *player;
 
 @end

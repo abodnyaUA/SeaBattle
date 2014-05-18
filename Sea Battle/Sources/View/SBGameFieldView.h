@@ -27,6 +27,7 @@
 @required
 
 - (SBGameFieldCell *)gameFieldView:(SBGameFieldView *)gameFieldView cellForPosition:(SBCellCoordinate)position;
+- (UIColor *)gameFieldViewBackgroundColor:(SBGameFieldView *)gameFieldView;
 
 @end
 

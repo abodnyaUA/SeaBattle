@@ -11,7 +11,8 @@
 #import "SBGameFieldCell.h"
 #import "SBGameController.h"
 #import "SBGameFieldCellView.h"
-#import "UIColorExtensions.h"
+#import "SBImageExtensions.h"
+#import "SBColorExtensions.h"
 
 @interface SBGameFieldView ()
 
@@ -61,18 +62,25 @@
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    for (NSUInteger i=0; i<10; i++)
+    for (NSUInteger y = 0; y < 10; y++)
     {
-        for (NSUInteger j=0; j<10; j++)
+        for (NSUInteger x = 0; x < 10; x++)
         {
-            SBCellCoordinate coordinate = SBCellCoordinateMake(j,i);
+            SBCellCoordinate coordinate = SBCellCoordinateMake(x, y);
             SBGameFieldCell *cell = [self.dataSource gameFieldView:self cellForPosition:coordinate];
             
             CGFloat cellSize = [self cellSize];
-            CGRect cellRect = CGRectMake(cellSize * j + cellSize/12, cellSize * i + cellSize/12, cellSize - cellSize/6, cellSize - cellSize/6);
+            CGRect cellRect = CGRectMake(cellSize * x + cellSize/12, cellSize * y + cellSize/12, cellSize - cellSize/6, cellSize - cellSize/6);
             
-            CGContextSetFillColorWithColor(context, [UIColor colorForCellState:cell.state].CGColor);
+            UIColor *backgroundColor = cell.state == SBGameFieldCellStateFree ? [self.dataSource gameFieldViewBackgroundColor:self] : [UIColor colorForCellState:cell.state];
+            CGContextSetFillColorWithColor(context, backgroundColor.CGColor);
             CGContextFillRect(context, cellRect);
+            
+            UIImage *cellIcon = [UIImage iconForCellState:cell.state];
+            if (nil != cellIcon)
+            {
+                [cellIcon drawInRect:cellRect];
+            }
         }
     }
 }

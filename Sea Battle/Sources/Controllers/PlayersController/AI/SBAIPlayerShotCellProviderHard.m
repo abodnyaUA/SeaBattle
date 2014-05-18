@@ -6,33 +6,23 @@
 //  Copyright (c) 2014 Alexey Bodnya. All rights reserved.
 //
 
-#import "SBAIHardPlayer.h"
+#import "SBAIPlayerShotCellProviderHard.h"
 #import "NSArrayExtensions.h"
 
-@implementation SBAIHardPlayer
-
-- (instancetype)init
-{
-    self = [super init];
-    if (nil != self)
-    {
-        self.info.name = @"Hard AI";
-    }
-    return self;
-}
+@implementation SBAIPlayerShotCellProviderHard
 
 - (SBCellCoordinate)coordinateForFreeCell
 {
-    NSArray *avaiableCells = [self.userCells allCellsWithMask:SBGameFieldCellStateFree];
+    NSArray *avaiableCells = [self.player.userCells allCellsWithMask:SBGameFieldCellStateFree];
     
     NSUInteger ship2cellDeadCount = 0;
     NSUInteger ship3cellDeadCount = 0;
     BOOL ship4cellIsDead = NO;
     
-    NSArray *defendedCells = [self.userCells allCellsWithMask:SBGameFieldCellStateDefended];
+    NSArray *defendedCells = [self.player.userCells allCellsWithMask:SBGameFieldCellStateDefended];
     for (SBGameFieldCell *cell in defendedCells)
     {
-        NSArray *shipCells = [self.userCells shipCellsAboveCellWithPosition:cell.coordinate includedStates:SBGameFieldCellStateDefended];
+        NSArray *shipCells = [self.player.userCells shipCellsAboveCellWithPosition:cell.coordinate includedStates:SBGameFieldCellStateDefended];
         switch (shipCells.count + 1)
         {
             case 2: ship2cellDeadCount++; break;

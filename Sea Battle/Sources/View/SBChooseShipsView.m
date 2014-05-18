@@ -33,17 +33,17 @@
         CGFloat labelWidth = 15;
         CGFloat labelOffset = 5;
         CGFloat labelX = firstColumn ? labelOffset : self.bounds.size.width - labelWidth;
-        CGFloat labelY = 5 + cellSize * (maxCount % 2);
+        CGFloat labelY = 5 + (cellSize + 10) * (maxCount % 2);
         
         UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelX, labelY, labelWidth, cellSize)];
-        countLabel.text = [NSString stringWithFormat:@"%ld",(long)maxCount+1];
+        countLabel.text = [NSString stringWithFormat:@"%ld",(long)maxCount + 1];
         [labels addObject:countLabel];
         [self addSubview:countLabel];
         
         for (NSUInteger shipCount = 0; shipCount <= maxCount; shipCount++)
         {
             CGFloat shipX = firstColumn ? labelOffset + labelWidth : self.bounds.size.width - (labelWidth + labelOffset + shipLength * cellSize);
-            CGFloat shipY = 5 + cellSize * (maxCount % 2) + self.frame.origin.y;
+            CGFloat shipY = 5 + (cellSize + 10) * (maxCount % 2) + self.frame.origin.y;
             SBShipElementView *shipView = [[SBShipElementView alloc] initWithShipLength:shipLength withCellSize:cellSize inPoint:CGPointMake(shipX, shipY)];
             [self.superview addSubview:shipView];
             shipView.delegate = self;

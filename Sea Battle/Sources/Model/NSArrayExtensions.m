@@ -1,5 +1,5 @@
 //
-//  NSArray+SBGameFieldCell.m
+//  NSArrayExtensions.m
 //  Sea Battle
 //
 //  Created by Aleksey Bodnya on 5/2/14.

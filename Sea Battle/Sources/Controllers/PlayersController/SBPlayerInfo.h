@@ -8,16 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SBDefaults.h"
+
 @interface SBPlayerInfo : NSObject
 
 @property (nonatomic, strong) NSString *name;
-
-#if TARGET_OS_IPHONE
-@property (nonatomic, strong) UIImage *avatar;
-#elif TARGET_IPHONE_SIMULATOR
-@property (nonatomic, strong) UIImage *avatar;
-#elif TARGET_OS_MAC
-@property (nonatomic, strong) NSImage *avatar;
-#endif
-
+@property (nonatomic, strong) SBImage *avatar;
+@property (nonatomic, strong) SBColor *color;
 @end

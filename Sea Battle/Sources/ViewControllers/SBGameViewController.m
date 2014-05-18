@@ -8,14 +8,17 @@
 
 #import "SBGameViewController.h"
 
+#import <QuartzCore/QuartzCore.h>
 #import "SBGameFieldCell.h"
 #import "SBShipPositionController.h"
 #import "SBGameController.h"
-#import "SBAIHardPlayer.h"
+#import "SBAIPlayer.h"
 #import "NSArrayExtensions.h"
 #import "SBShipLayouter.h"
 #import "SBGameEnviroment.h"
+#import "SBColorExtensions.h"
 
+static const NSTimeInterval kGameFieldViewFlipAnimationDuration = 0.5;
 
 @interface SBGameViewController ()
 
@@ -31,7 +34,7 @@
 @property (nonatomic, weak  ) IBOutlet UIProgressView *userProgressView;
 @property (nonatomic, weak  ) IBOutlet UIProgressView *oponentProgressView;
 
-@property (nonatomic, assign) BOOL isPreviewActive;
+@property (nonatomic, assign) SBActivePlayer visiblePlayer;
 
 @end
 
@@ -51,12 +54,15 @@
 
 - (void)initialize
 {
-    [[SBGameController sharedController] setGameFieldView:self.currentFieldView];
+    SBGameController *gameController = [SBGameController sharedController];
+    SBGameEnviroment *gameEnviroment = [SBGameEnviroment sharedEnviroment];
+    
+    [gameController setGameFieldView:self.currentFieldView];
     //TODO: use abstracts
-    id<SBPlayer> player = [SBAIHardPlayer new];
+    id<SBPlayer> player = [[SBAIPlayer alloc] initWithDifficult:SBAIPlayerDifficultHard];
     player.delegate = self;
-    [SBGameController.sharedController initializeGameWithPlayer:player];
-    [SBGameController.sharedController addObserver:self forKeyPath:@"gameState" options:NSKeyValueObservingOptionNew context:nil];
+    [gameController initializeGameWithPlayer:player];
+    [gameController addObserver:self forKeyPath:@"gameState" options:NSKeyValueObservingOptionNew context:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(gameDidFinished:) name:kSBGameDidFinishedNotification object:nil];
     self.navigationItem.title = [NSString stringWithFormat:@"Game with %@",SBGameController.sharedController.enemyPlayer.info.name];
     
@@ -67,16 +73,15 @@
     self.positionController.ships = [self.chooseShipsView.ships valueForKey:@"ship"];
     self.readyButton.enabled = NO;
     
-    self.userImageView.image = SBGameEnviroment.sharedEnviroment.playerInfo.avatar;
+    self.userImageView.image = gameEnviroment.playerInfo.avatar;
     self.oponentImageView.image = player.info.avatar;
-    self.isPreviewActive = NO;
+    self.visiblePlayer = SBActivePlayerUser;
 }
 
 - (SBGameFieldCell *)gameFieldView:(SBGameFieldView *)gameFieldView cellForPosition:(SBCellCoordinate)position
 {
     SBGameFieldCell *cell = nil;
-    SBGameController *gameController = SBGameController.sharedController;
-    if ((gameController.gameStarted || gameController.gameEnded) && !self.isPreviewActive)
+    if (self.visiblePlayer == SBActivePlayerOpponent)
     {
         cell = [SBGameController.sharedController.enemyCells cellWithPosition:position];
     }
@@ -87,10 +92,16 @@
     return cell;
 }
 
+- (UIColor *)gameFieldViewBackgroundColor:(SBGameFieldView *)gameFieldView
+{
+    //TODO customize color
+    return self.visiblePlayer == SBActivePlayerUser ? SBGameEnviroment.sharedEnviroment.playerInfo.color : SBGameController.sharedController.enemyPlayer.info.color;
+}
+
 - (void)gameFieldView:(SBGameFieldView *)gameFieldView didTapOnCellWithPosition:(SBCellCoordinate)position
 {
     SBGameController *gameController = SBGameController.sharedController;
-    if (gameController.activePlayer == SBActivePlayerUser && gameController.gameStarted && [gameController.enemyCells cellWithPosition:position].state == SBGameFieldCellStateFree && !self.isPreviewActive)
+    if (gameController.activePlayer == SBActivePlayerUser && gameController.gameStarted && [gameController.enemyCells cellWithPosition:position].state == SBGameFieldCellStateFree && self.visiblePlayer == SBActivePlayerOpponent)
     {
         [self shotEnemyPlayerInCellWithPosition:position];
     }
@@ -150,27 +161,34 @@
     
     NSLog(@"Enemy player did shot %@", cell.state == SBGameFieldCellStateUnavailable ? @"failured" : @"success");
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.currentFieldView setNeedsDisplay];
-    });
-    
     block(cell.state);
     
     switch (cell.state)
     {
         case SBGameFieldCellStateUnavailable:
+        {
+            self.gameStatusView.textColor = [UIColor blueColor];
             self.gameStatusView.text = [NSString stringWithFormat:@"%@, it's your time",SBGameEnviroment.sharedEnviroment.playerInfo.name];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self switchFieldViews];
+            });
             break;
+        }
         case SBGameFieldCellStateUnderAtack:
+            self.gameStatusView.textColor = [UIColor orangeColor];
             self.gameStatusView.text = @"Your ships are under attack!";
             break;
         case SBGameFieldCellStateDefended:
+            self.gameStatusView.textColor = [UIColor redColor];
             self.gameStatusView.text = [NSString stringWithFormat:@"%@ killed your ship :(",enemyPlayerName];
             break;
             
         default: break;
     }
-    [self recalcProgressView:self.userProgressView withCells:gameController.userCells];
+    // Proregress View
+    NSUInteger maxCells = [[SBGameEnviroment sharedEnviroment] maxCells];
+    NSUInteger defended = [gameController.userCells allCellsWithMask:SBGameFieldCellStateDefended | SBGameFieldCellStateUnderAtack].count;
+    self.userProgressView.progress = (float)(maxCells - defended) / (float)maxCells;
     
     [gameController.userCells printShips];
     [[SBGameController sharedController] checkGameEnd];
@@ -180,6 +198,50 @@
 {
     [SBGameController.sharedController.enemyCells cellWithPosition:position].state = SBGameFieldCellStateWithShip;
     [self.currentFieldView setNeedsDisplay];
+}
+
+- (void)switchFieldViews
+{
+    self.previewButton.enabled = NO;
+    
+    NSInteger direction = self.visiblePlayer == SBActivePlayerUser ? -1 : 1;
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = direction * 0.0015;
+    self.currentFieldView.layer.transform = transform;
+    
+    [self rotateFieldFromDegree:0 toDegree: direction * M_PI_2 withComplitionBlock:^{
+        self.currentFieldView.layer.transform = CATransform3DRotate(transform, direction * M_PI_2, 0, direction, 0);
+        self.visiblePlayer = 1 - self.visiblePlayer;
+        self.navigationItem.title = self.visiblePlayer == SBActivePlayerUser ?
+            [NSString stringWithFormat:@"%@'s field",SBGameEnviroment.sharedEnviroment.playerInfo.name] :
+            [NSString stringWithFormat:@"Game with %@",SBGameController.sharedController.enemyPlayer.info.name];
+        self.previewButton.enabled = YES;
+        [self.currentFieldView setNeedsDisplay];
+        [self rotateFieldFromDegree:direction * M_PI_2 toDegree:direction * M_PI withComplitionBlock:^{
+            self.currentFieldView.layer.transform = CATransform3DRotate(transform, direction * M_PI, 0, direction, 0);
+        }];
+    }];
+    
+}
+
+- (void)rotateFieldFromDegree:(CGFloat)degreeStart toDegree:(CGFloat)degreeEnd withComplitionBlock:(dispatch_block_t)block
+{
+    [CATransaction begin];
+    {
+        [CATransaction setCompletionBlock:^{
+            if (nil != block)
+            {
+                block();
+            }
+        }];
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
+        animation.fromValue = @(degreeStart);
+        animation.toValue = @(degreeEnd);
+        animation.duration = kGameFieldViewFlipAnimationDuration / 2.0;
+        [self.currentFieldView.layer addAnimation:animation forKey:animation.keyPath];
+    }
+    [CATransaction commit];
 }
 
 - (void)shotEnemyPlayerInCellWithPosition:(SBCellCoordinate)position
@@ -197,42 +259,35 @@
          
          if (state == SBGameFieldCellStateUnavailable)
          {
+             self.gameStatusView.textColor = [UIColor blackColor];
              self.gameStatusView.text = [NSString stringWithFormat:@"%@ is thinking",enemyPlayerName];
              self.currentPlayer = SBActivePlayerOpponent;
+             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                 [self switchFieldViews];
+             });
          }
          else
          {
+             self.gameStatusView.textColor = [UIColor blueColor];
              self.gameStatusView.text = @"Nice job!";
              self.currentPlayer = SBActivePlayerUser;
          }
          
          [self.currentFieldView setNeedsDisplay];
          
-         [self recalcProgressView:self.oponentProgressView withCells:gameController.enemyCells];
+         // Proregress View
+         NSUInteger maxCells = [[SBGameEnviroment sharedEnviroment] maxCells];
+         NSUInteger defended = [gameController.enemyCells allCellsWithMask:SBGameFieldCellStateDefended | SBGameFieldCellStateUnderAtack | SBGameFieldCellStateWithShip].count;
+         self.oponentProgressView .progress = (float)(maxCells - defended) / (float)maxCells;
          
          NSLog(@"User did shot %@", state == SBGameFieldCellStateUnavailable ? @"failured" : @"success");
          [[SBGameController sharedController] checkGameEnd];
      }];
 }
 
-- (void)recalcProgressView:(UIProgressView *)progressView withCells:(NSArray *)cells
-{
-    NSUInteger maxCells = [[SBGameEnviroment sharedEnviroment] maxCells];
-    NSUInteger defended = [cells allCellsWithMask:SBGameFieldCellStateDefended | SBGameFieldCellStateUnderAtack].count;
-    progressView.progress = (float)(maxCells - defended) / (float)maxCells;
-}
 - (IBAction)didTapOnPreviewButton:(id)sender
 {
-    self.isPreviewActive = !self.isPreviewActive;
-    if (self.isPreviewActive)
-    {
-        self.navigationItem.title = [NSString stringWithFormat:@"%@'s field",SBGameEnviroment.sharedEnviroment.playerInfo.name];
-    }
-    else
-    {
-        self.navigationItem.title = [NSString stringWithFormat:@"Game with %@",SBGameController.sharedController.enemyPlayer.info.name];
-    }
-    [self.currentFieldView setNeedsDisplay];
+    [self switchFieldViews];
 }
 
 - (IBAction)didTapOnReadyButton:(id)sender
@@ -264,6 +319,7 @@
             self.currentPlayer = SBActivePlayerUser;
             self.gameStatusView.text = @"Start destroying!";
             [self.currentFieldView setNeedsDisplay];
+            self.visiblePlayer = SBActivePlayerOpponent;
         }
     }
 }
@@ -271,6 +327,11 @@
 - (void)setCurrentPlayer:(SBActivePlayer)activePlayer
 {
     [SBGameController.sharedController setActivePlayer:activePlayer];
+}
+
+- (SBActivePlayer)currentPlayer
+{
+    return SBGameController.sharedController.activePlayer;
 }
 
 - (void)gameDidFinished:(NSNotification *)notification
